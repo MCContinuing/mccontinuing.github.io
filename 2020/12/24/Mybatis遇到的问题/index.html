@@ -24,20 +24,29 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="文章访问需要密码">
+  <meta name="description" content="[toc] 【idea问题-依赖包自动下载】在导入依赖时系统不会自动下载依赖包，需要更改设置勾选下面选项  【idea问题-数据库连接失败】在Intellij IDEA中通过Database连接Mysql报错：Server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimezone’ property manuall">
 <meta property="og:type" content="article">
-<meta property="og:title" content="To：蛐蛐">
-<meta property="og:url" content="http://example.com/2020/10/24/first/index.html">
+<meta property="og:title" content="Mybatis遇到的问题">
+<meta property="og:url" content="http://example.com/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="文章访问需要密码">
+<meta property="og:description" content="[toc] 【idea问题-依赖包自动下载】在导入依赖时系统不会自动下载依赖包，需要更改设置勾选下面选项  【idea问题-数据库连接失败】在Intellij IDEA中通过Database连接Mysql报错：Server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimezone’ property manuall">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-24T03:35:04.000Z">
-<meta property="article:modified_time" content="2020-10-25T04:19:16.485Z">
+<meta property="og:image" content="http://example.com/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201216225711521.png">
+<meta property="og:image" content="http://example.com/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201217110030848.png">
+<meta property="og:image" content="http://example.com/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201224161411671.png">
+<meta property="og:image" content="http://example.com/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201224161512007.png">
+<meta property="og:image" content="http://example.com/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201224161706825.png">
+<meta property="article:published_time" content="2020-12-24T08:05:51.000Z">
+<meta property="article:modified_time" content="2020-12-24T08:19:32.605Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Mybatis">
+<meta property="article:tag" content="问题记录">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201216225711521.png">
 
 
-<link rel="canonical" href="http://example.com/2020/10/24/first/">
+<link rel="canonical" href="http://example.com/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
 
 
 <script class="page-configurations">
@@ -50,7 +59,7 @@
   };
 </script>
 
-  <title>To：蛐蛐 | Hexo</title>
+  <title>Mybatis遇到的问题 | Hexo</title>
   
 
 
@@ -138,7 +147,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -150,6 +159,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90idea%E9%97%AE%E9%A2%98-%E4%BE%9D%E8%B5%96%E5%8C%85%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E3%80%91"><span class="nav-number">1.</span> <span class="nav-text">【idea问题-依赖包自动下载】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90idea%E9%97%AE%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5%E3%80%91"><span class="nav-number">2.</span> <span class="nav-text">【idea问题-数据库连接失败】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98-%E7%B1%BB%E5%90%8D%E8%B7%AF%E5%BE%84%E4%B8%8D%E5%AE%8C%E6%95%B4%E3%80%91"><span class="nav-number">3.</span> <span class="nav-text">【代码配置问题-类名路径不完整】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98-mapper%E8%B5%84%E6%BA%90%E6%98%A0%E5%B0%84%E9%94%99%E8%AF%AF%E3%80%91"><span class="nav-number">4.</span> <span class="nav-text">【代码配置问题-mapper资源映射错误】</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -213,7 +223,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/24/first/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -226,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          To：蛐蛐
+          Mybatis遇到的问题
         </h1>
 
         <div class="post-meta-container">
@@ -236,30 +246,23 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2020-10-24 11:35:04" itemprop="dateCreated datePublished" datetime="2020-10-24T11:35:04+08:00">2020-10-24</time>
+      <time title="Created: 2020-12-24 16:05:51 / Modified: 16:19:32" itemprop="dateCreated datePublished" datetime="2020-12-24T16:05:51+08:00">2020-12-24</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-10-25 12:19:16" itemprop="dateModified" datetime="2020-10-25T12:19:16+08:00">2020-10-25</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/QuQ/" itemprop="url" rel="index"><span itemprop="name">QuQ</span></a>
+          <a href="/categories/Java%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">Java后端</span></a>
         </span>
     </span>
 
   
 </div>
 
-            <div class="post-description">文章访问需要密码</div>
         </div>
       </header>
 
@@ -267,15 +270,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <div id="hexo-blog-encrypt" data-wpm="错啦！再猜！！！" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <div class="hbe-input-container">
-  <input type="password" id="hbePass" placeholder="" />
-    <label for="hbePass">Hey, password is required here.</label>
-    <div class="bottom-line"></div>
-  </div>
-  <script id="hbeData" type="hbeData" data-hmacdigest="5b824e77bebb353e63b4b8d9072633e0122f7a2c1d45bd93b46f02c85a20894a">de435f4adca7b95dee962158abaa00c609c9229f108154a1eea90f13073acc08d48063bd86f8a0d8ff9a26bb9ab1136885b640c1b8e34af3cd9323d072142ae06db85e280bde536858e115db893c2ade3c85a1d07d42bb0f77fedb5661adf1254fd8cf604fb36c1a3e5b24c31296fa5e2eb13ab61792aa59be8d8c3e89cfbe37b37ce7fe4986b219d6789d3a314a04441c750eae22210ee97f1b4525014b5a93a462edf32b1333d8e11b5df1a26ba09528a0f6eea5fc7843767b3d3dd271f65550c3adeda957e34b64e3deeebd81c16fd61eed419967bf6228975dc700c6548fb4aa92414b16272b84403a7346459034282c636453f355a2de0347989bd5962faaf292a13e726764d30067479d579a9ad0b6ee8069c212c79667bce1938a31927513c34364a702493c2fffccb6685225eadebb8844f91c921518782f706df9088108b50db577e1759df4a659a8bd0e0c0ae3d1165bbd04986c42535412c6bf0039bb06eb97698f667710abe274a733d721561c86d3dc30c22acd9478d5784a5b0d0985685f8c43a29937315a2edebf1a9a3fba4ae558d3143fe10d101f34bcd84980fce48dc53276fdf9697b59702e9ba83b37b212fba1d376fe33643c5cb92956e73759041e5cc64ec47f3e7917749ac37b10fcaff1fad3be652cb2a8814b5fdeeb29bf54480c0260862f349cf941775bd2862cdbe6d64f6d24f77982b3e953fb95bb1d2a06dbecaa40c19d2741926e24a5777064f9ec41fec5d5f753b04fde3fddaf516d56fa5edb9270789616e03f5f0ba67df7a9b670ca80f8bce4d6443563200e8e815ea963533b12cdaa3fd698697e8f50edfb54527c0c7f5dc7124856b5c3c26e1992b7121a468837ceea6c6794ad59eafa4377ad559c4f3b3e0e0345852de68dd6404677485fc7a065ef0af62ecb90c6f713c310d88221415072b10fdbb031c91f061fdb0d4f089fc876b4386ee52de033894da698226fc45a533bf57472e259363599a3db03df234c85bd2689b31de0883b6b0e75808531b4aec4fea05aa784441d14a26feba128afd3f6876a79fed2ad54857045ceaeb53c74ecb3fa5f557dfaa76957deeb5993e8e7b7e206fc4e4592570fd21b0aeca53f6c495422986c201cd52ad6a70c4ae798fca69258848500d41fb6ca5608775b13587c16097fa3d09d908558432bff3c2e4600944f2acbedbce78a9f865caef25c7ac300feaa2135345366001134db227f3ec6d6b609c78af3a8345d798a9c7dc24c98d24bba86f1c7fae53c18173e1da88b532e5cd12f0ab444ba2ca1278b132ffb10cee3e7e15ebddd400fe5ae41be09a60f65b5ad1a393ad78c294559779b51b8d282bf74c9920fe9dd7a358e10c01397f170069a71deb6b6cd798db5e4ca60ae2f0a</script>
-</div>
-<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <p>[toc]</p>
+<h2 id="【idea问题-依赖包自动下载】"><a href="#【idea问题-依赖包自动下载】" class="headerlink" title="【idea问题-依赖包自动下载】"></a>【idea问题-依赖包自动下载】</h2><p>在导入依赖时系统不会自动下载依赖包，需要更改设置勾选下面选项</p>
+<p><img src="/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201216225711521.png" alt="image-20201216225711521"></p>
+<h2 id="【idea问题-数据库连接失败】"><a href="#【idea问题-数据库连接失败】" class="headerlink" title="【idea问题-数据库连接失败】"></a>【idea问题-数据库连接失败】</h2><p>在Intellij IDEA中通过Database连接Mysql报错：Server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimezone’ property manually.</p>
+<p>原因是MySQL驱动中默认时区是UTC，与本地时间（中国）相差八个小时，所以链接不上，</p>
+<p><img src="/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201217110030848.png" alt="image-20201217110030848"></p>
+<h2 id="【代码配置问题-类名路径不完整】"><a href="#【代码配置问题-类名路径不完整】" class="headerlink" title="【代码配置问题-类名路径不完整】"></a>【代码配置问题-类名路径不完整】</h2><p><img src="/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201224161411671.png" alt="image-20201224161411671"></p>
+<p>修改</p>
+<p><img src="/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201224161512007.png" alt="image-20201224161512007"></p>
+<h2 id="【代码配置问题-mapper资源映射错误】"><a href="#【代码配置问题-mapper资源映射错误】" class="headerlink" title="【代码配置问题-mapper资源映射错误】"></a>【代码配置问题-mapper资源映射错误】</h2><p>注意“/”与“.”的区别</p>
+<p>注意后缀名.xml</p>
+<p><img src="/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201224161706825.png" alt="image-20201224161706825"></p>
+
     </div>
 
     
@@ -283,16 +290,21 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Mybatis/" rel="tag"># Mybatis</a>
+              <a href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="tag"># 问题记录</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2020/12/23/Lombok/" rel="prev" title="Lombok注解插件">
+                  <i class="fa fa-chevron-left"></i> Lombok注解插件
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/25/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="SpringBoot学习笔记">
-                  SpringBoot学习笔记 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
