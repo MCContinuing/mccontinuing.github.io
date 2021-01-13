@@ -1,287 +1,233 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>HDFS文件系统 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-<link rel="stylesheet" href="/css/main.css">
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+<!-- 主题依赖的图标库，不要自行修改 -->
 
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
-
-  <meta name="description" content="一、HDFS概念1.1 概念HDFS，（Hadoop布式文件系统）它是一个文件系统，用于存储文件，通过目录树来定位文件；其次，它是分布式的，由很多服务器联合起来实现其功能，集群中的服务器有各自的角色。 HDFS的设计适合一次写入，多次读出的场景，且不支持文件的修改。适合用来做数据分析，并不适合用来做网盘应用。 1.2 组成1）HDFS集群包括，NameNode和DataNode以及Secondar">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HDFS文件系统">
-<meta property="og:url" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、HDFS概念1.1 概念HDFS，（Hadoop布式文件系统）它是一个文件系统，用于存储文件，通过目录树来定位文件；其次，它是分布式的，由很多服务器联合起来实现其功能，集群中的服务器有各自的角色。 HDFS的设计适合一次写入，多次读出的场景，且不支持文件的修改。适合用来做数据分析，并不适合用来做网盘应用。 1.2 组成1）HDFS集群包括，NameNode和DataNode以及Secondar">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image002.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image003.png">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image005.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image007.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image009.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image011.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image013.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image015.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image017.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image019.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image021.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image023.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image025.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image027.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image029.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image031.png">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image033.png">
-<meta property="og:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image035.png">
-<meta property="article:published_time" content="2021-01-13T11:37:31.000Z">
-<meta property="article:modified_time" content="2021-01-13T12:49:19.061Z">
-<meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Hadoop">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image002.jpg">
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
-<link rel="canonical" href="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
-
-  <title>HDFS文件系统 | Hexo</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-</div>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
       </ul>
-
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81HDFS%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">一、HDFS概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E7%BB%84%E6%88%90"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-HDFS-%E6%96%87%E4%BB%B6%E5%9D%97%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 HDFS 文件块大小</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81HDFS%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">二、HDFS操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%8F%82%E6%95%B0%E5%A4%A7%E5%85%A8"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 参数大全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%AE%9E%E6%93%8D"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 常用命令实操</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81HDFS%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">三、HDFS客户端操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-eclipse%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 eclipse准备环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%80%9A%E8%BF%87API%E6%93%8D%E4%BD%9CHDFS"><span class="nav-number">4.</span> <span class="nav-text">四、通过API操作HDFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E9%80%9A%E8%BF%87IO%E6%B5%81%E6%93%8D%E4%BD%9CHDFS"><span class="nav-number">5.</span> <span class="nav-text">五、通过IO流操作HDFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81HDFS%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">6.</span> <span class="nav-text">六、HDFS的数据流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E5%89%96%E6%9E%90%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 剖析文件写入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91-%E8%8A%82%E7%82%B9%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 网络拓扑-节点距离计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-HDFS%E8%AF%BB%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 HDFS读数据流程</span></a></li></ol></li></ol></div>
-      </section>
-      <!--/noindex-->
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">14</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </section>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
   </div>
+</nav>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="HDFS文件系统">
+              
+            </span>
 
-
-    <div class="main-inner post posts-expand">
-      
-
-      
-
+            
+              <div class="mt-3">
   
-
-
-<div class="post-block">
   
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-13 19:37" pubdate>
+        January 13, 2021 pm
+      </time>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          HDFS文件系统
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-01-13 19:37:31 / Modified: 20:49:19" itemprop="dateCreated datePublished" datetime="2021-01-13T19:37:31+08:00">2021-01-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-        </span>
-    </span>
-
   
 </div>
 
-        </div>
-      </header>
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
 
+  
     
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      22
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
     
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="一、HDFS概念"><a href="#一、HDFS概念" class="headerlink" title="一、HDFS概念"></a><strong>一、HDFS概念</strong></h1><h2 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a><strong>1.1</strong> <strong>概念</strong></h2><p>HDFS，（Hadoop布式文件系统）它是一个文件系统，用于存储文件，通过目录树来定位文件；其次，它是分布式的，由很多服务器联合起来实现其功能，集群中的服务器有各自的角色。</p>
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">HDFS文件系统</h1>
+            
+            <div class="markdown-body">
+              <h1 id="一、HDFS概念"><a href="#一、HDFS概念" class="headerlink" title="一、HDFS概念"></a><strong>一、HDFS概念</strong></h1><h2 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a><strong>1.1</strong> <strong>概念</strong></h2><p>HDFS，（Hadoop布式文件系统）它是一个文件系统，用于存储文件，通过目录树来定位文件；其次，它是分布式的，由很多服务器联合起来实现其功能，集群中的服务器有各自的角色。</p>
 <p>HDFS的设计适合一次写入，多次读出的场景，且不支持文件的修改。适合用来做数据分析，并不适合用来做网盘应用。</p>
 <h2 id="1-2-组成"><a href="#1-2-组成" class="headerlink" title="1.2 组成"></a><strong>1.2</strong> 组成</h2><p>1）HDFS集群包括，NameNode和DataNode以及Secondary Namenode。</p>
 <p>2）NameNode负责管理整个文件系统的元数据，以及每一个路径（文件）所对应的数据块信息。</p>
@@ -292,7 +238,7 @@
 <p>如果寻址时间约为10ms，而传输速率为100MB/s，为了使寻址时间仅占传输时间的1%，我们要将块大小设置约为100MB。默认的块大小实际为64MB，但是很多情况下HDFS使用128MB的块设置。</p>
 <h1 id="二、HDFS操作"><a href="#二、HDFS操作" class="headerlink" title="二、HDFS操作"></a>二、HDFS操作</h1><h2 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h2><p>hadoop fs 具体命令</p>
 <h2 id="2-2-参数大全"><a href="#2-2-参数大全" class="headerlink" title="2.2 参数大全"></a>2.2 参数大全</h2><p>bin/hadoop fs</p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image002.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image002.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h2 id="2-3-常用命令实操"><a href="#2-3-常用命令实操" class="headerlink" title="2.3 常用命令实操"></a>2.3 常用命令实操</h2><p>（1）-help：输出这个命令参数</p>
 <p>​       hdfs dfs -help rm</p>
 <p>（2）-ls: 显示目录信息</p>
@@ -347,38 +293,38 @@
 <p>（2）eclipse准备</p>
 <p>1）配置HADOOP_HOME环境变量</p>
 <p>2）创建第一个java工程</p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image003.png" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image003.png" srcset="/img/loading.gif" alt="img"></p>
 <p>然后把jar都拷贝到java工程中，然后进行Build Path</p>
 <p>​    3）创建java类</p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image005.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image005.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>​    4）执行程序</p>
 <p>客户端去操作hdfs时，是有一个用户身份的。默认情况下，hdfs客户端api会从jvm中获取一个参数来作为自己的用户身份：-DHADOOP_USER_NAME=atguigu，atguigu为用户名称。</p>
 <p>这是一种方式：</p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image007.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image007.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>另一种方式：</p>
 <p>FileSystem fs = FileSystem.<em>get</em>(<strong>new</strong> URI(“hdfs://192.168.181.128:9000”), conf, “root”);</p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image009.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image009.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h1 id="四、通过API操作HDFS"><a href="#四、通过API操作HDFS" class="headerlink" title="四、通过API操作HDFS"></a>四、通过API操作HDFS</h1><p><strong>4.1 HDFS获取文件系统</strong></p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image011.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image011.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4.2</strong> <strong>上传文件</strong></p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image013.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image013.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4.3</strong> <strong>下载文件</strong></p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image015.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image015.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4.4</strong> <strong>创建目录</strong></p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image017.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image017.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4.5</strong> <strong>删除文件夹</strong></p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image019.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image019.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4.6</strong> <strong>修改文件名</strong></p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image021.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image021.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4.7</strong> <strong>文件详细查看</strong></p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image023.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image023.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4.8</strong> <strong>文件夹查看</strong></p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image025.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image025.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h1 id="五、通过IO流操作HDFS"><a href="#五、通过IO流操作HDFS" class="headerlink" title="五、通过IO流操作HDFS"></a>五、通过IO流操作HDFS</h1><p><strong>5.1</strong> <strong>文件上传</strong></p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image027.jpg" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image027.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>5.2</strong> <strong>文件下载</strong></p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image029.jpg" alt="img"></p>
-<h1 id="六、HDFS的数据流"><a href="#六、HDFS的数据流" class="headerlink" title="六、HDFS的数据流"></a>六、HDFS的数据流</h1><h2 id="6-1-剖析文件写入"><a href="#6-1-剖析文件写入" class="headerlink" title="6.1 剖析文件写入"></a><strong>6.1</strong> <strong>剖析文件写入</strong></h2><p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image031.png" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image029.jpg" srcset="/img/loading.gif" alt="img"></p>
+<h1 id="六、HDFS的数据流"><a href="#六、HDFS的数据流" class="headerlink" title="六、HDFS的数据流"></a>六、HDFS的数据流</h1><h2 id="6-1-剖析文件写入"><a href="#6-1-剖析文件写入" class="headerlink" title="6.1 剖析文件写入"></a><strong>6.1</strong> <strong>剖析文件写入</strong></h2><p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image031.png" srcset="/img/loading.gif" alt="img"></p>
 <p>1）客户端通过Distributed FileSystem模块向NameNode请求上传文件，NameNode检查目标文件是否已存在，父目录是否存在。</p>
 <p>2）NameNode返回是否可以上传。（如果已经存在，会返回already exist）</p>
 <p>3）客户端请求第一个 Block上传到哪几个DataNode服务器上。</p>
@@ -389,132 +335,226 @@
 <p>8）当一个Block传输完成之后，客户端再次请求NameNode上传第二个Block的服务器。（重复执行3-7步）。</p>
 <h2 id="6-2-网络拓扑-节点距离计算"><a href="#6-2-网络拓扑-节点距离计算" class="headerlink" title="6.2 网络拓扑-节点距离计算"></a><strong>6.2</strong> 网络拓扑-节点距离计算</h2><p>在HDFS写数据的过程中，NameNode会选择距离待上传数据最近距离的DataNode接收数据。</p>
 <p>节点距离：两个节点到达最近的共同祖先的距离总和。</p>
-<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image033.png" alt="img"></p>
+<p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image033.png" srcset="/img/loading.gif" alt="img"></p>
 <p><a target="_blank" rel="noopener" href="http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Data_Replication">http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Data_Replication</a></p>
 <p>集群上默认的副本数是3，第一个和第二个，同一个机架，IO传输距离短，可以快速备份，考虑的是速度的问题；如果机架r1崩溃，所以必须在不同的机架上备份一个，考虑的是安全性的问题。</p>
-<h2 id="6-3-HDFS读数据流程"><a href="#6-3-HDFS读数据流程" class="headerlink" title="6.3 HDFS读数据流程"></a>6.3 HDFS读数据流程</h2><p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image035.png" alt="img"></p>
+<h2 id="6-3-HDFS读数据流程"><a href="#6-3-HDFS读数据流程" class="headerlink" title="6.3 HDFS读数据流程"></a>6.3 HDFS读数据流程</h2><p><img src="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/clip_image035.png" srcset="/img/loading.gif" alt="img"></p>
 <p>1）客户端通过Distributed FileSystem向NameNode请求下载文件，NameNode通过查询元数据，找到文件块所在的DataNode地址。</p>
 <p>2）挑选一台DataNode（就近原则，然后随机）服务器，请求读取数据。</p>
 <p>3）DataNode开始传输数据给客户端（从磁盘里面读取数据输入流，以Packet为单位来做校验）</p>
 <p>4）客户端以Packet为单位接收，先在本地缓存，然后写入目标文件。</p>
 
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Hadoop/">Hadoop</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/13/TempNoteBook/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TempNoteBook</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/">
+                        <span class="hidden-mobile">Hadoop入门</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
     </div>
-
     
-    
-    
-
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/" rel="prev" title="Hadoop入门">
-                  <i class="fa fa-chevron-left"></i> Hadoop入门
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2021/01/13/TempNoteBook/" rel="next" title="TempNoteBook">
-                  TempNoteBook <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
 
 
+    
 
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-
-      
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
+  </div>
+</div>
+    
+
+    
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      
-
-      
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
-
-    </div>
-  </footer>
-
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
 
   
 
   
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 
 </body>
 </html>

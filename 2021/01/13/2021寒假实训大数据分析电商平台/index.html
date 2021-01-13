@@ -1,358 +1,277 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>2021寒假实训大数据分析电商平台 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-<link rel="stylesheet" href="/css/main.css">
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+<!-- 主题依赖的图标库，不要自行修改 -->
 
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
-
-  <meta name="description" content="一、环境安装1.1 新建虚拟机实训的项目主要是进行大数据的实训，所以需要按照Linux，使用VMware Workstation作为虚拟机安装Linux系统，创建虚拟机，步骤如下：  下一步  下一步  下一步  下一步  下一步  下一步  下一步  下一步   下一步  下一步  接下来，点击编辑虚拟机，需要找到Linux的IOS文件   找到镜像文件之后，接下来就是安装Linux系统，选择开">
-<meta property="og:type" content="article">
-<meta property="og:title" content="2021寒假实训大数据分析电商平台">
-<meta property="og:url" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、环境安装1.1 新建虚拟机实训的项目主要是进行大数据的实训，所以需要按照Linux，使用VMware Workstation作为虚拟机安装Linux系统，创建虚拟机，步骤如下：  下一步  下一步  下一步  下一步  下一步  下一步  下一步  下一步   下一步  下一步  接下来，点击编辑虚拟机，需要找到Linux的IOS文件   找到镜像文件之后，接下来就是安装Linux系统，选择开">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image004.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image006.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image008.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image010.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image012.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image014.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image016.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image018.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image020.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image022.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image024.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image026.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image028.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image030.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image032.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image034.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image036.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image038.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image040.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image042.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image044.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image046.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113164121117.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002-1610527467248.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image003.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image001.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113165528735.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108124755794.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/202101081256598.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108154505792.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113165825139.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108165341283.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108173146898.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image001-1610529336150.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002-1610529336152.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image003-1610529336152.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113172925162.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image005.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image007.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image009.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image010.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image011.png">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image013.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image015.jpg">
-<meta property="article:published_time" content="2021-01-13T02:45:35.000Z">
-<meta property="article:modified_time" content="2021-01-13T12:39:06.496Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002.jpg">
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
-<link rel="canonical" href="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/">
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
-
-  <title>2021寒假实训大数据分析电商平台 | Hexo</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-</div>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
       </ul>
-
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">一、环境安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 新建虚拟机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%AE%89%E8%A3%85Linux%E7%9A%84%E9%95%9C%E5%83%8F"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 安装Linux的镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%B7%A5%E5%85%B7MobaXterm"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 远程登录工具MobaXterm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E5%AE%89%E8%A3%85JDK%E5%8F%8A%E7%9B%B8%E5%BA%94%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 安装JDK及相应准备工作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81CentOS7%E4%B8%8BMySQL-5-7%E4%BD%BF%E7%94%A8yum%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">二、CentOS7下MySQL-5.7使用yum方式安装：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81CentOS7%E4%B8%8BNginx%E7%9A%84%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">三、CentOS7下Nginx的安装：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%83%A8%E7%BD%B2%E5%89%8D%E7%AB%AF%E7%BD%91%E7%AB%99%E5%88%B0nginx%E4%B8%8B"><span class="nav-number">4.</span> <span class="nav-text">四、部署前端网站到nginx下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81Tomcat%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">5.</span> <span class="nav-text">五、Tomcat的安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E7%94%B5%E5%95%86%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2%E5%88%B0Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A"><span class="nav-number">6.</span> <span class="nav-text">六、电商后台系统部署到Linux服务器上</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81AB%E5%8E%8B%E6%B5%8B%EF%BC%88httpd%EF%BC%89%E5%AE%89%E8%A3%85"><span class="nav-number">7.</span> <span class="nav-text">七、AB压测（httpd）安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AB%E3%80%81Hadoop%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">8.</span> <span class="nav-text">八、Hadoop安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-%E5%AE%89%E8%A3%85Hadoop"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 安装Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-%E6%90%AD%E5%BB%BAHadoop%E4%BC%AA%E5%88%86%E5%B8%83%E7%8E%AF%E5%A2%83"><span class="nav-number">8.2.</span> <span class="nav-text">8.2  搭建Hadoop伪分布环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-%E8%AE%BE%E7%BD%AE%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95"><span class="nav-number">8.3.</span> <span class="nav-text">8.3 设置免密码登录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%9D%E3%80%81Flume%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">9.</span> <span class="nav-text">九、Flume的安装与配置</span></a></li></ol></div>
-      </section>
-      <!--/noindex-->
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">14</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </section>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
   </div>
+</nav>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="2021寒假实训大数据分析电商平台">
+              
+            </span>
 
-
-    <div class="main-inner post posts-expand">
-      
-
-      
-
+            
+              <div class="mt-3">
   
-
-
-<div class="post-block">
   
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-13 10:45" pubdate>
+        January 13, 2021 am
+      </time>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          2021寒假实训大数据分析电商平台
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-01-13 10:45:35 / Modified: 20:39:06" itemprop="dateCreated datePublished" datetime="2021-01-13T10:45:35+08:00">2021-01-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%9C%AA%E5%BD%92%E6%A1%A3/" itemprop="url" rel="index"><span itemprop="name">未归档</span></a>
-        </span>
-    </span>
-
   
 </div>
 
-        </div>
-      </header>
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.9k 字
+    </span>
+  
 
+  
     
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      56
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
     
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="一、环境安装"><a href="#一、环境安装" class="headerlink" title="一、环境安装"></a><strong>一、环境安装</strong></h1><h2 id="1-1-新建虚拟机"><a href="#1-1-新建虚拟机" class="headerlink" title="1.1 新建虚拟机"></a><strong>1.1</strong> <strong>新建虚拟机</strong></h2><p>实训的项目主要是进行大数据的实训，所以需要按照Linux，使用VMware Workstation作为虚拟机安装Linux系统，创建虚拟机，步骤如下：</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002.jpg" alt="img"></p>
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">2021寒假实训大数据分析电商平台</h1>
+            
+            <div class="markdown-body">
+              <h1 id="一、环境安装"><a href="#一、环境安装" class="headerlink" title="一、环境安装"></a><strong>一、环境安装</strong></h1><h2 id="1-1-新建虚拟机"><a href="#1-1-新建虚拟机" class="headerlink" title="1.1 新建虚拟机"></a><strong>1.1</strong> <strong>新建虚拟机</strong></h2><p>实训的项目主要是进行大数据的实训，所以需要按照Linux，使用VMware Workstation作为虚拟机安装Linux系统，创建虚拟机，步骤如下：</p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image004.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image004.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image006.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image006.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image008.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image008.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image010.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image010.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image012.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image012.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image014.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image014.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image016.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image016.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image018.jpg" alt="img"> <img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image020.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image018.jpg" srcset="/img/loading.gif" alt="img"> <img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image020.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image022.jpg" alt="img"><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image024.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image022.jpg" srcset="/img/loading.gif" alt="img"><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image024.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image026.jpg" alt="img"><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image028.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image026.jpg" srcset="/img/loading.gif" alt="img"><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image028.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>接下来，点击编辑虚拟机，需要找到Linux的IOS文件</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image030.jpg" alt="img"> <img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image032.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image030.jpg" srcset="/img/loading.gif" alt="img"> <img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image032.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>找到镜像文件之后，接下来就是安装Linux系统，选择开启虚拟机，虚拟机进行加载Linux进行安装。</p>
-<h2 id="1-2-安装Linux的镜像"><a href="#1-2-安装Linux的镜像" class="headerlink" title="1.2 安装Linux的镜像"></a><strong>1.2</strong> <strong>安装Linux的镜像</strong></h2><p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image034.jpg" alt="img"></p>
+<h2 id="1-2-安装Linux的镜像"><a href="#1-2-安装Linux的镜像" class="headerlink" title="1.2 安装Linux的镜像"></a><strong>1.2</strong> <strong>安装Linux的镜像</strong></h2><p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image034.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>选择语言</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image036.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image036.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>下一步</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image038.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image038.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>设置密码</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image040.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image040.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>安装好之后，进行重启</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image042.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image042.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>重启之后，进行登录，输入用户名和密码</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image044.jpg" alt="img"> <img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image046.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image044.jpg" srcset="/img/loading.gif" alt="img"> <img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image046.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h2 id="1-3-远程登录工具MobaXterm"><a href="#1-3-远程登录工具MobaXterm" class="headerlink" title="1.3 远程登录工具MobaXterm"></a><strong>1.3</strong> <strong>远程登录工具MobaXterm</strong></h2><p>MobaXterm_Portable_v20.3</p>
 <p>可连接虚拟机操作文件 编写命令</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113164121117.png" alt="image-20210113164121117"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113164121117.png" srcset="/img/loading.gif" alt="image-20210113164121117"></p>
 <p>连接虚拟机需要知道虚拟机ip地址</p>
 <p>在虚拟机中输入<code>ifconfig -a</code>命令进行查找</p>
 <p>找不到ifconfig命令，首先查找<code>yum search ifconfig</code></p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002-1610527467248.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002-1610527467248.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>之后就可以使用</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image003.png" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image003.png" srcset="/img/loading.gif" alt="img"></p>
 <p>要进行后面的操作，我们需要修改几个配置，关闭防火墙，并禁止开机启动。</p>
 <p>查看防火墙状态： <code>systemctl status firewalld</code></p>
 <p>执行关闭命令： <code>systemctl stop firewalld</code></p>
@@ -366,12 +285,12 @@
 <p>​    添加如下信息</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/training/jdk1.8.0_171</span><br><span class="line">export JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image001.png" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image001.png" srcset="/img/loading.gif" alt="img"></p>
 <p>让环境变量生效</p>
 <p><code>source ~/.bash_profile</code></p>
 <p>验证jdk是否安装成功</p>
 <p><code>java -version</code></p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002.png" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002.png" srcset="/img/loading.gif" alt="img"></p>
 <h1 id="二、CentOS7下MySQL-5-7使用yum方式安装："><a href="#二、CentOS7下MySQL-5-7使用yum方式安装：" class="headerlink" title="二、CentOS7下MySQL-5.7使用yum方式安装："></a>二、CentOS7下MySQL-5.7使用yum方式安装：</h1><hr>
 <p>1、安装MySQL YUM源到本地</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</span><br></pre></td></tr></table></figure>
@@ -455,7 +374,7 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 
 <h1 id="四、部署前端网站到nginx下"><a href="#四、部署前端网站到nginx下" class="headerlink" title="四、部署前端网站到nginx下"></a>四、部署前端网站到nginx下</h1><hr>
 <p>1、上传电商网站OnlineShop文件夹到/training/nginx/html/目录下,</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113165528735.png" alt="image-20210113165528735"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113165528735.png" srcset="/img/loading.gif" alt="image-20210113165528735"></p>
 <p>​    将OnlineShop文件夹重命名为shop</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv OnlineShop shop</span><br></pre></td></tr></table></figure>
 
@@ -465,13 +384,13 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 <pre><code>添加如下内容：</code></pre>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> add shop</span></span><br><span class="line">​location /shop/ &#123;</span><br><span class="line">​	root   html;</span><br><span class="line">​	index  index.html index.htm;</span><br><span class="line">​&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108124755794.png" alt="在这里插入图片描述"><br>3、重新记载nginx，执行：</p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108124755794.png" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>3、重新记载nginx，执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx_reload.sh</span><br></pre></td></tr></table></figure>
 
 <p>4、验证：在浏览器中验证下是否可以访问到网站，输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;虚拟机ip地址&#x2F;shop&#x2F;</span><br></pre></td></tr></table></figure>
 
-<p>5、效果如下：<br><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/202101081256598.png" alt="在这里插入图片描述"></p>
+<p>5、效果如下：<br><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/202101081256598.png" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
 <h1 id="五、Tomcat的安装"><a href="#五、Tomcat的安装" class="headerlink" title="五、Tomcat的安装"></a>五、Tomcat的安装</h1><hr>
 <p>1、下载tomcat-8.5.40，到官网上下<br>2、安装tomcat</p>
 <pre><code>1）上传tomcat到/tools目录下
@@ -490,7 +409,7 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 
 <pre><code>6）验证，在浏览器输入: http://192.168.215.131:8080/
           或者在命令行里面输入：netstat -anop|grep 8080 </code></pre>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108154505792.png" alt="在这里插入图片描述"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108154505792.png" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
 <h1 id="六、电商后台系统部署到Linux服务器上"><a href="#六、电商后台系统部署到Linux服务器上" class="headerlink" title="六、电商后台系统部署到Linux服务器上"></a>六、电商后台系统部署到Linux服务器上</h1><hr>
 <ol>
 <li>将代码导入到eclipse或者idea中</li>
@@ -504,7 +423,7 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 <li>启动或重启Tomcat</li>
 <li>配置Tomcat支持UTF-8字符集</li>
 </ol>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113165825139.png" alt="image-20210113165825139"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113165825139.png" srcset="/img/loading.gif" alt="image-20210113165825139"></p>
 <p><strong>由于后台项目页面部分采用了html和jsp结合嵌套的方式，即在jsp中嵌套了html代码段，会存在html代码段显示中文乱码的问题，故需要做配置</strong><br>1）修改tomcat/conf目录下的server.xml，添加URIEncoding=“UTF-8”配置项，配置位置如下：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">&quot;8080&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;HTTP/1.1&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">connectionTimeout</span>=<span class="string">&quot;20000&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">redirectPort</span>=<span class="string">&quot;8443&quot;</span> <span class="attr">URIEncoding</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">protocol</span>=<span class="string">&quot;AJP/1.3&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">address</span>=<span class="string">&quot;::1&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">port</span>=<span class="string">&quot;8009&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">redirectPort</span>=<span class="string">&quot;8443&quot;</span> <span class="attr">URIEncoding</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -513,7 +432,7 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 
 <pre><code> 3）先删除tomcat下的webapp/项目/所有html页面，再重新新建并添加对应的内容
  4）启动Tomcat</code></pre>
-<p>6、打开浏览器进行验证：<br>    <img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108165341283.png" alt="在这里插入图片描述"></p>
+<p>6、打开浏览器进行验证：<br>    <img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108165341283.png" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
 <h1 id="七、AB压测（httpd）安装"><a href="#七、AB压测（httpd）安装" class="headerlink" title="七、AB压测（httpd）安装"></a>七、AB压测（httpd）安装</h1><hr>
 <pre><code>1. 安装httpd
 
@@ -534,7 +453,7 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 <li><p>编写压测脚本ab_test.sh，内容可自行修改，如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">n=`cat url.txt | wc -l`</span><br><span class="line"></span><br><span class="line">for ((i=1;i&lt;=$n;i++))</span><br><span class="line">do</span><br><span class="line">        echo $i</span><br><span class="line">        url=`shuf -n1 url.txt`</span><br><span class="line">        r=`shuf -i 6-100 -n 1`</span><br><span class="line">        c=`shuf -i 1-5 -n 1`</span><br><span class="line">        echo $url</span><br><span class="line">        echo $r</span><br><span class="line">        echo $c</span><br><span class="line">        ##将测试的结果写入到test_ab.log &gt;&gt; results.log &amp;</span><br><span class="line">        ab -n $r -c $c $url &gt;&gt; results.log &amp;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>测试结果说明<br><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108173146898.png" alt="在这里插入图片描述"></p>
+<li><p>测试结果说明<br><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/20210108173146898.png" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
 </li>
 </ol>
 <h1 id="八、Hadoop安装与配置"><a href="#八、Hadoop安装与配置" class="headerlink" title="八、Hadoop安装与配置"></a>八、Hadoop安装与配置</h1><hr>
@@ -550,7 +469,7 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 <p> 3、 让环境变量生效：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image001-1610529336150.png" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image001-1610529336150.png" srcset="/img/loading.gif" alt="img"></p>
 <p>验证是否生效：</p>
 <p>执行：hdfs 或者hadoop 有相关信息出现即可</p>
 <h2 id="8-2-搭建Hadoop伪分布环境"><a href="#8-2-搭建Hadoop伪分布环境" class="headerlink" title="8.2  搭建Hadoop伪分布环境"></a>8.2  搭建Hadoop伪分布环境</h2><p>特点：具备HDFS全部功能</p>
@@ -560,27 +479,27 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 <p>​    <code>vi hadoop-env.sh</code></p>
 <p><strong>配置Java环境变量</strong>：</p>
 <p>​    <code>export JAVA_HOME=/training/jdk1.8.0_171</code></p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002-1610529336152.png" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002-1610529336152.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>2、配置：hdfs-site.xml</strong> </p>
 <p><code>vi /training/hadoop-2.7.3/etc/hadoop/hdfs-site.xml</code></p>
 <p>hdfs-site.xml：原则是：一般有几个数据节点就配置几个，但是最多不能超多3</p>
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--表示数据块的冗余度 默认为3--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image003-1610529336152.png" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image003-1610529336152.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>3、配置：core-site.xml</strong></p>
 <p>需要提前新建一个tmp文件夹</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113172925162.png" alt="image-20210113172925162"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210113172925162.png" srcset="/img/loading.gif" alt="image-20210113172925162"></p>
 <p><code>vi /training/hadoop-2.7.3/etc/hadoop/core-site.xml</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置NameNode的通讯地址 9000 是RPC默认的通信端口--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://192.168.181.135:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span>         </span><br><span class="line"><span class="comment">&lt;!--HDFS数据保存在Linux的哪个目录，默认值是Linux的tmp目录 必须配置，否则会报错/training/hadoop-2.7.3/tmp 必须事先存在--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>/training/hadoop-2.7.3/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span></span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image005.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image005.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4、配置：mapper-site.xml</strong></p>
 <p>  这个文件事先是不存在的，需要复制一份</p>
 <p><code>cp /training/hadoop-2.7.3/etc/hadoop/mapred-site.xml.template /training/hadoop-2.7.3/etc/hadoop/mapred-site.xml</code></p>
 <p><code>vi /training/hadoop-2.7.3/etc/hadoop/mapper-site.xml</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置MR的运行框架--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span></span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image007.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image007.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>5、配置：yarn-site.xml</strong></p>
 <p><code>vi /training/hadoop-2.7.3/etc/hadoop/mapper-site.xml</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Yarn的主节点RM的位置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>192.130.91.130<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--MapReduce运行方式：shuffle洗牌--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br></pre></td></tr></table></figure>
@@ -588,11 +507,11 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 
 
 <p>​          </p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image009.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image009.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h2 id="8-3-设置免密码登录"><a href="#8-3-设置免密码登录" class="headerlink" title="8.3 设置免密码登录"></a><strong>8.3</strong> <strong>设置免密码登录</strong></h2><p><code>ssh-keygen -t rsa</code></p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image010.png" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image010.png" srcset="/img/loading.gif" alt="img"></p>
 <p><code>ssh-copy-id 192.168.91.130</code></p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image011.png" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image011.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>8.4 验证Hadoop</strong></p>
 <p>格式化：HDFS(NameNode)</p>
 <p>​           hdfs namenode -format</p>
@@ -603,8 +522,8 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 <p>​            Yran:http:// 192.168.181.135:8088</p>
 <p>​      停止：</p>
 <p>​           stop-all.sh</p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image013.jpg" alt="img"></p>
-<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image015.jpg" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image013.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image015.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h1 id="九、Flume的安装与配置"><a href="#九、Flume的安装与配置" class="headerlink" title="九、Flume的安装与配置"></a>九、Flume的安装与配置</h1><hr>
 <ol>
 <li><p>上传flume到/tools目录下</p>
@@ -663,120 +582,210 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 </li>
 </ol>
 
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%9C%AA%E5%BD%92%E6%A1%A3/">未归档</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hadoop入门</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/08/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">SpringBoot学习笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
     </div>
-
     
-    
-    
-
-    <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2021/01/08/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="SpringBoot学习笔记">
-                  <i class="fa fa-chevron-left"></i> SpringBoot学习笔记
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/" rel="next" title="Hadoop入门">
-                  Hadoop入门 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
 
 
+    
 
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-
-      
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
+  </div>
+</div>
+    
+
+    
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      
-
-      
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
-
-    </div>
-  </footer>
-
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
 
   
 
   
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 
 </body>
 </html>

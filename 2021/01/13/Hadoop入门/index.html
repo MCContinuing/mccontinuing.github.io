@@ -1,298 +1,233 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Hadoop入门 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-<link rel="stylesheet" href="/css/main.css">
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+<!-- 主题依赖的图标库，不要自行修改 -->
 
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
-
-  <meta name="description" content="一、从Hadoop框架讨论大数据生态大数据（big data），指无法在一定时间范围内用常规软件工具进行捕捉、管理和处理的数据集合，是需要新处理模式才能具有更强的决策力、洞察发现力和流程优化能力的海量、高增长率和多样化的信息资产。 1.1 Hadoop是什么 Hadoop是一个由Apache基金会所开发的分布式系统基础架构 主要解决，海量数据的存储和海量数据的分析计算问题。 广义上来说，HADOO">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hadoop入门">
-<meta property="og:url" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、从Hadoop框架讨论大数据生态大数据（big data），指无法在一定时间范围内用常规软件工具进行捕捉、管理和处理的数据集合，是需要新处理模式才能具有更强的决策力、洞察发现力和流程优化能力的海量、高增长率和多样化的信息资产。 1.1 Hadoop是什么 Hadoop是一个由Apache基金会所开发的分布式系统基础架构 主要解决，海量数据的存储和海量数据的分析计算问题。 广义上来说，HADOO">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image004.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image006.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image016.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image018.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image019.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image020.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image023.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image025.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image027.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image029.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image031.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610529336152.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003-1610529336152.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/image-20210113172925162.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image005.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image007.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image001.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610540693507.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image004.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image006-1610540693509.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image008-1610540693510.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image048.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image050.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image051.png">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image053.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image055.jpg">
-<meta property="og:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image057.jpg">
-<meta property="article:published_time" content="2021-01-13T11:37:02.000Z">
-<meta property="article:modified_time" content="2021-01-13T12:42:45.350Z">
-<meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Hadoop">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image004.jpg">
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
-<link rel="canonical" href="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/">
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
-
-  <title>Hadoop入门 | Hexo</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-</div>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
       </ul>
-
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%8EHadoop%E6%A1%86%E6%9E%B6%E8%AE%A8%E8%AE%BA%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%94%9F%E6%80%81"><span class="nav-number">1.</span> <span class="nav-text">一、从Hadoop框架讨论大数据生态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Hadoop%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Hadoop是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Hadoop%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Hadoop发展历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Hadoop%E4%B8%89%E5%A4%A7%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 Hadoop三大发行版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Hadoop%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 Hadoop的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-Hadoop%E7%BB%84%E6%88%90"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 Hadoop组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 大数据生态体系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Hadoop%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">二、Hadoop环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E4%BF%AE%E6%94%B9%E6%98%A0%E5%B0%84%E5%90%8D%E5%92%8C%E9%85%8D%E7%BD%AEhost%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 修改映射名和配置host文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 关闭防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%AE%89%E8%A3%85JDK"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E5%AE%89%E8%A3%85Hadoop"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 安装Hadoop</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81Hadoop%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">三、Hadoop运行模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%8F%82%E8%80%83%E7%BD%91%E5%9D%80"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 参考网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Hadoop%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Hadoop运行模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%BC%8F%E6%B5%8B%E8%AF%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 本地模式测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-%E4%BC%AA%E5%88%86%E5%B8%83%E6%A8%A1%E5%BC%8F%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2  伪分布模式环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-%E4%BC%AA%E5%88%86%E5%B8%83%E6%B5%8B%E8%AF%95"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.2.3 伪分布测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-Hadoop%E5%85%A8%E5%88%86%E5%B8%83%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.2.4.</span> <span class="nav-text">3.2.4 Hadoop全分布模式</span></a></li></ol></li></ol></li></ol></div>
-      </section>
-      <!--/noindex-->
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">14</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </section>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
   </div>
+</nav>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Hadoop入门">
+              
+            </span>
 
-
-    <div class="main-inner post posts-expand">
-      
-
-      
-
+            
+              <div class="mt-3">
   
-
-
-<div class="post-block">
   
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-13 19:37" pubdate>
+        January 13, 2021 pm
+      </time>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Hadoop入门
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-01-13 19:37:02 / Modified: 20:42:45" itemprop="dateCreated datePublished" datetime="2021-01-13T19:37:02+08:00">2021-01-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-        </span>
-    </span>
-
   
 </div>
 
-        </div>
-      </header>
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.3k 字
+    </span>
+  
 
+  
     
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      55
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
     
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="一、从Hadoop框架讨论大数据生态"><a href="#一、从Hadoop框架讨论大数据生态" class="headerlink" title="一、从Hadoop框架讨论大数据生态"></a><strong>一、从Hadoop框架讨论大数据生态</strong></h1><p>大数据（big data），指无法在一定时间范围内用常规软件工具进行捕捉、管理和处理的数据集合，是需要新处理模式才能具有更强的决策力、洞察发现力和流程优化能力的海量、高增长率和多样化的信息资产。</p>
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Hadoop入门</h1>
+            
+            <div class="markdown-body">
+              <h1 id="一、从Hadoop框架讨论大数据生态"><a href="#一、从Hadoop框架讨论大数据生态" class="headerlink" title="一、从Hadoop框架讨论大数据生态"></a><strong>一、从Hadoop框架讨论大数据生态</strong></h1><p>大数据（big data），指无法在一定时间范围内用常规软件工具进行捕捉、管理和处理的数据集合，是需要新处理模式才能具有更强的决策力、洞察发现力和流程优化能力的海量、高增长率和多样化的信息资产。</p>
 <h2 id="1-1-Hadoop是什么"><a href="#1-1-Hadoop是什么" class="headerlink" title="1.1 Hadoop是什么"></a>1.1 Hadoop是什么</h2><ol>
 <li>Hadoop是一个由Apache基金会所开发的分布式系统基础架构</li>
 <li>主要解决，海量数据的存储和海量数据的分析计算问题。</li>
@@ -324,7 +259,7 @@
 <li><p>名字来源于Doug Cutting儿子的玩具大象</p>
 </li>
 </ul>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image004.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image004.jpg" srcset="/img/loading.gif" alt="img"></p>
 <ul>
 <li>Hadoop就此诞生并迅速发展，标志这云计算时代来临</li>
 </ul>
@@ -374,7 +309,7 @@
 <li><p>Hadoop Common：支持其他模块的工具模块。</p>
 </li>
 </ul>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image006.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image006.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>1、HDFS架构概述</strong></p>
 <p>​    1）NameNode（nn）：存储文件的元数据，如文件名，文件目录结构，文件属性（生成时间、副本数、文件权限），以及每个文件的块列表和块所在的DataNode等。</p>
 <p>​    2）DataNode(dn)：在本地文件系统存储文件块数据，以及块数据的校验和。</p>
@@ -388,7 +323,7 @@
 <p>MapReduce将计算过程分为两个阶段：Map和Reduce</p>
 <p>​    1）Map阶段并行处理输入数据</p>
 <p>​    2）Reduce阶段对Map结果进行汇总</p>
-<h2 id="1-6-大数据生态体系"><a href="#1-6-大数据生态体系" class="headerlink" title="1.6 大数据生态体系"></a><strong>1.6</strong> 大数据生态体系</h2><p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image016.png" alt="img"></p>
+<h2 id="1-6-大数据生态体系"><a href="#1-6-大数据生态体系" class="headerlink" title="1.6 大数据生态体系"></a><strong>1.6</strong> 大数据生态体系</h2><p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image016.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>1）Sqoop：</strong>Sqoop是一款开源的工具，主要用于在Hadoop、Hive与传统的数据库(MySql)间进行数据的传递，可以将一个关系型数据库（例如 ：MySQL，Oracle 等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。</p>
 <p><strong>2）Flume：</strong>Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。</p>
 <p><strong>3）Kafka：</strong>Kafka是一种高吞吐量的分布式发布订阅消息系统，有如下特性：</p>
@@ -408,11 +343,11 @@
 <p>进入到根目录下，两个目录</p>
 <p>mkdir /tools 作为上传安装的文件</p>
 <p>mkdir /training 作为后面环境的使用</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image018.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image018.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h2 id="2-1-修改映射名和配置host文件"><a href="#2-1-修改映射名和配置host文件" class="headerlink" title="2.1 修改映射名和配置host文件"></a>2.1 修改映射名和配置host文件</h2><p>我们可以进行修改。通过编辑/etc/hosts文件</p>
 <p><code> vi /etc/hosts</code></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image019.png" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image020.png" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image019.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image020.png" srcset="/img/loading.gif" alt="img"></p>
 <h2 id="2-2-关闭防火墙"><a href="#2-2-关闭防火墙" class="headerlink" title="2.2 关闭防火墙"></a><strong>2.2</strong> <strong>关闭防火墙</strong></h2><p>关闭防火墙(CentOS7下)</p>
 <p><code>systemctl stop firewalld.service</code></p>
 <p><code>systemctl disable firewalld.service</code></p>
@@ -427,10 +362,10 @@
 <p><code>source ~/.bash_profile</code></p>
 <p>验证jdk是否安装成功</p>
 <p><code>java -version</code></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image023.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image023.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h2 id="2-4-安装Hadoop"><a href="#2-4-安装Hadoop" class="headerlink" title="2.4 安装Hadoop"></a>2.4 安装Hadoop</h2><p>把上传到tools目录下的Hadoop进行解压</p>
 <p><code>tar -zvxf /hadoop-2.7.3.tar.gz -C /training/</code></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image025.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image025.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><code>cd /training/hadoop-2.7.3/</code></p>
 <p>配置环境变量：</p>
 <p><code>vi ~/.bash_profile</code></p>
@@ -440,7 +375,7 @@
 <p>让环境变量生效：</p>
 <p><code>source ~/.bash_profile</code></p>
 <p>tree -d -L 3 hadoop-2.7.3/ 会列出三级树形结构目录</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image027.png" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image027.png" srcset="/img/loading.gif" alt="img"></p>
 <h1 id="三、Hadoop运行模式"><a href="#三、Hadoop运行模式" class="headerlink" title="三、Hadoop运行模式"></a>三、Hadoop运行模式</h1><h2 id="3-1-参考网址"><a href="#3-1-参考网址" class="headerlink" title="3.1 参考网址"></a>3.1 参考网址</h2><p>（1）官方网站：</p>
 <p><a target="_blank" rel="noopener" href="http://hadoop.apache.org/">http://hadoop.apache.org/</a></p>
 <p>（2）各个版本归档库地址</p>
@@ -496,8 +431,8 @@
 
 <p>​       查看结果：</p>
 <p>​           MapReduce程序的执行结果会默认按照英文单词的字典顺序进行了排序</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image029.jpg" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image031.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image029.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image031.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h3 id="3-2-2-伪分布模式环境搭建"><a href="#3-2-2-伪分布模式环境搭建" class="headerlink" title="3.2.2  伪分布模式环境搭建"></a><strong>3.2.2  伪分布模式环境搭建</strong></h3><p>特点：具备HDFS全部功能</p>
 <p>HDFS:NameNode + DataNode</p>
 <p>Yarn:ReourceManager + NodeManager</p>
@@ -518,21 +453,21 @@
 <p><strong>配置Java环境变量</strong>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/training/jdk1.8.0_171</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610529336152.png" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610529336152.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>2、配置：hdfs-site.xml</strong> </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /training/hadoop-2.7.3/etc/hadoop/hdfs-site.xml</span><br></pre></td></tr></table></figure>
 
 <p>hdfs-site.xml：原则是：一般有几个数据节点就配置几个，但是最多不能超多3</p>
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--表示数据块的冗余度 默认为3--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003-1610529336152.png" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003-1610529336152.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>3、配置：core-site.xml</strong></p>
 <p>需要提前新建一个tmp文件夹</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/image-20210113172925162.png" alt="image-20210113172925162"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/image-20210113172925162.png" srcset="/img/loading.gif" alt="image-20210113172925162"></p>
 <p><code>vi /training/hadoop-2.7.3/etc/hadoop/core-site.xml</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置NameNode的通讯地址 9000 是RPC默认的通信端口--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://192.168.181.135:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span>         </span><br><span class="line"><span class="comment">&lt;!--HDFS数据保存在Linux的哪个目录，默认值是Linux的tmp目录 必须配置，否则会报错/training/hadoop-2.7.3/tmp 必须事先存在--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>/training/hadoop-2.7.3/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span></span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image005.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image005.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4、配置：mapper-site.xml</strong></p>
 <p>  这个文件事先是不存在的，需要复制一份</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /training/hadoop-2.7.3/etc/hadoop/mapred-site.xml.template /training/hadoop-2.7.3/etc/hadoop/mapred-site.xml</span><br></pre></td></tr></table></figure>
@@ -541,7 +476,7 @@
 
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置MR的运行框架--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span></span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image007.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image007.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>5、配置：yarn-site.xml</strong></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /training/hadoop<span class="literal">-2</span>.<span class="number">7.3</span>/etc/hadoop/mapper<span class="literal">-site</span>.xml</span><br></pre></td></tr></table></figure>
 
@@ -554,10 +489,10 @@
 <p><strong>设置免密码登录</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image001.png" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image001.png" srcset="/img/loading.gif" alt="img"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id 192.168.91.130</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>最后验证Hadoop</strong></p>
 <p>格式化：HDFS(NameNode)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs namenode -format</span><br></pre></td></tr></table></figure>
@@ -571,11 +506,11 @@
 <p>​      停止：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop-all.sh</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610540693507.jpg" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003.png" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image004.png" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image006-1610540693509.jpg" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image008-1610540693510.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610540693507.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image004.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image006-1610540693509.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image008-1610540693510.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h3 id="3-2-3-伪分布测试"><a href="#3-2-3-伪分布测试" class="headerlink" title="3.2.3 伪分布测试"></a><strong>3.2.3 伪分布测试</strong></h3><p>编辑test.txt文件，写入一个单词。</p>
 <p>I have a dream that one day this nation will rise up and live out the true meaning of its creed: “We hold these truths to be self-evident, that all men are created equal.”</p>
 <p>I have a dream that one day on the red hills of Georgia, the sons of former slaves and the sons of former slave owners will be able to sit down together at the table of brotherhood.</p>
@@ -586,17 +521,17 @@
 <p>I have a dream today!</p>
 <p>I have a dream that one day every valley shall be exalted, and every hill and mountain shall be made low, the rough places will be made plain, and the crooked places will be made straight; “and the glory of the Lord shall be revealed and all flesh shall see it together.”</p>
 <p>测试需要把文件上传到HDFS上，在HDFS上创建一个目录</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image048.png" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image048.png" srcset="/img/loading.gif" alt="img"></p>
 <p>将本地的文本上传到HDFS上创建的目录</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image050.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image050.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>最后执行</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image051.png" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image051.png" srcset="/img/loading.gif" alt="img"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hadoop-mapreduce-examples-2.7.3.jar wordcount &#x2F;root&#x2F;input&#x2F;test.txt &#x2F;root&#x2F;output</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image053.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image053.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>查看结果</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image055.jpg" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image057.jpg" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image055.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image057.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h3 id="3-2-4-Hadoop全分布模式"><a href="#3-2-4-Hadoop全分布模式" class="headerlink" title="3.2.4 Hadoop全分布模式"></a><strong>3.2.4 Hadoop全分布模式</strong></h3><p>分析：</p>
 <p>​    1）准备3台客户机（关闭防火墙、静态ip、主机名称）</p>
 <p>​    2）安装jdk</p>
@@ -681,123 +616,217 @@
 <p>​           （*）在主节点（niit01）上启动hdfs</p>
 <p>​              start-all.sh</p>
 
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Hadoop/">Hadoop</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">HDFS文件系统</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/">
+                        <span class="hidden-mobile">2021寒假实训大数据分析电商平台</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
     </div>
-
     
-    
-    
-
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/" rel="prev" title="2021寒假实训大数据分析电商平台">
-                  <i class="fa fa-chevron-left"></i> 2021寒假实训大数据分析电商平台
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" rel="next" title="HDFS文件系统">
-                  HDFS文件系统 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
 
 
+    
 
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-
-      
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
+  </div>
+</div>
+    
+
+    
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      
-
-      
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
-
-    </div>
-  </footer>
-
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
 
   
 
   
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 
 </body>
 </html>
