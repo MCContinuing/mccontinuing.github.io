@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -67,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>MCContinuing's Library</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.3k 字
+      4.2k 字
     </span>
   
 
@@ -356,7 +356,7 @@
 <p>配置环境变量：</p>
 <p><code>vi ~/.bash_profile</code></p>
 <p>​    添加如下信息</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/training/jdk1.8.0_171</span><br><span class="line"></span><br><span class="line">export JRE_HOME=$JAVA_HOME/jre</span><br><span class="line"></span><br><span class="line">export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib</span><br><span class="line"></span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml">export JAVA_HOME=/training/jdk1.8.0_171<br><br>export JRE_HOME=$JAVA_HOME/jre<br><br>export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib<br><br>export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin<br></code></pre></td></tr></table></figure>
 
 <p>让环境变量生效</p>
 <p><code>source ~/.bash_profile</code></p>
@@ -370,7 +370,7 @@
 <p>配置环境变量：</p>
 <p><code>vi ~/.bash_profile</code></p>
 <p>添加如下信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export HADOOP_HOME=/training/hadoop-2.7.3</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">export HADOOP_HOME=/training/hadoop-2.7.3<br>export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin<br></code></pre></td></tr></table></figure>
 
 <p>让环境变量生效：</p>
 <p><code>source ~/.bash_profile</code></p>
@@ -404,19 +404,19 @@
 </ul>
 <p>验证下：</p>
 <p>1、把上传到tools目录下的Hadoop进行解压</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zvxf /tools/hadoop-2.7.3.tar.gz -C /training/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar -zvxf /tools/hadoop-2.7.3.tar.gz -C /training/<br></code></pre></td></tr></table></figure>
 
 <p>2、配置环境变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">vi ~<span class="hljs-string">/.bash_profile</span><br></code></pre></td></tr></table></figure>
 
 <p>​    添加如下信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export HADOOP_HOME=/training/hadoop-2.7.3</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">export HADOOP_HOME=/training/hadoop-2.7.3<br>export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin<br></code></pre></td></tr></table></figure>
 
 <p> 3、 让环境变量生效：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source ~/.bash_profile<br></code></pre></td></tr></table></figure>
 
 <p>​    测试前需要创建测试目录和测试文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~&#x2F;demo&#x2F;input</span><br><span class="line">mkdir ~&#x2F;demo&#x2F;output</span><br><span class="line">vi ~&#x2F;demo&#x2F;input&#x2F;test.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arcade">mkdir ~<span class="hljs-regexp">/demo/i</span>nput<br>mkdir ~<span class="hljs-regexp">/demo/</span>output<br>vi ~<span class="hljs-regexp">/demo/i</span>nput/test.txt<br></code></pre></td></tr></table></figure>
 
 <p>​       输入如下内容:</p>
 <p>​           I love Guiyang</p>
@@ -424,10 +424,10 @@
 <p>​           Guiyang is the capital of Guizhou</p>
 <p>​       保存退出</p>
 <p>​       进入到：mapreduce/目录下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /training/hadoop-2.7.3/share/hadoop/mapreduce/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /training/hadoop-2.7.3/share/hadoop/mapreduce/<br></code></pre></td></tr></table></figure>
 
 <p>​       执行：~/output 不需要事先存在，存在会报错</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hadoop-mapreduce-examples-2.7.3.jar wordcount ~/demo/input/test.txt ~/demo/output</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hadoop jar hadoop-mapreduce-examples-2.7.3.jar wordcount ~/demo/input/test.txt ~/demo/output<br></code></pre></td></tr></table></figure>
 
 <p>​       查看结果：</p>
 <p>​           MapReduce程序的执行结果会默认按照英文单词的字典顺序进行了排序</p>
@@ -448,63 +448,63 @@
 <p><strong>2）执行步骤</strong></p>
 <p>需要配置hadoop文件如下</p>
 <p><strong>1、配置：hadoop-env.sh</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi hadoop-env.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi hadoop-env.sh<br></code></pre></td></tr></table></figure>
 
 <p><strong>配置Java环境变量</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/training/jdk1.8.0_171</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">export JAVA_HOME=/training/jdk1.8.0_171<br></code></pre></td></tr></table></figure>
 
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610529336152.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>2、配置：hdfs-site.xml</strong> </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /training/hadoop-2.7.3/etc/hadoop/hdfs-site.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /training/hadoop-2.7.3/etc/hadoop/hdfs-site.xml<br></code></pre></td></tr></table></figure>
 
 <p>hdfs-site.xml：原则是：一般有几个数据节点就配置几个，但是最多不能超多3</p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--表示数据块的冗余度 默认为3--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--表示数据块的冗余度 默认为3--&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.replication<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003-1610529336152.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>3、配置：core-site.xml</strong></p>
 <p>需要提前新建一个tmp文件夹</p>
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/image-20210113172925162.png" srcset="/img/loading.gif" alt="image-20210113172925162"></p>
 <p><code>vi /training/hadoop-2.7.3/etc/hadoop/core-site.xml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置NameNode的通讯地址 9000 是RPC默认的通信端口--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://192.168.181.135:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span>         </span><br><span class="line"><span class="comment">&lt;!--HDFS数据保存在Linux的哪个目录，默认值是Linux的tmp目录 必须配置，否则会报错/training/hadoop-2.7.3/tmp 必须事先存在--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>/training/hadoop-2.7.3/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--配置NameNode的通讯地址 9000 是RPC默认的通信端口--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>fs.defaultFS<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>hdfs://192.168.181.135:9000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>         <br><span class="hljs-comment">&lt;!--HDFS数据保存在Linux的哪个目录，默认值是Linux的tmp目录 必须配置，否则会报错/training/hadoop-2.7.3/tmp 必须事先存在--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.tmp.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/training/hadoop-2.7.3/tmp<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span></span><br></code></pre></td></tr></table></figure>
 
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image005.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4、配置：mapper-site.xml</strong></p>
 <p>  这个文件事先是不存在的，需要复制一份</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /training/hadoop-2.7.3/etc/hadoop/mapred-site.xml.template /training/hadoop-2.7.3/etc/hadoop/mapred-site.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cp /training/hadoop-2.7.3/etc/hadoop/mapred-site.xml.template /training/hadoop-2.7.3/etc/hadoop/mapred-site.xml<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /training/hadoop<span class="literal">-2</span>.<span class="number">7.3</span>/etc/hadoop/mapper<span class="literal">-site</span>.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">vi /training/hadoop<span class="hljs-literal">-2</span>.<span class="hljs-number">7.3</span>/etc/hadoop/mapper<span class="hljs-literal">-site</span>.xml<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置MR的运行框架--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--配置MR的运行框架--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>mapreduce.framework.name<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>yarn<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span></span><br></code></pre></td></tr></table></figure>
 
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image007.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>5、配置：yarn-site.xml</strong></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /training/hadoop<span class="literal">-2</span>.<span class="number">7.3</span>/etc/hadoop/mapper<span class="literal">-site</span>.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">vi /training/hadoop<span class="hljs-literal">-2</span>.<span class="hljs-number">7.3</span>/etc/hadoop/mapper<span class="hljs-literal">-site</span>.xml<br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Yarn的主节点RM的位置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>192.130.91.130<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--MapReduce运行方式：shuffle洗牌--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--Yarn的主节点RM的位置--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>192.130.91.130<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--MapReduce运行方式：shuffle洗牌--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>mapreduce_shuffle<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 
 
 <p><strong>设置免密码登录</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ssh-keygen -t rsa</span><br></code></pre></td></tr></table></figure>
 
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image001.png" srcset="/img/loading.gif" alt="img"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id 192.168.91.130</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">ssh-copy-id <span class="hljs-number">192.168</span><span class="hljs-number">.91</span><span class="hljs-number">.130</span><br></code></pre></td></tr></table></figure>
 
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>最后验证Hadoop</strong></p>
 <p>格式化：HDFS(NameNode)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs namenode -format</span><br></pre></td></tr></table></figure>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dos">hdfs namenode -<span class="hljs-built_in">format</span><br></code></pre></td></tr></table></figure>
 
 <p>​       启动hadoop环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">start</span>-<span class="hljs-keyword">all</span>.sh<br></code></pre></td></tr></table></figure>
 
 <p>​       访问：web界面进行验证</p>
 <p>​            HDFS:<a target="_blank" rel="noopener" href="http://192.168.91.130:50070/">http://192.168.91.130:50070</a></p>
 <p>​            Yran:<a target="_blank" rel="noopener" href="http://192.168.91.130:8088/">http://192.168.91.130:8088</a></p>
 <p>​      停止：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop-all.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">stop</span>-<span class="hljs-keyword">all</span>.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure>
 
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610540693507.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003.png" srcset="/img/loading.gif" alt="img"></p>
@@ -526,7 +526,7 @@
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image050.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>最后执行</p>
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image051.png" srcset="/img/loading.gif" alt="img"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hadoop-mapreduce-examples-2.7.3.jar wordcount &#x2F;root&#x2F;input&#x2F;test.txt &#x2F;root&#x2F;output</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">hadoop jar hadoop-mapreduce-examples-<span class="hljs-number">2.7</span>.<span class="hljs-number">3</span>.jar wordcount <span class="hljs-regexp">/root/i</span>nput<span class="hljs-regexp">/test.txt /</span>root/output<br></code></pre></td></tr></table></figure>
 
 <p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image053.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>查看结果</p>
@@ -547,10 +547,10 @@
 <p>​           3、所有主机都需要配置主机名 vi /etc/hosts</p>
 <p>​           4、配置免密码登录（配置两两之间的免密码登录）</p>
 <p>​              所有的机器都需要产生一对密钥：公钥和私钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa              </span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ssh-keygen -t rsa</span>              <br></code></pre></td></tr></table></figure>
 
 <p>​              所有主机需要执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i .ssh&#x2F;id_rsa.pub root@hadoop01</span><br><span class="line">ssh-copy-id -i .ssh&#x2F;id_rsa.pub root@hadoop02</span><br><span class="line">ssh-copy-id -i .ssh&#x2F;id_rsa.pub root@hadoop03</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs applescript">ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> -i .ssh/id_rsa.pub root@hadoop01<br>ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> -i .ssh/id_rsa.pub root@hadoop02<br>ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> -i .ssh/id_rsa.pub root@hadoop03<br></code></pre></td></tr></table></figure>
 
 <p>5、保证每台机器的时间是一样的</p>
 <p>​              如果不一样的话，我们在执行MapReduce程序的时候可能会存在问题</p>
@@ -560,11 +560,11 @@
 <p>​                     date -s 2020-09-01 后面必须敲一个回车</p>
 <p><strong>2）在主节点上进行安装配置（hadoop01）</strong></p>
 <p>（1）上传hadoop安装包，解决配置环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zvxf hadoop-2.7.3.tar.gz -C &#x2F;training&#x2F;</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">tar</span> -zvxf hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">7</span>.<span class="hljs-number">3</span>.tar.gz -C /training/<br></code></pre></td></tr></table></figure>
 
 <p>​               同时设置：hadoop01 hadoop02 hadoop03</p>
 <p>​                   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HADOOP_HOME&#x3D;&#x2F;training&#x2F;hadoop-2.7.3</span><br><span class="line">export HADOOP_HOME</span><br><span class="line">PATH&#x3D;$HADOOP_HOME&#x2F;bin:$HADOOP_HOME&#x2F;sbin:$PATH</span><br><span class="line">epxort PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-attribute">HADOOP_HOME</span>=/training/hadoop-2.7.3<br><span class="hljs-builtin-name">export</span> HADOOP_HOME<br><span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$HADOOP_HOME</span>/bin:$HADOOP_HOME/sbin:$PATH<br>epxort PATH<br></code></pre></td></tr></table></figure>
 
 <p>（*）修改配置文件</p>
 <p>​               vi hadoop-env.sh 设置JDK的路径</p>

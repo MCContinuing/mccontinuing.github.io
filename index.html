@@ -39,7 +39,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -51,7 +51,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>MCContinuing's Library</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -146,7 +146,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="An elegant Material-Design theme for Hexo">
+            <span class="h2" id="subtitle" title="今日目标：早睡早起 ☆ﾐ(o*･ω･)ﾉ ">
               
             </span>
 
@@ -174,6 +174,106 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/01/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux常用命令</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/01/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+          
+          
+            
+          
+          ls（list）1234567ls -a 列出目录所有文件，包含以.开始的隐藏文件ls -A 列出除.及..的其它文件ls -r 反序排列ls -t 以文件修改时间排序ls -S 以文件大小排序ls -h 以易读大小显示ls -l 除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来
+
+cd(changeDirectory)1cd [目录名]
+
+说明：切换当前目录至 dirName
+1
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-14 11:46" pubdate>
+              2021-01-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/">Linux系统</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">VM虚拟机操作记录：开机卡死、设置静态ip</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">
+          
+          
+            
+          
+          【遇到问题-开机卡死】由于非正常情况退出造成的，找到虚拟机所在目录，删除.lck文件夹删掉
+
+【遇到问题-虚拟机ip地址总是改变】采用方式为NAT模式+固定IP的模式。
+配置环境说明：主机为Win10家庭版，虚拟机为VMware Workstation 12 Pro中文版，虚拟机中的Linux系统为CentOS 7 64位.
+一、查看VM虚拟机ip地址范围在菜单栏选择编辑→ 虚拟网络编辑器，打开虚
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-14 11:19" pubdate>
+              2021-01-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/">Linux系统</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
   <div class="row mx-auto index-card">
     
@@ -552,9 +652,9 @@ Maven 3.6
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a>
-            
               <a href="/tags/SSM/">SSM</a>
+            
+              <a href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a>
             
           </div>
         
@@ -606,113 +706,6 @@ pom.xml
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/SSM/">SSM</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/12/26/Spring/">Spring学习笔记</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/12/26/Spring/">
-          
-          
-            
-          
-          Spring是一个轻量级的控制反转(IOC)和面向切面(AOP)的容器（框架）。
-Spring文章笔记整合【狂神说】
-官网  
-官方下载地址
-GitHub
-
-https://docs.spring.io/spring-framework/docs/4.3.9.RELEASE/spring-framework-reference/html/overview.html#overview-distrib
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-26 17:12" pubdate>
-              2020-12-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java%E5%90%8E%E7%AB%AF/">Java后端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/SSM/">SSM</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/12/26/Sql/">Sql</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/12/26/Sql/">
-          
-          
-            
-          
-          MySql命令行启动进入sql中bin所在目录cmd
-输入mysql -u root -p（root是用户名）
-输入密码即可
-
-基本操作主要介绍对数据库以及表的一些基本操作
-1-1.关于数据库123456789101112&#x2F;&#x2F;创建数据库create database h_test;&#x2F;&#x2F;查看数据库show databases;&#x2F;&#x2F;查看数据库
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-26 11:21" pubdate>
-              2020-12-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/SQL/">SQL</a>
             
           </div>
         

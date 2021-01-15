@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -67,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>MCContinuing's Library</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -246,7 +246,7 @@
 </li>
 </ol>
 <p><img src="/2020/12/23/Lombok/image-20201223111041055.png" srcset="/img/loading.gif"></p>
-<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a><strong>使用步骤</strong></h3><h4 id="1、复制代码到pom-xml中"><a href="#1、复制代码到pom-xml中" class="headerlink" title="1、复制代码到pom.xml中"></a>1、复制代码到pom.xml中</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.16<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a><strong>使用步骤</strong></h3><h4 id="1、复制代码到pom-xml中"><a href="#1、复制代码到pom-xml中" class="headerlink" title="1、复制代码到pom.xml中"></a>1、复制代码到pom.xml中</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.18.16<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>出现问题，将1.18.16换成1.18.10成功了</p>
 <h4 id="2、在实体类中使用"><a href="#2、在实体类中使用" class="headerlink" title="2、在实体类中使用"></a>2、在实体类中使用</h4><p><img src="/2020/12/23/Lombok/image-20201223114441377.png" srcset="/img/loading.gif" alt="image-20201223114441377"></p>
@@ -300,7 +300,7 @@
 <h4 id="-4"><a href="#-4" class="headerlink" title></a></h4><h4 id="8-Slf4j"><a href="#8-Slf4j" class="headerlink" title="8. @Slf4j"></a>8. @Slf4j</h4><p>自动生成该类的 log 静态常量，要打日志就可以直接打，不用再手动 new log 静态常量了</p>
 <p><img src="/2020/12/23/Lombok/1003856-20200309124029891-1112211509.png" srcset="/img/loading.gif" alt="img"></p>
 <p> 除了 @Slf4j 之外，lombok 也提供其他日志框架的变种注解可以用，像是 @Log、@Log4j…等，他们都是帮我们创建一个静态常量 log，只是使用的库不一样而已</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Log &#x2F;&#x2F;对应的log语句如下</span><br><span class="line">private static final java.util.logging.Logger log &#x3D; java.util.logging.Logger.getLogger(LogExample.class.getName());</span><br><span class="line"></span><br><span class="line">@Log4j &#x2F;&#x2F;对应的log语句如下</span><br><span class="line">private static final org.apache.log4j.Logger log &#x3D; org.apache.log4j.Logger.getLogger(LogExample.class);</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">@Log <span class="hljs-comment">//对应的log语句如下</span><br><span class="hljs-keyword">private</span> static final java.util.logging.Logger log = java.util.logging.<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Logger</span>.</span></span>get<span class="hljs-constructor">Logger(LogExample.<span class="hljs-params">class</span>.<span class="hljs-params">getName</span>()</span>);<br><br>@Log4j <span class="hljs-comment">//对应的log语句如下</span><br><span class="hljs-keyword">private</span> static final org.apache.log4j.Logger log = org.apache.log4j.<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Logger</span>.</span></span>get<span class="hljs-constructor">Logger(LogExample.<span class="hljs-params">class</span>)</span>;<br></code></pre></td></tr></table></figure>
 
 <p>SpringBoot默认支持的就是 slf4j + logback 的日志框架，所以也不用再多做啥设定，直接就可以用在 SpringBoot project上，log 系列注解最常用的就是 @Slf4j</p>
 
@@ -320,9 +320,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
-                    
                       <a class="hover-with-bg" href="/tags/%E5%90%8E%E7%AB%AF%E6%8F%92%E4%BB%B6/">后端插件</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
                     
                   </div>
                 
