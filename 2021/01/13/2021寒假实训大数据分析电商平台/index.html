@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.3k 字
+      4.6k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      61
+      67
        分钟
     </span>
   
@@ -595,42 +595,74 @@ A temporary password is generated for root@localhost: WMYu.#o8o#30</code></pre>
 
 <p>测试（如果权限不够则加权限）</p>
 <p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/image-20210115094657635.png" srcset="/img/loading.gif" alt="image-20210115094657635"></p>
+</li>
+</ol>
 <h1 id="十、MapReduce工程"><a href="#十、MapReduce工程" class="headerlink" title="十、MapReduce工程"></a>十、MapReduce工程</h1><p><strong>MapReduce代码编写</strong></p>
 <p>（1）创建MapReduce工具</p>
 <p>（2）导入Hadoop的依赖包</p>
 <p>（3）写代码</p>
 <p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image001-1610629358970.png" srcset="/img/loading.gif" alt="img"></p>
-</li>
-</ol>
-<pre><code>导入依赖包
-
-![img](2021寒假实训大数据分析电商平台/clip_image003.jpg)
-
-创建类LogMapper类
-
-![img](2021寒假实训大数据分析电商平台/clip_image005-1610629358974.jpg)
-
-创建LogReducer类
-
-![img](2021寒假实训大数据分析电商平台/clip_image007-1610629358974.jpg)
-
-创建LogJob类
-
-![img](2021寒假实训大数据分析电商平台/clip_image009-1610629358974.jpg)
-
-本地运行测试结果正确后，需要对Driver类输入输出部分代码进行修改，具体修改如下
-
+<p>导入依赖包</p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image003.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>创建类LogMapper类</p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image005-1610629358974.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>创建LogReducer类</p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image007-1610629358974.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>创建LogJob类</p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image009-1610629358974.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>本地运行测试结果正确后，需要对Driver类输入输出部分代码进行修改，具体修改如下</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">FileInputFormat</span>.</span></span>set<span class="hljs-constructor">InputPaths(<span class="hljs-params">job</span>,<span class="hljs-params">new</span> Path(<span class="hljs-params">args</span>[0])</span>);  <br><br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">FileOutputFormat</span>.</span></span>set<span class="hljs-constructor">OutputPath(<span class="hljs-params">job</span>,<span class="hljs-params">new</span> Path(<span class="hljs-params">args</span>[1])</span>);<br></code></pre></td></tr></table></figure>
 
-打jar包，提交集群运行
-
-为方便操作，编写脚本exec_mr.sh来执行MR程序
-
+<p>打jar包，提交集群运行</p>
+<p>为方便操作，编写脚本exec_mr.sh来执行MR程序</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-comment">#执行MapReduce程序</span><br>dataformat=`date +%Y-%m-%d-%H-%M-%S`<br>/training/hadoop-2.7.3/bin/hadoop jar log.jar $(cat mr_input_path.txt) /output/result/<span class="hljs-variable">$dataformat</span><br>/training/hadoop-2.7.3/bin/hdfs dfs -cat /output/result/<span class="hljs-variable">$dataformat</span>/part-r-00000 &gt; mr_result.txt<br><span class="hljs-built_in">echo</span> $(cat mr_result.txt)<br></code></pre></td></tr></table></figure>
 
-打包好的上次到HDFS中，进入运行
+<p>打包好的上次到HDFS中，进入运行</p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image011.jpg" srcset="/img/loading.gif" alt="img"></p>
+<h1 id="十一、SQOOP安装配置"><a href="#十一、SQOOP安装配置" class="headerlink" title="十一、SQOOP安装配置"></a>十一、SQOOP安装配置</h1><p>Sqoop是Apache旗下一款Hadoop和关系数据服务之间传送数据的工具</p>
+<p><strong>12.1</strong> <strong>安装</strong></p>
+<p>上传sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz到/tools目录下</p>
+<p>解压安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar -zvxf /tools/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz -C /training/<br></code></pre></td></tr></table></figure>
 
-![img](2021寒假实训大数据分析电商平台/clip_image011.jpg)</code></pre>
+<p>添加环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi ~/.bash_prefile<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">export SQOOP_HOME= /training/sqoop-1.4.7.bin__hadoop-2.6.0<br><br>export PATH=$PATH:$SQOOP_HOME/bin<br></code></pre></td></tr></table></figure>
+
+<p>让环境生效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source ~/.bash_prefile<br></code></pre></td></tr></table></figure>
+
+<p><strong>12.2 配置sqoop文件</strong></p>
+<p>修改</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /training/sqoop-1.4.7.bin__hadoop-2.6.0/bin/configure-sqoop<br></code></pre></td></tr></table></figure>
+
+<p>将出现HCAT_HOME和ACCUMULO_HOME部分内容注释掉.</p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image002-1610766455675.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>修改sqoop-site.xml和sqoop-env.sh</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /training/sqoop-1.4.7.bin__hadoop-2.6.0/conf/sqoop-site.xml<br>vi /training/sqoop-1.4.7.bin__hadoop-2.6.0/conf/sqoop-env.sh<br></code></pre></td></tr></table></figure>
+
+<p>具体配置如下文件所示：</p>
+<p>sqoop-site.xml:</p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image003-1610766455678.png" srcset="/img/loading.gif" alt="img"></p>
+<p>sqoop-env.sh：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">Set path to <span class="hljs-built_in">where</span> bin/hadoop is available</span><br>export HADOOP_COMMON_HOME=/training/hadoop-2.7.3<br><br><span class="hljs-meta">#</span><span class="bash">Set path to <span class="hljs-built_in">where</span> hadoop-*-core.jar is available</span><br>export HADOOP_MAPRED_HOME=/training/hadoop-2.7.3<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image004.png" srcset="/img/loading.gif" alt="img"></p>
+<p>将MySQL数据库的驱动（使用5.x版本，不要使用高版本的）上传到sqoop安装目录下的lib目录下</p>
+<p>由于sqoop缺少java-json.jar包进行解析json，也需要上传到sqoop安装目录下的lib目录下</p>
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image006-1610766455679.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>验证</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sqoop version<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/clip_image008-1610766455680.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>创建数据库表t_mr_result,创建语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TABLE &#96;t_mr_result&#96; (<br><br> &#96;goodsId&#96; varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT &#39;商品ID&#39;,<br><br> &#96;goodsViewCount&#96; int(5) DEFAULT NULL COMMENT &#39;商品浏览总数&#39;,<br><br> PRIMARY KEY (&#96;goodsId&#96;)<br><br>) ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8mb4 COLLATE&#x3D;utf8mb4_unicode_ci<br></code></pre></td></tr></table></figure>
+
+<p>编写sqoop从hadoop导出数据到MySQL的脚本sqoop_mysql.sh</p>
+<p>修改下面的IP地址和密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span><br><br>/training/sqoop-1.4.7.bin__hadoop-2.6.0/bin/sqoop export \<br><br>--connect jdbc:mysql://192.168.112.129:3306/shop \<br><br>--username root \<br><br>--password Sjm@!_123456 \<br><br>--input-fields-terminated-by &#x27;\t&#x27; \<br><br>--table t_mr_result \<br><br>--export-dir $(cat result_path.txt)<br><br>--class-name UpsertMrResult --update-key goodsId --update-mode allowinsert<br></code></pre></td></tr></table></figure>
+
 
             </div>
             <hr>
