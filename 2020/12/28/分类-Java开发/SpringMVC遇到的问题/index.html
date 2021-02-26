@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Mybatis遇到的问题 - Hexo</title>
+  <title>SpringMVC遇到的问题 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Mybatis遇到的问题">
+            <span class="h2" id="subtitle" title="SpringMVC遇到的问题">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-24 16:05" pubdate>
-        December 24, 2020 pm
+      <time datetime="2020-12-28 10:11" pubdate>
+        December 28, 2020 am
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      144 字
+      92 字
     </span>
   
 
@@ -224,21 +224,26 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Mybatis遇到的问题</h1>
+            <h1 style="display: none">SpringMVC遇到的问题</h1>
             
             <div class="markdown-body">
-              <p>[toc]</p>
-<h2 id="【idea问题-依赖包自动下载】"><a href="#【idea问题-依赖包自动下载】" class="headerlink" title="【idea问题-依赖包自动下载】"></a>【idea问题-依赖包自动下载】</h2><p>在导入依赖时系统不会自动下载依赖包，需要更改设置勾选下面选项</p>
-<p><img src="/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201216225711521.png" srcset="/img/loading.gif" alt="image-20201216225711521"></p>
-<h2 id="【idea问题-数据库连接失败】"><a href="#【idea问题-数据库连接失败】" class="headerlink" title="【idea问题-数据库连接失败】"></a>【idea问题-数据库连接失败】</h2><p>在Intellij IDEA中通过Database连接Mysql报错：Server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimezone’ property manually.</p>
-<p>原因是MySQL驱动中默认时区是UTC，与本地时间（中国）相差八个小时，所以链接不上，</p>
-<p><img src="/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201217110030848.png" srcset="/img/loading.gif" alt="image-20201217110030848"></p>
-<h2 id="【代码配置问题-类名路径不完整】"><a href="#【代码配置问题-类名路径不完整】" class="headerlink" title="【代码配置问题-类名路径不完整】"></a>【代码配置问题-类名路径不完整】</h2><p><img src="/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201224161411671.png" srcset="/img/loading.gif" alt="image-20201224161411671"></p>
-<p>修改</p>
-<p><img src="/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201224161512007.png" srcset="/img/loading.gif" alt="image-20201224161512007"></p>
-<h2 id="【代码配置问题-mapper资源映射错误】"><a href="#【代码配置问题-mapper资源映射错误】" class="headerlink" title="【代码配置问题-mapper资源映射错误】"></a>【代码配置问题-mapper资源映射错误】</h2><p>注意“/”与“.”的区别</p>
-<p>注意后缀名.xml</p>
-<p><img src="/2020/12/24/Mybatis%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201224161706825.png" srcset="/img/loading.gif" alt="image-20201224161706825"></p>
+              <h2 id="【idea问题-连接Tomcat】"><a href="#【idea问题-连接Tomcat】" class="headerlink" title="【idea问题-连接Tomcat】"></a>【idea问题-连接Tomcat】</h2><p><img src="/2020/12/28/%E5%88%86%E7%B1%BB-Java%E5%BC%80%E5%8F%91/SpringMVC%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201228101621847.png" srcset="/img/loading.gif" alt="image-20201228101621847"></p>
+<p>若application serve中没有Tomcat点击Configure自行寻找文件夹</p>
+<p><img src="/2020/12/28/%E5%88%86%E7%B1%BB-Java%E5%BC%80%E5%8F%91/SpringMVC%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201228101745465.png" srcset="/img/loading.gif" alt="image-20201228101745465"></p>
+<p>【idea问题-出现404问题】</p>
+<ol>
+<li><p>查看控制台输出，看一下是不是缺少了什么jar包。</p>
+</li>
+<li><p>如果jar包存在，显示无法输出，就在IDEA的项目发布中，添加lib依赖！</p>
+</li>
+<li><p>重启Tomcat 即可解决！</p>
+<p><img src="/2020/12/28/%E5%88%86%E7%B1%BB-Java%E5%BC%80%E5%8F%91/SpringMVC%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201228102702913.png" srcset="/img/loading.gif" alt="image-20201228102702913"></p>
+<p>添加jar包</p>
+<p><img src="/2020/12/28/%E5%88%86%E7%B1%BB-Java%E5%BC%80%E5%8F%91/SpringMVC%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201228102457438.png" srcset="/img/loading.gif" alt="image-20201228102457438"></p>
+</li>
+</ol>
+<p>添加所有的包</p>
+<p><img src="/2020/12/28/%E5%88%86%E7%B1%BB-Java%E5%BC%80%E5%8F%91/SpringMVC%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20201228102824206.png" srcset="/img/loading.gif" alt="image-20201228102824206"></p>
 
             </div>
             <hr>
@@ -271,9 +276,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/26/%E5%88%86%E7%B1%BB-%E6%95%B0%E6%8D%AE%E5%BA%93/Sql/">
+                      <a href="/2021/01/04/%E5%88%86%E7%B1%BB-Java%E5%BC%80%E5%8F%91/SSM%E6%95%B4%E5%90%88/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Sql</span>
+                        <span class="hidden-mobile">SSM整合</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -281,8 +286,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/23/Lombok/">
-                        <span class="hidden-mobile">Lombok注解插件</span>
+                      <a href="/2020/12/27/%E5%88%86%E7%B1%BB-Java%E5%BC%80%E5%8F%91/SpringMVC/">
+                        <span class="hidden-mobile">SpringMVC学习笔记</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
