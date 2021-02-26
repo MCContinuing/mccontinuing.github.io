@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>RabbitMQ安装及集群搭建 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>MCContinuing's Library</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="RabbitMQ安装及集群搭建">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-25 15:46" pubdate>
+        February 25, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      37
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">RabbitMQ安装及集群搭建</h1>
+            
+            <div class="markdown-body">
+              <h1 id="安装及配置RabbitMQ"><a href="#安装及配置RabbitMQ" class="headerlink" title="安装及配置RabbitMQ"></a>安装及配置RabbitMQ</h1><p>下载地址：<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/#getstarted">https://www.rabbitmq.com/#getstarted</a></p>
+<p>点击Download+Installation</p>
+<p>1、此处下载centos版本</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210222213424372.png" srcset="/img/loading.gif" alt="image-20210222213424372"></p>
+<p>在此页面需要下载两个：服务和依赖包</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210223110003677.png" srcset="/img/loading.gif" alt="image-20210223110003677"></p>
+<h2 id="下载rabbit-serve-点击Download"><a href="#下载rabbit-serve-点击Download" class="headerlink" title="下载rabbit-serve 点击Download"></a>下载rabbit-serve 点击Download</h2><p>点击要下载的版本（此机使用Centos7，所以下载第二个）</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210223105632538.png" srcset="/img/loading.gif" alt="image-20210223105632538"></p>
+<h2 id="下载包依赖，及erlang"><a href="#下载包依赖，及erlang" class="headerlink" title="下载包依赖，及erlang"></a>下载包依赖，及erlang</h2><p>注意Erlang的版本需要和RabbitMQ版本对应起来</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210222213338646.png" srcset="/img/loading.gif" alt="image-20210222213338646"></p>
+<p>可以查看最小最大对应版本</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210222213602648.png" srcset="/img/loading.gif" alt="image-20210222213602648"></p>
+<p>最终下载：</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210223112948384.png" srcset="/img/loading.gif" alt="image-20210223112948384"></p>
+<p>在虚拟机上新建文件夹/training/RabbitMQ,将三个包上传到文件夹中</p>
+<p>Linux中进行安装</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210223113812156.png" srcset="/img/loading.gif" alt="image-20210223113812156"></p>
+<p>默认安装路径在此：/usr/share/doc/rabbitmq-server-3.8.11/</p>
+<h2 id="启动rabbitmq"><a href="#启动rabbitmq" class="headerlink" title="启动rabbitmq"></a><strong>启动rabbitmq</strong></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl enable rabbitmq-server<br><br>systemctl start rabbitmq-server<br><br>systemctl status rabbitmq-server<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210223160424490.png" srcset="/img/loading.gif" alt="image-20210223160424490"></p>
+<h2 id="添加Web插件"><a href="#添加Web插件" class="headerlink" title="添加Web插件"></a>添加Web插件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">rabbitmq-plugins enable rabbitmq_management<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210223160648007.png" srcset="/img/loading.gif" alt="image-20210223160648007"></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>浏览器中输入</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.91.130:15672/">http://192.168.91.130:15672</a></p>
+<p>账号密码都是默认：guest</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210223161236620.png" srcset="/img/loading.gif" alt="image-20210223161236620"></p>
+<p>提示当前只能本地访问，需要配置远程用户才能远程访问</p>
+<h2 id="配置远程用户"><a href="#配置远程用户" class="headerlink" title="配置远程用户"></a><strong>配置远程用户</strong></h2><p>参考官方文档：<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/configure.html">https://www.rabbitmq.com/configure.html</a></p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/clip_image002.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>在这个部分可以看到我们RPM安装的rabbitmq的配置文件放在这个位置</p>
+<p>于是在etc/rabbitmq(安装时的默认路径)中新建一个配置文件rabbitmq.conf</p>
+<p>在里面写上</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210223164059703.png" srcset="/img/loading.gif" alt="image-20210223164059703"></p>
+<p>原因：在官网中是这样说的：使用key = value方式来描述你想要设置的属性，所以我们在rabbitMQ中配置了loopback_users = none</p>
+<p>这个配置的作用：解决不能通过ip来直接访问后管页面，只能通过localhost来访问</p>
+<p><strong>重启Rabbitmq</strong></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit">[root<span class="hljs-symbol">@localhost</span>~]<span class="hljs-meta"># systemctl restart rabbitmq-server</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/image-20210223164344143.png" srcset="/img/loading.gif" alt="image-20210223164344143"></p>
+<h1 id="RabbitMQ集群搭建"><a href="#RabbitMQ集群搭建" class="headerlink" title="RabbitMQ集群搭建"></a>RabbitMQ集群搭建</h1><p>摘要：实际生产应用中都会采用消息队列的集群方案，如果选择RabbitMQ那么有必要了解下它的集群方案原理</p>
+<p>一般来说，如果只是为了学习RabbitMQ或者验证业务工程的正确性那么在本地环境或者测试环境上使用其单实例部署就可以了，但是出于MQ中间件本身的可靠性、并发性、吞吐量和消息堆积能力等问题的考虑，在生产环境上一般都会考虑使用RabbitMQ的集群方案。</p>
+<h3 id="集群方案的原理"><a href="#集群方案的原理" class="headerlink" title="集群方案的原理"></a>集群方案的原理</h3><p>RabbitMQ这款消息队列中间件产品本身是基于Erlang编写，Erlang语言天生具备分布式特性（通过同步Erlang集群各节点的magic cookie来实现）。因此，RabbitMQ天然支持Clustering。这使得RabbitMQ本身不需要像ActiveMQ、Kafka那样通过ZooKeeper分别来实现HA方案和保存集群的元数据。集群是保证可靠性的一种方式，同时可以通过水平扩展以达到增加消息吞吐量能力的目的。</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/1566073768274.png" srcset="/img/loading.gif" alt="1565245219265"></p>
+<h3 id="3-2-单机多实例部署"><a href="#3-2-单机多实例部署" class="headerlink" title="3.2 单机多实例部署"></a>3.2 单机多实例部署</h3><p>由于某些因素的限制，有时候你不得不在一台机器上去搭建一个rabbitmq集群，这个有点类似zookeeper的单机版。真实生成环境还是要配成多机集群的。有关怎么配置多机集群的可以参考其他的资料，这里主要论述如何在单机中配置多个rabbitmq实例。</p>
+<p>主要参考官方文档：<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/clustering.html">https://www.rabbitmq.com/clustering.html</a></p>
+<p>首先确保RabbitMQ运行没有问题</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@super ~]# rabbitmqctl status<br>Status of node rabbit@super ...<br>[&#123;pid,10232&#125;,<br> &#123;running_applications,<br>     [&#123;rabbitmq_management,&quot;RabbitMQ Management Console&quot;,&quot;3.6.5&quot;&#125;,<br>      &#123;rabbitmq_web_dispatch,&quot;RabbitMQ Web Dispatcher&quot;,&quot;3.6.5&quot;&#125;,<br>      &#123;webmachine,&quot;webmachine&quot;,&quot;1.10.3&quot;&#125;,<br>      &#123;mochiweb,&quot;MochiMedia Web Server&quot;,&quot;2.13.1&quot;&#125;,<br>      &#123;rabbitmq_management_agent,&quot;RabbitMQ Management Agent&quot;,&quot;3.6.5&quot;&#125;,<br>      &#123;rabbit,&quot;RabbitMQ&quot;,&quot;3.6.5&quot;&#125;,<br>      &#123;os_mon,&quot;CPO  CXC 138 46&quot;,&quot;2.4&quot;&#125;,<br>      &#123;syntax_tools,&quot;Syntax tools&quot;,&quot;1.7&quot;&#125;,<br>      &#123;inets,&quot;INETS  CXC 138 49&quot;,&quot;6.2&quot;&#125;,<br>      &#123;amqp_client,&quot;RabbitMQ AMQP Client&quot;,&quot;3.6.5&quot;&#125;,<br>      &#123;rabbit_common,[],&quot;3.6.5&quot;&#125;,<br>      &#123;ssl,&quot;Erlang/OTP SSL application&quot;,&quot;7.3&quot;&#125;,<br>      &#123;public_key,&quot;Public key infrastructure&quot;,&quot;1.1.1&quot;&#125;,<br>      &#123;asn1,&quot;The Erlang ASN1 compiler version 4.0.2&quot;,&quot;4.0.2&quot;&#125;,<br>      &#123;ranch,&quot;Socket acceptor pool for TCP protocols.&quot;,&quot;1.2.1&quot;&#125;,<br>      &#123;mnesia,&quot;MNESIA  CXC 138 12&quot;,&quot;4.13.3&quot;&#125;,<br>      &#123;compiler,&quot;ERTS  CXC 138 10&quot;,&quot;6.0.3&quot;&#125;,<br>      &#123;crypto,&quot;CRYPTO&quot;,&quot;3.6.3&quot;&#125;,<br>      &#123;xmerl,&quot;XML parser&quot;,&quot;1.3.10&quot;&#125;,<br>      &#123;sasl,&quot;SASL  CXC 138 11&quot;,&quot;2.7&quot;&#125;,<br>      &#123;stdlib,&quot;ERTS  CXC 138 10&quot;,&quot;2.8&quot;&#125;,<br>      &#123;kernel,&quot;ERTS  CXC 138 10&quot;,&quot;4.2&quot;&#125;]&#125;,<br> &#123;os,&#123;unix,linux&#125;&#125;,<br> &#123;erlang_version,<br>     &quot;Erlang/OTP 18 [erts-7.3] [source] [64-bit] [async-threads:64] [hipe] [kernel-poll:true]\n&quot;&#125;,<br> &#123;memory,<br>     [&#123;total,56066752&#125;,<br>      &#123;connection_readers,0&#125;,<br>      &#123;connection_writers,0&#125;,<br>      &#123;connection_channels,0&#125;,<br>      &#123;connection_other,2680&#125;,<br>      &#123;queue_procs,268248&#125;,<br>      &#123;queue_slave_procs,0&#125;,<br>      &#123;plugins,1131936&#125;,<br>      &#123;other_proc,18144280&#125;,<br>      &#123;mnesia,125304&#125;,<br>      &#123;mgmt_db,921312&#125;,<br>      &#123;msg_index,69440&#125;,<br>      &#123;other_ets,1413664&#125;,<br>      &#123;binary,755736&#125;,<br>      &#123;code,27824046&#125;,<br>      &#123;atom,1000601&#125;,<br>      &#123;other_system,4409505&#125;]&#125;,<br> &#123;alarms,[]&#125;,<br> &#123;listeners,[&#123;clustering,25672,&quot;::&quot;&#125;,&#123;amqp,5672,&quot;::&quot;&#125;]&#125;,<br> &#123;vm_memory_high_watermark,0.4&#125;,<br> &#123;vm_memory_limit,411294105&#125;,<br> &#123;disk_free_limit,50000000&#125;,<br> &#123;disk_free,13270233088&#125;,<br> &#123;file_descriptors,<br>     [&#123;total_limit,924&#125;,&#123;total_used,6&#125;,&#123;sockets_limit,829&#125;,&#123;sockets_used,0&#125;]&#125;,<br> &#123;processes,[&#123;limit,1048576&#125;,&#123;used,262&#125;]&#125;,<br> &#123;run_queue,0&#125;,<br> &#123;uptime,43651&#125;,<br> &#123;kernel,&#123;net_ticktime,60&#125;&#125;]<br></code></pre></td></tr></table></figure>
+
+<p>停止rabbitmq服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@super sbin]# service rabbitmq-server stop<br>Stopping rabbitmq-server: rabbitmq-server.<br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>启动第一个节点：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@super sbin]# RABBITMQ_NODE_PORT=5673 RABBITMQ_NODENAME=rabbit1 rabbitmq-server start<br><br>              RabbitMQ 3.6.5. Copyright (C) 2007-2016 Pivotal Software, Inc.<br><span class="hljs-meta">  #</span><span class="bash"><span class="hljs-comment">#  ##      Licensed under the MPL.  See http://www.rabbitmq.com/</span></span><br><span class="hljs-meta">  #</span><span class="bash"><span class="hljs-comment">#  ##</span></span><br><span class="hljs-meta">  #</span><span class="bash"><span class="hljs-comment">#########  Logs: /var/log/rabbitmq/rabbit1.log</span></span><br><span class="hljs-meta">  #</span><span class="bash"><span class="hljs-comment">#####  ##        /var/log/rabbitmq/rabbit1-sasl.log</span></span><br><span class="hljs-meta">  #</span><span class="bash"><span class="hljs-comment">#########</span></span><br>              Starting broker...<br> completed with 6 plugins.<br></code></pre></td></tr></table></figure>
+
+<p>启动第二个节点：</p>
+<blockquote>
+<p>web管理插件端口占用,所以还要指定其web插件占用的端口号。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@super ~]# RABBITMQ_NODE_PORT=5674 RABBITMQ_SERVER_START_ARGS=&quot;-rabbitmq_management listener [&#123;port,15674&#125;]&quot; RABBITMQ_NODENAME=rabbit2 rabbitmq-server start<br><br>              RabbitMQ 3.6.5. Copyright (C) 2007-2016 Pivotal Software, Inc.<br><span class="hljs-meta">  #</span><span class="bash"><span class="hljs-comment">#  ##      Licensed under the MPL.  See http://www.rabbitmq.com/</span></span><br><span class="hljs-meta">  #</span><span class="bash"><span class="hljs-comment">#  ##</span></span><br><span class="hljs-meta">  #</span><span class="bash"><span class="hljs-comment">#########  Logs: /var/log/rabbitmq/rabbit2.log</span></span><br><span class="hljs-meta">  #</span><span class="bash"><span class="hljs-comment">#####  ##        /var/log/rabbitmq/rabbit2-sasl.log</span></span><br><span class="hljs-meta">  #</span><span class="bash"><span class="hljs-comment">#########</span></span><br>              Starting broker...<br> completed with 6 plugins.<br><br></code></pre></td></tr></table></figure>
+
+<p>结束命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">rabbitmqctl -n rabbit1 stop<br>rabbitmqctl -n rabbit2 stop<br></code></pre></td></tr></table></figure>
+
+
+
+<p>rabbit1操作作为主节点：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@super ~]# rabbitmqctl -n rabbit1 stop_app  <br>Stopping node rabbit1@super ...<br>[root@super ~]# rabbitmqctl -n rabbit1 reset	 <br>Resetting node rabbit1@super ...<br>[root@super ~]# rabbitmqctl -n rabbit1 start_app<br>Starting node rabbit1@super ...<br>[root@super ~]# <br></code></pre></td></tr></table></figure>
+
+<p>rabbit2操作为从节点：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@super ~]# rabbitmqctl -n rabbit2 stop_app<br>Stopping node rabbit2@super ...<br>[root@super ~]# rabbitmqctl -n rabbit2 reset<br>Resetting node rabbit2@super ...<br>[root@super ~]# rabbitmqctl -n rabbit2 join_cluster rabbit1@&#x27;super&#x27; ###&#x27;&#x27;内是主机名换成自己的<br>Clustering node rabbit2@super with rabbit1@super ...<br>[root@super ~]# rabbitmqctl -n rabbit2 start_app<br>Starting node rabbit2@super ...<br><br></code></pre></td></tr></table></figure>
+
+<p>查看集群状态：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">[<span class="hljs-symbol">root@</span><span class="hljs-keyword">super</span> ~]# rabbitmqctl cluster_status -n rabbit1<br>Cluster status of node <span class="hljs-symbol">rabbit1@</span><span class="hljs-keyword">super</span> ...<br>[&#123;nodes,[&#123;disc,[<span class="hljs-symbol">rabbit1@</span><span class="hljs-keyword">super</span>,<span class="hljs-symbol">rabbit2@</span><span class="hljs-keyword">super</span>]&#125;]&#125;,<br> &#123;running_nodes,[<span class="hljs-symbol">rabbit2@</span><span class="hljs-keyword">super</span>,<span class="hljs-symbol">rabbit1@</span><span class="hljs-keyword">super</span>]&#125;,<br> &#123;cluster_name,&lt;&lt;<span class="hljs-string">&quot;rabbit1@super&quot;</span>&gt;&gt;&#125;,<br> &#123;partitions,[]&#125;,<br> &#123;alarms,[&#123;<span class="hljs-symbol">rabbit2@</span><span class="hljs-keyword">super</span>,[]&#125;,&#123;<span class="hljs-symbol">rabbit1@</span><span class="hljs-keyword">super</span>,[]&#125;]&#125;]<br></code></pre></td></tr></table></figure>
+
+<p>web监控：</p>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/1566065096459.png" srcset="/img/loading.gif" alt="1566065096459"></p>
+<h3 id="3-3-集群管理"><a href="#3-3-集群管理" class="headerlink" title="3.3 集群管理"></a>3.3 集群管理</h3><p><strong>rabbitmqctl join_cluster {cluster_node} [–ram]</strong><br>将节点加入指定集群中。在这个命令执行前需要停止RabbitMQ应用并重置节点。</p>
+<p><strong>rabbitmqctl cluster_status</strong><br>显示集群的状态。</p>
+<p><strong>rabbitmqctl change_cluster_node_type {disc|ram}</strong><br>修改集群节点的类型。在这个命令执行前需要停止RabbitMQ应用。</p>
+<p><strong>rabbitmqctl forget_cluster_node [–offline]</strong><br>将节点从集群中删除，允许离线执行。</p>
+<p><strong>rabbitmqctl update_cluster_nodes {clusternode}</strong></p>
+<p>在集群中的节点应用启动前咨询clusternode节点的最新信息，并更新相应的集群信息。这个和join_cluster不同，它不加入集群。考虑这样一种情况，节点A和节点B都在集群中，当节点A离线了，节点C又和节点B组成了一个集群，然后节点B又离开了集群，当A醒来的时候，它会尝试联系节点B，但是这样会失败，因为节点B已经不在集群中了。</p>
+<p><strong>rabbitmqctl cancel_sync_queue [-p vhost] {queue}</strong><br>取消队列queue同步镜像的操作。</p>
+<p><strong>rabbitmqctl set_cluster_name {name}</strong><br>设置集群名称。集群名称在客户端连接时会通报给客户端。Federation和Shovel插件也会有用到集群名称的地方。集群名称默认是集群中第一个节点的名称，通过这个命令可以重新设置。</p>
+<h3 id="3-4-RabbitMQ镜像集群配置"><a href="#3-4-RabbitMQ镜像集群配置" class="headerlink" title="3.4 RabbitMQ镜像集群配置"></a>3.4 RabbitMQ镜像集群配置</h3><blockquote>
+<p>上面已经完成RabbitMQ默认集群模式，但并不保证队列的高可用性，尽管交换机、绑定这些可以复制到集群里的任何一个节点，但是队列内容不会复制。虽然该模式解决一项目组节点压力，但队列节点宕机直接导致该队列无法应用，只能等待重启，所以要想在队列节点宕机或故障也能正常应用，就要复制队列内容到集群里的每个节点，必须要创建镜像队列。</p>
+<p>镜像队列是基于普通的集群模式的，然后再添加一些策略，所以你还是得先配置普通集群，然后才能设置镜像队列，我们就以上面的集群接着做。</p>
+</blockquote>
+<p><strong>设置的镜像队列可以通过开启的网页的管理端Admin-&gt;Policies，也可以通过命令。</strong></p>
+<blockquote>
+<p>rabbitmqctl set_policy my_ha “^” ‘{“ha-mode”:”all”}’</p>
+</blockquote>
+<p><img src="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/1566072300852.png" srcset="/img/loading.gif" alt="1566072300852"></p>
+<blockquote>
+<ul>
+<li>Name:策略名称</li>
+<li>Pattern：匹配的规则，如果是匹配所有的队列，是^.</li>
+<li>Definition:使用ha-mode模式中的all，也就是同步所有匹配的队列。问号链接帮助文档。</li>
+</ul>
+</blockquote>
+<h3 id="3-5-负载均衡-HAProxy"><a href="#3-5-负载均衡-HAProxy" class="headerlink" title="3.5 负载均衡-HAProxy"></a>3.5 负载均衡-HAProxy</h3><p>HAProxy提供高可用性、负载均衡以及基于TCP和HTTP应用的代理，支持虚拟主机，它是免费、快速并且可靠的一种解决方案,包括Twitter，Reddit，StackOverflow，GitHub在内的多家知名互联网公司在使用。HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数。</p>
+<h5 id="3-5-1-安装HAProxy"><a href="#3-5-1-安装HAProxy" class="headerlink" title="3.5.1  安装HAProxy"></a>3.5.1  安装HAProxy</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">//下载依赖包<br>yum install gcc vim wget<br>//上传haproxy源码包<br>//解压<br>tar -zxvf haproxy-1.6.5.tar.gz -C /usr/local<br>//进入目录、进行编译、安装<br>cd /usr/local/haproxy-1.6.5<br>make TARGET=linux31 PREFIX=/usr/local/haproxy<br>make install PREFIX=/usr/local/haproxy<br>mkdir /etc/haproxy<br>//赋权<br>groupadd -r -g 149 haproxy<br>useradd -g haproxy -r -s /sbin/nologin -u 149 haproxy<br>//创建haproxy配置文件<br>mkdir /etc/haproxy<br>vim /etc/haproxy/haproxy.cfg<br></code></pre></td></tr></table></figure>
+
+
+
+
+<h5 id="3-5-2-配置HAProxy"><a href="#3-5-2-配置HAProxy" class="headerlink" title="3.5.2 配置HAProxy"></a>3.5.2 配置HAProxy</h5><p>配置文件路径：/etc/haproxy/haproxy.cfg</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">logging options</span><br>global<br>	log 127.0.0.1 local0 info<br>	maxconn 5120<br>	chroot /usr/local/haproxy<br>	uid 99<br>	gid 99<br>	daemon<br>	quiet<br>	nbproc 20<br>	pidfile /var/run/haproxy.pid<br><br>defaults<br>	log global<br>	<br>	mode tcp<br><br>	option tcplog<br>	option dontlognull<br>	retries 3<br>	option redispatch<br>	maxconn 2000<br>	contimeout 5s<br>   <br>     clitimeout 60s<br><br>     srvtimeout 15s	<br><span class="hljs-meta">#</span><span class="bash">front-end IP <span class="hljs-keyword">for</span> consumers and producters</span><br><br>listen rabbitmq_cluster<br>	bind 0.0.0.0:5672<br>	<br>	mode tcp<br><span class="hljs-meta">	#</span><span class="bash">balance url_param userid</span><br><span class="hljs-meta">	#</span><span class="bash">balance url_param session_id check_post 64</span><br><span class="hljs-meta">	#</span><span class="bash">balance hdr(User-Agent)</span><br><span class="hljs-meta">	#</span><span class="bash">balance hdr(host)</span><br><span class="hljs-meta">	#</span><span class="bash">balance hdr(Host) use_domain_only</span><br><span class="hljs-meta">	#</span><span class="bash">balance rdp-cookie</span><br><span class="hljs-meta">	#</span><span class="bash">balance leastconn</span><br><span class="hljs-meta">	#</span><span class="bash">balance <span class="hljs-built_in">source</span> //ip</span><br>	<br>	balance roundrobin<br>	<br>        server node1 127.0.0.1:5673 check inter 5000 rise 2 fall 2<br>        server node2 127.0.0.1:5674 check inter 5000 rise 2 fall 2<br><br>listen stats<br>	bind 172.16.98.133:8100<br>	mode http<br>	option httplog<br>	stats enable<br>	stats uri /rabbitmq-stats<br>	stats refresh 5s<br></code></pre></td></tr></table></figure>
+
+<p>启动HAproxy负载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">/usr/local/haproxy/sbin/haproxy -f /etc/haproxy/haproxy.cfg<br>//查看haproxy进程状态<br>ps -ef | grep haproxy<br><br>访问如下地址对mq节点进行监控<br>http://172.16.98.133:8100/rabbitmq-stats<br></code></pre></td></tr></table></figure>
+
+<p>代码中访问mq集群地址，则变为访问haproxy地址:5672</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%9C%AA%E5%BD%92%E6%A1%A3/">未归档</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/22/MQ%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E4%BB%8B%E7%BB%8D/">
+                        <span class="hidden-mobile">MQ消息队列中间件的介绍</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://mccontinuing.github.io/" target="_blank" rel="nofollow noopener"><span>Mccontinuing</span></a> <i class="iconfont icon-love"></i> <a href="http://http://qufang.xyz/" target="_blank" rel="nofollow noopener"><span>SGLMYD</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

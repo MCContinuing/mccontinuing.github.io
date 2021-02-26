@@ -181,19 +181,24 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/01/18/yaml%E5%9F%BA%E7%A1%80/">yaml基础</a>
+        <a href="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">RabbitMQ安装及集群搭建</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/01/18/yaml%E5%9F%BA%E7%A1%80/">
+        <a href="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
           
           
             
           
-          yaml概述YAML是 “YAML Ain’t a Markup Language” （YAML不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）
-这种语言以数据作为中心，而不是以标记语言为重点！
-以前的配置文件，大多数都是使用xml来配置；比如一个简单的端口配置，我们来对比下yaml和xml
-传
+          安装及配置RabbitMQ下载地址：https://www.rabbitmq.com/#getstarted
+点击Download+Installation
+1、此处下载centos版本
+
+在此页面需要下载两个：服务和依赖包
+
+下载rabbit-serve 点击Download点击要下载的版本（此机使用Centos7，所以下载第二个）
+
+下载包依赖，及erlang注意Erlang的版本需要和Rab
         </a>
       </p>
 
@@ -201,8 +206,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-18 15:43" pubdate>
-              2021-01-18
+            <time datetime="2021-02-25 15:46" pubdate>
+              2021-02-25
             </time>
           </div>
         
@@ -215,6 +220,13 @@
           </div>
         
         
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
+            
+          </div>
+        
       </div>
     </article>
   </div>
@@ -225,21 +237,28 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/01/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux常用命令</a>
+        <a href="/2021/02/22/MQ%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E4%BB%8B%E7%BB%8D/">MQ消息队列中间件的介绍</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/01/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+        <a href="/2021/02/22/MQ%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E4%BB%8B%E7%BB%8D/">
           
           
             
           
-          ls（list）1234567ls -a 列出目录所有文件，包含以.开始的隐藏文件ls -A 列出除.及..的其它文件ls -r 反序排列ls -t 以文件修改时间排序ls -S 以文件大小排序ls -h 以易读大小显示ls -l 除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来
+          MQ概述MQ全称为Message Queue，消息队列是应用程序和应用程序之间的通信方法。
 
-cd(changeDirectory)1cd [目录名]
+为什么使用MQ
+在项目中，可将一些无需即时返回且耗时的操作提取出来，进行异步处理，而这种异步处理的方式大大的节省了服务器的请求响应时间，从而提高了系统的吞吐量。
 
-说明：切换当前目录至 dirName
-1
+
+优点
+应用解耦：提高系统容错性和可维护性
+
+异步提速：提升用户体验和系统吞吐量
+
+削峰填谷：提高系统稳定性
+开发中消息队列通常有如下应用场景
         </a>
       </p>
 
@@ -247,8 +266,8 @@ cd(changeDirectory)1cd [目录名]
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-14 11:46" pubdate>
-              2021-01-14
+            <time datetime="2021-02-22 19:57" pubdate>
+              2021-02-22
             </time>
           </div>
         
@@ -256,10 +275,17 @@ cd(changeDirectory)1cd [目录名]
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/">Linux系统</a>
+              <a href="/categories/%E6%9C%AA%E5%BD%92%E6%A1%A3/">未归档</a>
             
           </div>
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
+            
+          </div>
         
       </div>
     </article>
@@ -271,20 +297,22 @@ cd(changeDirectory)1cd [目录名]
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">VM虚拟机操作记录：开机卡死、设置静态ip</a>
+        <a href="/2021/02/22/RabbitMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">RabbitMQ学习笔记</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">
+        <a href="/2021/02/22/RabbitMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
           
           
             
           
-          【遇到问题-开机卡死】由于非正常情况退出造成的，找到虚拟机所在目录，删除.lck文件夹删掉
+          RabbitMQ简介RabbitMQ是由erlang语言开发，基于AMQP（Advanced Message Queue 高级消息队列协议）协议实现的消息队列，它是一种应用程序之间的通信方法，消息队列在分布式系统开发中应用非常广泛。
+RabbitMQ官方地址：http://www.rabbitmq.com/
+RabbitMQ提供了6种模式：
 
-【遇到问题-虚拟机ip地址总是改变】采用方式为NAT模式+固定IP的模式。
-配置环境说明：主机为Win10家庭版，虚拟机为VMware Workstation 12 Pro中文版，虚拟机中的Linux系统为CentOS 7 64位.
-一、查看VM虚拟机ip地址范围在菜单栏选择编辑→ 虚拟网络编辑器，打开虚
+简单模式
+work模式
+Publish/Subscri
         </a>
       </p>
 
@@ -292,8 +320,222 @@ cd(changeDirectory)1cd [目录名]
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-14 11:19" pubdate>
-              2021-01-14
+            <time datetime="2021-02-22 19:33" pubdate>
+              2021-02-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%9C%AA%E5%BD%92%E6%A1%A3/">未归档</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/20/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/">Redis安装步骤（Windows、Linux）</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/20/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/">
+          
+          
+            
+          
+          Windows安装1、下载安装包：https://github.com/dmajkic/redis/releases
+2、下载完毕得到压缩包：
+3、解压到自己电脑上的环境目录下的就可以的！Redis 十分的小，只有5M
+
+4、开启Redis，双击运行服务即可！
+5、使用redis客户单来来连接redis
+
+Window下使用简单，但是Redis 推荐我们使用Linux去开发使用！
+Linux安装1
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-20 09:46" pubdate>
+              2021-02-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91%E6%95%B0%E6%8D%AE%E5%BA%93/NoSql%E4%BB%8B%E7%BB%8D/">NoSql介绍</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91%E6%95%B0%E6%8D%AE%E5%BA%93/NoSql%E4%BB%8B%E7%BB%8D/">
+          
+          
+            
+          
+          用户的个人信息，社交网络，地理位置。用户自己产生的数据，用户日志等等爆发式增长。这时候我们就需要使用NoSQL数据库的，Nosql 可以很好的处理以上的情况！
+
+NoSQL = Not Only SQL （非关系型数据库）
+
+关系型数据库：表格 ，行 ，列
+泛指非关系型数据库的，随着web2.0互联网的诞生！传统的关系型数据库很难对付web2.0时代！尤其是超大规模的高并发的社区！ 暴露出来很多难
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 10:54" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Redis学习笔记</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+          
+          
+            
+          
+          Redis概述Redis（==R==emote ==Di==ctionary ==S==erver )，即远程字典服务 !
+
+是一个开源的使用ANSI，C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API
+
+redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave（主从）同步。
+
+是当下最
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 10:50" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/18/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91Linux%E7%B3%BB%E7%BB%9F/Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/">Linux账号与磁盘管理</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/18/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91Linux%E7%B3%BB%E7%BB%9F/Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/">
+          
+          
+            
+          
+          账号管理Linux系统是一个多用户多任务的分时操作系统，任何一个要使用系统资源的用户，都必须首先向系统管理员申请一个账号，然后以这个账号的身份进入系统。
+用户的账号一方面可以帮助系统管理员对使用系统的用户进行跟踪，并控制他们对系统资源的访问；另一方面也可以帮助用户组织文件，并为用户提供安全性保护。
+每个用户账号都拥有一个唯一的用户名和各自的口令。
+用户在登录时键入正确的用户名和口令后，就能够进入系
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-18 15:40" pubdate>
+              2021-02-18
             </time>
           </div>
         
@@ -308,8 +550,6 @@ cd(changeDirectory)1cd [目录名]
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a>
             
               <a href="/tags/Linux/">Linux</a>
             
@@ -325,19 +565,20 @@ cd(changeDirectory)1cd [目录名]
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/01/13/TempNoteBook/">TempNoteBook</a>
+        <a href="/2021/02/18/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91Linux%E7%B3%BB%E7%BB%9F/Vim%E7%BC%96%E8%BE%91%E5%99%A8/">Vim编辑器</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/01/13/TempNoteBook/">
+        <a href="/2021/02/18/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91Linux%E7%B3%BB%E7%BB%9F/Vim%E7%BC%96%E8%BE%91%E5%99%A8/">
           
           
             
           
-          最小的基本单位是bit，按顺序给出所有单位：bit、Byte、KB、MB、GB、TB、PB、EB、ZB、YB、BB、NB、DB。
-1Byte = 8bit  1K = 1024bit 1MB = 1024K 1G = 1024M
-1T = 1024G      1P = 1024T      1E = 1024P      1Z = 1024E      
-1Y = 1024Z      1B =
+          Vim是从 vi 发展出来的一个文本编辑器。代码补完、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。
+简单的来说， vi 是老式的字处理器，不过功能已经很齐全了，但是还是有可以进步的地方。
+vim 则可以说是程序开发者的一项很好用的工具。
+所有的 Unix Like 系统都会内建 vi 文书编辑器，其他的文书编辑器则不一定会存在。
+连 vim 的官方网站 (http://www.v
         </a>
       </p>
 
@@ -345,44 +586,8 @@ cd(changeDirectory)1cd [目录名]
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-13 19:40" pubdate>
-              2021-01-13
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">HDFS文件系统</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
-          
-          
-            
-          
-          一、HDFS概念1.1 概念HDFS，（Hadoop布式文件系统）它是一个文件系统，用于存储文件，通过目录树来定位文件；其次，它是分布式的，由很多服务器联合起来实现其功能，集群中的服务器有各自的角色。
-HDFS的设计适合一次写入，多次读出的场景，且不支持文件的修改。适合用来做数据分析，并不适合用来做网盘应用。
-1.2 组成1）HDFS集群包括，NameNode和DataNode以及Secondar
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-13 19:37" pubdate>
-              2021-01-13
+            <time datetime="2021-02-18 15:38" pubdate>
+              2021-02-18
             </time>
           </div>
         
@@ -390,7 +595,7 @@ HDFS的设计适合一次写入，多次读出的场景，且不支持文件的�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+              <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/">Linux系统</a>
             
           </div>
         
@@ -398,7 +603,7 @@ HDFS的设计适合一次写入，多次读出的场景，且不支持文件的�
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Hadoop/">Hadoop</a>
+              <a href="/tags/Linux/">Linux</a>
             
           </div>
         
@@ -412,20 +617,29 @@ HDFS的设计适合一次写入，多次读出的场景，且不支持文件的�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/">Hadoop入门</a>
+        <a href="/2021/02/18/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91Linux%E7%B3%BB%E7%BB%9F/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/">Linux基本命令总结</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/">
+        <a href="/2021/02/18/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91Linux%E7%B3%BB%E7%BB%9F/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/">
           
           
             
           
-          一、从Hadoop框架讨论大数据生态大数据（big data），指无法在一定时间范围内用常规软件工具进行捕捉、管理和处理的数据集合，是需要新处理模式才能具有更强的决策力、洞察发现力和流程优化能力的海量、高增长率和多样化的信息资产。
-1.1 Hadoop是什么
-Hadoop是一个由Apache基金会所开发的分布式系统基础架构
-主要解决，海量数据的存储和海量数据的分析计算问题。
-广义上来说，HADOO
+          目录管理
+ls: 列出目录
+cd：切换目录
+pwd：显示目前的目录
+mkdir：创建一个新的目录
+rmdir：删除一个空的目录
+cp: 复制文件或目录
+rm: 移除文件或目录
+mv: 移动文件与目录，或修改文件与目录的名称
+
+可以使用 man [命令] 来查看各个命令的使用文档，如 ：man cp。
+ls （列出目录）在Linux系统当中， ls 命令可能是最常被运行的。
+语法：
+1[root@w
         </a>
       </p>
 
@@ -433,8 +647,48 @@ Hadoop是一个由Apache基金会所开发的分布式系统基础架构
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-13 19:37" pubdate>
-              2021-01-13
+            <time datetime="2021-02-18 10:40" pubdate>
+              2021-02-18
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/18/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91Linux%E7%B3%BB%E7%BB%9F/Linux%E7%B3%BB%E7%BB%9F%E4%BA%86%E8%A7%A3/">Linux系统了解</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/18/%E3%80%90%E5%88%86%E7%B1%BB%E3%80%91Linux%E7%B3%BB%E7%BB%9F/Linux%E7%B3%BB%E7%BB%9F%E4%BA%86%E8%A7%A3/">
+          
+          
+            
+          
+          开机登录开机会启动许多程序。它们在Windows叫做”服务”（service），在Linux就叫做”守护进程”（daemon）。
+开机成功后，它会显示一个文本登录界面，这个界面就是我们经常看到的登录界面，在这个登录界面中会提示用户输入用户名，而用户输入的用户将作为参数传给login程序来验证用户的身份，密码是不显示的，输完回车即可！
+一般来说，用户的登录方式有三种：
+
+命令行登录
+ssh登录
+图形
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-18 10:20" pubdate>
+              2021-02-18
             </time>
           </div>
         
@@ -442,7 +696,7 @@ Hadoop是一个由Apache基金会所开发的分布式系统基础架构
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+              <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/">Linux系统</a>
             
           </div>
         
@@ -450,255 +704,7 @@ Hadoop是一个由Apache基金会所开发的分布式系统基础架构
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Hadoop/">Hadoop</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/">2021寒假实训大数据分析电商平台</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/13/2021%E5%AF%92%E5%81%87%E5%AE%9E%E8%AE%AD%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0/">
-          
-          
-            
-          
-          一、环境安装1.1 新建虚拟机实训的项目主要是进行大数据的实训，所以需要按照Linux，使用VMware Workstation作为虚拟机安装Linux系统，创建虚拟机，步骤如下：
-
-下一步
-
-下一步
-
-下一步
-
-下一步
-
-下一步
-
-下一步
-
-下一步
-
-下一步
- 
-下一步
-
-下一步
-
-接下来，点击编辑虚拟机，需要找到Linux的IOS文件
- 
-找到镜像文件之后，接下来就是安装Linux系统，选择开
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-13 10:45" pubdate>
-              2021-01-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%9C%AA%E5%BD%92%E6%A1%A3/">未归档</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/08/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">SpringBoot学习笔记</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/08/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-          
-          
-            
-          
-          Spring是一个开源框架，2003 年兴起的一个轻量级的Java 开发框架，作者：Rod Johnson  。
-Spring是为了解决企业级应用开发的复杂性而创建的，简化开发。
-一、SpringBoot简介Spring是如何简化Java开发的为了降低Java开发的复杂性，Spring采用了以下4种关键策略：
-1、基于POJO的轻量级和最小侵入性编程，所有东西都是bean；
-2、通过IOC，依赖注
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-08 09:25" pubdate>
-              2021-01-08
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java%E5%90%8E%E7%AB%AF/">Java后端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/04/SSM%E6%95%B4%E5%90%88/">SSM整合</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/04/SSM%E6%95%B4%E5%90%88/">
-          
-          
-            
-          
-          环境：
-
-IDEA
-
-MySQL 5.7.19
-
-Tomcat 9
-
-Maven 3.6
-要求：
-
-需要熟练掌握MySQL数据库，Spring，JavaWeb及MyBatis知识，简单的前端知识；
-
-
-第一个SSM整合项目已上传GitHub：https://github.com/MCContinuing/SSMBuild
-数据库设计创建一个存放书籍数据的数据库表
-12345678910111213
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-04 16:01" pubdate>
-              2021-01-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java%E5%90%8E%E7%AB%AF/">Java后端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/SSM/">SSM</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/12/28/SpringMVC%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">SpringMVC遇到的问题</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/12/28/SpringMVC%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
-          
-          
-            
-          
-          【idea问题-连接Tomcat】
-若application serve中没有Tomcat点击Configure自行寻找文件夹
-
-【idea问题-出现404问题】
-
-查看控制台输出，看一下是不是缺少了什么jar包。
-
-如果jar包存在，显示无法输出，就在IDEA的项目发布中，添加lib依赖！
-
-重启Tomcat 即可解决！
-
-添加jar包
-
-
-
-添加所有的包
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-28 10:11" pubdate>
-              2020-12-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java%E5%90%8E%E7%AB%AF/">Java后端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/SSM/">SSM</a>
-            
-              <a href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a>
+              <a href="/tags/Linux/">Linux</a>
             
           </div>
         
@@ -710,7 +716,7 @@ Maven 3.6
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
@@ -764,9 +770,33 @@ Maven 3.6
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+     <a href="https://mccontinuing.github.io/" target="_blank" rel="nofollow noopener"><span>Mccontinuing</span></a> <i class="iconfont icon-love"></i> <a href="http://http://qufang.xyz/" target="_blank" rel="nofollow noopener"><span>SGLMYD</span></a> 
   </div>
   
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
 
   
 
@@ -815,6 +845,8 @@ Maven 3.6
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
