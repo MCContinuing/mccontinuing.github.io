@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Redis安装步骤（Windows、Linux） - Hexo</title>
+  <title>To：蛐蛐 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Redis安装步骤（Windows、Linux）">
+            <span class="h2" id="subtitle" title="To：蛐蛐">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-20 09:46" pubdate>
-        February 20, 2021 am
+      <time datetime="2020-10-24 11:35" pubdate>
+        October 24, 2020 am
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      561 字
+      6 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      1
        分钟
     </span>
   
@@ -224,63 +224,18 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Redis安装步骤（Windows、Linux）</h1>
+            <h1 style="display: none">To：蛐蛐</h1>
             
             <div class="markdown-body">
-              <h2 id="Windows安装"><a href="#Windows安装" class="headerlink" title="Windows安装"></a>Windows安装</h2><p>1、下载安装包：<a target="_blank" rel="noopener" href="https://github.com/dmajkic/redis/releases">https://github.com/dmajkic/redis/releases</a></p>
-<p>2、下载完毕得到压缩包：</p>
-<p>3、解压到自己电脑上的环境目录下的就可以的！Redis 十分的小，只有5M</p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219162648326.png" srcset="/img/loading.gif" alt="image-20210219162648326"></p>
-<p>4、开启Redis，双击运行服务即可！</p>
-<p>5、使用redis客户单来来连接redis</p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219162728663.png" srcset="/img/loading.gif" alt="image-20210219162728663"></p>
-<p>Window下使用简单，但是Redis 推荐我们使用Linux去开发使用！</p>
-<h2 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h2><p>1、下载安装包！ <code>redis-5.0.8.tar.gz</code> 上传到虚拟机tools目录下</p>
-<p>官网：<a target="_blank" rel="noopener" href="https://redis.io/">https://redis.io/</a></p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219163055743.png" srcset="/img/loading.gif" alt="image-20210219163055743"></p>
-<p>2、解压Redis的安装包！</p>
-<ul>
-<li><pre><code class="shell">tar -zvxf /tools/redis-6.0.10.tar.gz  -C /training/
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><br>![<span class="hljs-string">image-20210219164007275</span>](<span class="hljs-link">Redis安装步骤（Windows、Linux）/image-20210219164007275.png</span>)<br><br>3、进入解压后的文件，可以看到我们redis的配置文件<br><br>![<span class="hljs-string">image-20210219164329163</span>](<span class="hljs-link">Redis安装步骤（Windows、Linux）/image-20210219164329163.png</span>)<br><br>4、基本的环境安装<br><br><span class="hljs-code">```shell</span><br><span class="hljs-code"># 1、安装c++环境</span><br><span class="hljs-code">yum install gcc-c++ </span><br><span class="hljs-code"></span><br><span class="hljs-code"># 检查是否安装成功</span><br><span class="hljs-code">gcc -v</span><br><span class="hljs-code"></span><br></code></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219164949305.png" srcset="/img/loading.gif" alt="image-20210219164949305"></p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219165019560.png" srcset="/img/loading.gif" alt="image-20210219165019560"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 2、将所有需要的文件配置上</span><br>make<br><br><span class="hljs-meta">#</span><span class="bash"> !!!注意redis6.0以上会出错</span><br><span class="hljs-meta">#</span><span class="bash"> 安装6.0以上版本需要升级gcc到5.3及以上,如下：升级到gcc 9.3：</span><br>yum -y install centos-release-scl<br><br>yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils<br><br>scl enable devtoolset-9 bash<br><br><span class="hljs-meta">#</span><span class="bash"> 需要注意的是scl命令启用只是临时的，退出shell或重启就会恢复原系统gcc版本。</span><br><span class="hljs-meta">#</span><span class="bash"> 如果要长期使用gcc 9.3的话：</span><br>echo &quot;source /opt/rh/devtoolset-9/enable&quot; &gt;&gt;/etc/profile<br><span class="hljs-meta">#</span><span class="bash"> 这样退出shell重新打开就是新版的gcc了</span><br><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 3、</span><br>make install<br></code></pre></td></tr></table></figure>
-
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219170438172.png" srcset="/img/loading.gif" alt="image-20210219170438172"></p>
-<p>5、redis的默认安装路径 <code>/usr/local/bin</code></p>
-<p>进入此安装路径</p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219170808808.png" srcset="/img/loading.gif" alt="image-20210219170808808"></p>
-<p>6、将redis配置文件。复制到我们当前目录下（在此目录下新建一个文件夹存放）</p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219171039670.png" srcset="/img/loading.gif" alt="image-20210219171039670"></p>
-<p>我们以后就使用这个新建的目录中的redis.conf进行修改配置</p>
-<p>7、redis默认不是后台启动的，修改配置文件！</p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219171514163.png" srcset="/img/loading.gif" alt="image-20210219171514163"></p>
-<h3 id="启动Redis服务！"><a href="#启动Redis服务！" class="headerlink" title="启动Redis服务！"></a>启动Redis服务！</h3><p>通过指定配置文件启动</p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219230530598.png" srcset="/img/loading.gif" alt="image-20210219230530598"></p>
-<h3 id="使用redis-cli-进行连接测试！"><a href="#使用redis-cli-进行连接测试！" class="headerlink" title="使用redis-cli 进行连接测试！"></a>使用redis-cli 进行连接测试！</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">redis-cli -p 6379<br></code></pre></td></tr></table></figure>
-
-
-
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219230433989.png" srcset="/img/loading.gif" alt="image-20210219230433989"></p>
-<p>查看redis的进程是否开启！</p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219230704401.png" srcset="/img/loading.gif" alt="image-20210219230704401"></p>
-<h3 id="关闭Redis服务呢？-shutdown"><a href="#关闭Redis服务呢？-shutdown" class="headerlink" title="关闭Redis服务呢？ shutdown"></a>关闭Redis服务呢？ <code>shutdown</code></h3><p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219230827108.png" srcset="/img/loading.gif" alt="image-20210219230827108"></p>
-<p>再次查看进程是否存在</p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219230907067.png" srcset="/img/loading.gif" alt="image-20210219230907067"></p>
-<h2 id="redis-benchmark压力测试工具"><a href="#redis-benchmark压力测试工具" class="headerlink" title="redis-benchmark压力测试工具"></a>redis-benchmark压力测试工具</h2><p>官方自带的性能测试工具</p>
-<p>redis-benchmark 命令参数</p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/20210116175434236.png" srcset="/img/loading.gif"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 测试：100个并发连接 100000请求</span><br>redis-benchmark -h localhost -p 6379 -c 100 -n 100000<br></code></pre></td></tr></table></figure>
-
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/image-20210219231612192.png" srcset="/img/loading.gif" alt="image-20210219231612192"></p>
-<p>测试分析：</p>
-<p><img src="/2021/02/20/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/20210116175532636.png" srcset="/img/loading.gif"></p>
-
+              <div id="hexo-blog-encrypt" data-wpm="错啦！再猜！！！" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Hey, password is required here.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="5b824e77bebb353e63b4b8d9072633e0122f7a2c1d45bd93b46f02c85a20894a">de435f4adca7b95dee962158abaa00c609c9229f108154a1eea90f13073acc08d48063bd86f8a0d8ff9a26bb9ab1136885b640c1b8e34af3cd9323d072142ae06db85e280bde536858e115db893c2ade3c85a1d07d42bb0f77fedb5661adf1254fd8cf604fb36c1a3e5b24c31296fa5e2eb13ab61792aa59be8d8c3e89cfbe37b37ce7fe4986b219d6789d3a314a04441c750eae22210ee97f1b4525014b5a93a462edf32b1333d8e11b5df1a26ba09528a0f6eea5fc7843767b3d3dd271f65550c3adeda957e34b64e3deeebd81c16fd61eed419967bf6228975dc700c6548fb4aa92414b16272b84403a7346459034282c636453f355a2de0347989bd5962faaf292a13e726764d30067479d579a9ad0b6ee8069c212c79667bce1938a31927513c34364a702493c2fffccb6685225eadebb8844f91c921518782f706df9088108b50db577e1759df4a659a8bd0e0c0ae3d1165bbd04986c42535412c6bf0039bb06eb97698f667710abe274a733d721561c86d3dc30c22acd9478d5784a5b0d0985685f8c43a29937315a2edebf1a9a3fba4ae558d3143fe10d101f34bcd84980fce48dc53276fdf9697b59702e9ba83b37b212fba1d376fe33643c5cb92956e73759041e5cc64ec47f3e7917749ac37b10fcaff1fad3be652cb2a8814b5fdeeb29bf54480c0260862f349cf941775bd2862cdbe6d64f6d24f77982b3e953fb95bb1d2a06dbecaa40c19d2741926e24a5777064f9ec41fec5d5f753b04fde3fddaf516d56fa5edb9270789616e03f5f0ba67df7a9b670ca80f8bce4d6443563200e8e815ea963533b12cdaa3fd698697e8f50edfb54527c0c7f5dc7124856b5c3c26e1992b7121a468837ceea6c6794ad59eafa4377ad559c4f3b3e0e0345852de68dd6404677485fc7a065ef0af62ecb90c6f713c310d88221415072b10fdbb031c91f061fdb0d4f089fc876b4386ee52de033894da698226fc45a533bf57472e259363599a3db03df234c85bd2689b31de0883b6b0e75808531b4aec4fea05aa784441d14a26feba128afd3f6876a79fed2ad54857045ceaeb53c74ecb3fa5f557dfaa76957deeb5993e8e7b7e206fc4e4592570fd21b0aeca53f6c495422986c201cd52ad6a70c4ae798fca69258848500d41fb6ca5608775b13587c16097fa3d09d908558432bff3c2e4600944f2acbedbce78a9f865caef25c7ac300feaa2135345366001134db227f3ec6d6b609c78af3a8345d798a9c7dc24c98d24bba86f1c7fae53c18173e1da88b532e5cd12f0ab444ba2ca1278b132ffb10cee3e7e15ebddd400fe5ae41be09a60f65b5ad1a393ad78c294559779b51b8d282bf74c9920fe9dd7a358e10c01397f170069a71deb6b6cd798db5e4ca60ae2f0a</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
             </div>
             <hr>
             <div>
@@ -289,17 +244,10 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                      <a class="hover-with-bg" href="/categories/QuQ/">QuQ</a>
                     
                   </div>
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
-                    
-                  </div>
                 
               </div>
               
@@ -310,21 +258,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/22/RabbitMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                      <a href="/2020/12/16/mybatis/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">RabbitMQ学习笔记</span>
+                        <span class="hidden-mobile">Mybatis学习笔记</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2021/02/19/NoSql%E4%BB%8B%E7%BB%8D/">
-                        <span class="hidden-mobile">NoSql介绍</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
