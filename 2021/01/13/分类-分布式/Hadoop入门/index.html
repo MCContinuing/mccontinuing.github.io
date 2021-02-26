@@ -259,7 +259,7 @@
 <li><p>名字来源于Doug Cutting儿子的玩具大象</p>
 </li>
 </ul>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image004.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image004.jpg" srcset="/img/loading.gif" alt="img"></p>
 <ul>
 <li>Hadoop就此诞生并迅速发展，标志这云计算时代来临</li>
 </ul>
@@ -309,7 +309,7 @@
 <li><p>Hadoop Common：支持其他模块的工具模块。</p>
 </li>
 </ul>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image006.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image006.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>1、HDFS架构概述</strong></p>
 <p>​    1）NameNode（nn）：存储文件的元数据，如文件名，文件目录结构，文件属性（生成时间、副本数、文件权限），以及每个文件的块列表和块所在的DataNode等。</p>
 <p>​    2）DataNode(dn)：在本地文件系统存储文件块数据，以及块数据的校验和。</p>
@@ -323,7 +323,7 @@
 <p>MapReduce将计算过程分为两个阶段：Map和Reduce</p>
 <p>​    1）Map阶段并行处理输入数据</p>
 <p>​    2）Reduce阶段对Map结果进行汇总</p>
-<h2 id="1-6-大数据生态体系"><a href="#1-6-大数据生态体系" class="headerlink" title="1.6 大数据生态体系"></a><strong>1.6</strong> 大数据生态体系</h2><p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image016.png" srcset="/img/loading.gif" alt="img"></p>
+<h2 id="1-6-大数据生态体系"><a href="#1-6-大数据生态体系" class="headerlink" title="1.6 大数据生态体系"></a><strong>1.6</strong> 大数据生态体系</h2><p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image016.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>1）Sqoop：</strong>Sqoop是一款开源的工具，主要用于在Hadoop、Hive与传统的数据库(MySql)间进行数据的传递，可以将一个关系型数据库（例如 ：MySQL，Oracle 等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。</p>
 <p><strong>2）Flume：</strong>Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。</p>
 <p><strong>3）Kafka：</strong>Kafka是一种高吞吐量的分布式发布订阅消息系统，有如下特性：</p>
@@ -343,11 +343,11 @@
 <p>进入到根目录下，两个目录</p>
 <p>mkdir /tools 作为上传安装的文件</p>
 <p>mkdir /training 作为后面环境的使用</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image018.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image018.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h2 id="2-1-修改映射名和配置host文件"><a href="#2-1-修改映射名和配置host文件" class="headerlink" title="2.1 修改映射名和配置host文件"></a>2.1 修改映射名和配置host文件</h2><p>我们可以进行修改。通过编辑/etc/hosts文件</p>
 <p><code> vi /etc/hosts</code></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image019.png" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image020.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image019.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image020.png" srcset="/img/loading.gif" alt="img"></p>
 <h2 id="2-2-关闭防火墙"><a href="#2-2-关闭防火墙" class="headerlink" title="2.2 关闭防火墙"></a><strong>2.2</strong> <strong>关闭防火墙</strong></h2><p>关闭防火墙(CentOS7下)</p>
 <p><code>systemctl stop firewalld.service</code></p>
 <p><code>systemctl disable firewalld.service</code></p>
@@ -362,10 +362,10 @@
 <p><code>source ~/.bash_profile</code></p>
 <p>验证jdk是否安装成功</p>
 <p><code>java -version</code></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image023.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image023.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h2 id="2-4-安装Hadoop"><a href="#2-4-安装Hadoop" class="headerlink" title="2.4 安装Hadoop"></a>2.4 安装Hadoop</h2><p>把上传到tools目录下的Hadoop进行解压</p>
 <p><code>tar -zvxf /hadoop-2.7.3.tar.gz -C /training/</code></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image025.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image025.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><code>cd /training/hadoop-2.7.3/</code></p>
 <p>配置环境变量：</p>
 <p><code>vi ~/.bash_profile</code></p>
@@ -375,7 +375,7 @@
 <p>让环境变量生效：</p>
 <p><code>source ~/.bash_profile</code></p>
 <p>tree -d -L 3 hadoop-2.7.3/ 会列出三级树形结构目录</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image027.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image027.png" srcset="/img/loading.gif" alt="img"></p>
 <h1 id="三、Hadoop运行模式"><a href="#三、Hadoop运行模式" class="headerlink" title="三、Hadoop运行模式"></a>三、Hadoop运行模式</h1><h2 id="3-1-参考网址"><a href="#3-1-参考网址" class="headerlink" title="3.1 参考网址"></a>3.1 参考网址</h2><p>（1）官方网站：</p>
 <p><a target="_blank" rel="noopener" href="http://hadoop.apache.org/">http://hadoop.apache.org/</a></p>
 <p>（2）各个版本归档库地址</p>
@@ -431,8 +431,8 @@
 
 <p>​       查看结果：</p>
 <p>​           MapReduce程序的执行结果会默认按照英文单词的字典顺序进行了排序</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image029.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image031.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image029.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image031.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h3 id="3-2-2-伪分布模式环境搭建"><a href="#3-2-2-伪分布模式环境搭建" class="headerlink" title="3.2.2  伪分布模式环境搭建"></a><strong>3.2.2  伪分布模式环境搭建</strong></h3><p>特点：具备HDFS全部功能</p>
 <p>HDFS:NameNode + DataNode</p>
 <p>Yarn:ReourceManager + NodeManager</p>
@@ -453,21 +453,21 @@
 <p><strong>配置Java环境变量</strong>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">export JAVA_HOME=/training/jdk1.8.0_171<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610529336152.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610529336152.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>2、配置：hdfs-site.xml</strong> </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /training/hadoop-2.7.3/etc/hadoop/hdfs-site.xml<br></code></pre></td></tr></table></figure>
 
 <p>hdfs-site.xml：原则是：一般有几个数据节点就配置几个，但是最多不能超多3</p>
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--表示数据块的冗余度 默认为3--&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.replication<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003-1610529336152.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image003-1610529336152.png" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>3、配置：core-site.xml</strong></p>
 <p>需要提前新建一个tmp文件夹</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/image-20210113172925162.png" srcset="/img/loading.gif" alt="image-20210113172925162"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/image-20210113172925162.png" srcset="/img/loading.gif" alt="image-20210113172925162"></p>
 <p><code>vi /training/hadoop-2.7.3/etc/hadoop/core-site.xml</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--配置NameNode的通讯地址 9000 是RPC默认的通信端口--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>fs.defaultFS<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>hdfs://192.168.181.135:9000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>         <br><span class="hljs-comment">&lt;!--HDFS数据保存在Linux的哪个目录，默认值是Linux的tmp目录 必须配置，否则会报错/training/hadoop-2.7.3/tmp 必须事先存在--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.tmp.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/training/hadoop-2.7.3/tmp<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span></span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image005.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image005.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>4、配置：mapper-site.xml</strong></p>
 <p>  这个文件事先是不存在的，需要复制一份</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cp /training/hadoop-2.7.3/etc/hadoop/mapred-site.xml.template /training/hadoop-2.7.3/etc/hadoop/mapred-site.xml<br></code></pre></td></tr></table></figure>
@@ -476,7 +476,7 @@
 
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--配置MR的运行框架--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>mapreduce.framework.name<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>yarn<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span></span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image007.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image007.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>5、配置：yarn-site.xml</strong></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">vi /training/hadoop<span class="hljs-literal">-2</span>.<span class="hljs-number">7.3</span>/etc/hadoop/mapper<span class="hljs-literal">-site</span>.xml<br></code></pre></td></tr></table></figure>
 
@@ -489,10 +489,10 @@
 <p><strong>设置免密码登录</strong></p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ssh-keygen -t rsa</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image001.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image001.png" srcset="/img/loading.gif" alt="img"></p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">ssh-copy-id <span class="hljs-number">192.168</span><span class="hljs-number">.91</span><span class="hljs-number">.130</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image003.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p><strong>最后验证Hadoop</strong></p>
 <p>格式化：HDFS(NameNode)</p>
 <figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dos">hdfs namenode -<span class="hljs-built_in">format</span><br></code></pre></td></tr></table></figure>
@@ -506,11 +506,11 @@
 <p>​      停止：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">stop</span>-<span class="hljs-keyword">all</span>.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610540693507.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image003.png" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image004.png" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image006-1610540693509.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image008-1610540693510.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image002-1610540693507.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image003.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image004.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image006-1610540693509.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image008-1610540693510.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h3 id="3-2-3-伪分布测试"><a href="#3-2-3-伪分布测试" class="headerlink" title="3.2.3 伪分布测试"></a><strong>3.2.3 伪分布测试</strong></h3><p>编辑test.txt文件，写入一个单词。</p>
 <p>I have a dream that one day this nation will rise up and live out the true meaning of its creed: “We hold these truths to be self-evident, that all men are created equal.”</p>
 <p>I have a dream that one day on the red hills of Georgia, the sons of former slaves and the sons of former slave owners will be able to sit down together at the table of brotherhood.</p>
@@ -521,17 +521,17 @@
 <p>I have a dream today!</p>
 <p>I have a dream that one day every valley shall be exalted, and every hill and mountain shall be made low, the rough places will be made plain, and the crooked places will be made straight; “and the glory of the Lord shall be revealed and all flesh shall see it together.”</p>
 <p>测试需要把文件上传到HDFS上，在HDFS上创建一个目录</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image048.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image048.png" srcset="/img/loading.gif" alt="img"></p>
 <p>将本地的文本上传到HDFS上创建的目录</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image050.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image050.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>最后执行</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image051.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image051.png" srcset="/img/loading.gif" alt="img"></p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">hadoop jar hadoop-mapreduce-examples-<span class="hljs-number">2.7</span>.<span class="hljs-number">3</span>.jar wordcount <span class="hljs-regexp">/root/i</span>nput<span class="hljs-regexp">/test.txt /</span>root/output<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image053.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image053.jpg" srcset="/img/loading.gif" alt="img"></p>
 <p>查看结果</p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image055.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="/2021/01/13/Hadoop%E5%85%A5%E9%97%A8/clip_image057.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image055.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Hadoop%E5%85%A5%E9%97%A8/clip_image057.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h3 id="3-2-4-Hadoop全分布模式"><a href="#3-2-4-Hadoop全分布模式" class="headerlink" title="3.2.4 Hadoop全分布模式"></a><strong>3.2.4 Hadoop全分布模式</strong></h3><p>分析：</p>
 <p>​    1）准备3台客户机（关闭防火墙、静态ip、主机名称）</p>
 <p>​    2）安装jdk</p>
@@ -645,7 +645,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/13/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
+                      <a href="/2021/01/13/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/HDFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">HDFS文件系统</span>
                         <span class="visible-mobile">Previous</span>

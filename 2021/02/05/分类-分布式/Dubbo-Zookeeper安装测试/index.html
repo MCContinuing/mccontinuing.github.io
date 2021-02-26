@@ -235,12 +235,12 @@
 <li><p>推荐阅读文章：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2accc2840a1b">https://www.jianshu.com/p/2accc2840a1b</a></p>
 </li>
 </ul>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/2.png" srcset="/img/loading.gif"></p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/3.png" srcset="/img/loading.gif"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/2.png" srcset="/img/loading.gif"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/3.png" srcset="/img/loading.gif"></p>
 <p>RPC两个核心模块：通讯，序列化</p>
 <h1 id="Dubbo简介"><a href="#Dubbo简介" class="headerlink" title="Dubbo简介"></a>Dubbo简介</h1><p>dubbo官网 <a target="_blank" rel="noopener" href="http://dubbo.apache.org/zh-cn/index.html">http://dubbo.apache.org/zh-cn/index.html</a></p>
 <p>Apache Dubbo 是一款高性能、轻量级的开源Java RPC框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。</p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/1.png" srcset="/img/loading.gif"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/1.png" srcset="/img/loading.gif"></p>
 <p><strong>服务提供者</strong>（Provider）：暴露服务的服务提供方，服务提供者在启动时，向注册中心注册自己提供的服务。</p>
 <p><strong>服务消费者</strong>（Consumer）：调用远程服务的服务消费方，服务消费者在启动时，向注册中心订阅自己所需的服务，服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</p>
 <p><strong>注册中心</strong>（Registry）：注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者</p>
@@ -266,30 +266,30 @@
 <p>2、运行/bin/zkServer.cmd </p>
 <p>遇到问题：闪退 !</p>
 <p>解决方案：编辑zkServer.cmd文件末尾添加pause 。这样运行出错就不会退出，会提示错误信息，方便找到原因。</p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205162644323.png" srcset="/img/loading.gif" alt="image-20210205162644323"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205162644323.png" srcset="/img/loading.gif" alt="image-20210205162644323"></p>
 <p>再次运行可查看错误是缺少zoo.cfg文件</p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205162813360.png" srcset="/img/loading.gif" alt="image-20210205162813360"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205162813360.png" srcset="/img/loading.gif" alt="image-20210205162813360"></p>
 <p>3、修改zoo.cfg配置文件</p>
 <p>将conf文件夹下面的zoo_sample.cfg复制一份改名为zoo.cfg即可。</p>
 <p>注意几个重要位置：</p>
 <p>dataDir=./  临时数据存储的目录（可写相对路径）</p>
 <p>clientPort=2181  zookeeper的端口号</p>
 <p>修改完成后再次启动zookeeper</p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205163115219.png" srcset="/img/loading.gif" alt="image-20210205163115219"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205163115219.png" srcset="/img/loading.gif" alt="image-20210205163115219"></p>
 <p>修改zoo.cfg中的配置</p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205210228065.png" srcset="/img/loading.gif" alt="image-20210205210228065"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205210228065.png" srcset="/img/loading.gif" alt="image-20210205210228065"></p>
 <p>参数说明：</p>
 <p>tickTime：这个时间是作为 Zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳。<br>initLimit：这个配置项是用来配置 Zookeeper 接受客户端（这里所说的客户端不是用户连接 Zookeeper 服务器的客户端，而是 Zookeeper 服务器集群中连接到 Leader 的 Follower 服务器）初始化连接时最长能忍受多少个心跳时间间隔数。当已经超过 10 个心跳的时间（也就是 tickTime）长度后 Zookeeper 服务器还没有收到客户端的返回信息，那么表明这个客户端连接失败。总的时间长度就是 5<em>2000=10 秒<br>syncLimit：这个配置项标识 Leader 与 Follower 之间发送消息，请求和应答时间长度，最长不能超过多少个 tickTime 的时间长度，总的时间长度就是 2</em>2000=4 秒<br>dataDir：顾名思义就是 Zookeeper 保存数据的目录，默认情况下，Zookeeper 将写数据的日志文件也保存在这个目录里。<br>clientPort：这个端口就是客户端连接 Zookeeper 服务器的端口，Zookeeper 会监听这个端口，接受客户端的访问请求。</p>
 <p>重启zkServe.cmd</p>
 <p>发现控制台输出 ZooKeeper audit is disabled</p>
 <p>修改zkServer.cmd:  如下”-Dzookeeper.audit.enable=true”</p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205210338696.png" srcset="/img/loading.gif" alt="image-20210205210338696"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205210338696.png" srcset="/img/loading.gif" alt="image-20210205210338696"></p>
 <p>再次启动zkServe.cmd</p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205210450001.png" srcset="/img/loading.gif" alt="image-20210205210450001"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205210450001.png" srcset="/img/loading.gif" alt="image-20210205210450001"></p>
 <p>使用zkCli.cmd测试</p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205220118339.png" srcset="/img/loading.gif" alt="image-20210205220118339"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205220118339.png" srcset="/img/loading.gif" alt="image-20210205220118339"></p>
 <p>输入ls /  ： 列出zookeeper根下保存的所有节点</p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205220220014.png" srcset="/img/loading.gif" alt="image-20210205220220014"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/image-20210205220220014.png" srcset="/img/loading.gif" alt="image-20210205220220014"></p>
 <h1 id="SpringBoot-Dubbo-zookeeper"><a href="#SpringBoot-Dubbo-zookeeper" class="headerlink" title="SpringBoot + Dubbo + zookeeper"></a>SpringBoot + Dubbo + zookeeper</h1><h2 id="框架搭建"><a href="#框架搭建" class="headerlink" title="框架搭建"></a>框架搭建</h2><p><strong>1. 启动zookeeper ！</strong></p>
 <p><strong>2. IDEA创建一个空项目；</strong></p>
 <p><strong>3.创建一个模块，实现服务提供者：provider-server ， 选择web依赖即可</strong></p>
@@ -330,7 +330,7 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment">#当前应用名字</span><br><span class="hljs-string">dubbo.application.name=consumer-server</span><br><span class="hljs-comment">#注册中心地址</span><br><span class="hljs-string">dubbo.registry.address=zookeeper://127.0.0.1:2181</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>3. 本来正常步骤是需要将服务提供者的接口打包，然后用pom文件导入，我们这里使用简单的方式，直接将服务的接口拿过来，路径必须保证正确，即和服务提供者相同；</strong></p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/4.png" srcset="/img/loading.gif"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/4.png" srcset="/img/loading.gif"></p>
 <p><strong>4. 完善消费者的服务类</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.consumer.service;<br><br><span class="hljs-keyword">import</span> com.kuang.provider.service.TicketService;<br><span class="hljs-keyword">import</span> org.apache.dubbo.config.annotation.Reference;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Service;<br><br><span class="hljs-meta">@Service</span> <span class="hljs-comment">//注入到容器中</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserService</span> </span>&#123;<br><br>   <span class="hljs-meta">@Reference</span> <span class="hljs-comment">//远程引用指定的服务，他会按照全类名进行匹配，看谁给注册中心注册了这个全类名</span><br>   TicketService ticketService;<br><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">bugTicket</span><span class="hljs-params">()</span></span>&#123;<br>       String ticket = ticketService.getTicket();<br>       System.out.println(<span class="hljs-string">&quot;在注册中心买到&quot;</span>+ticket);<br>  &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -341,7 +341,7 @@
 <p><strong>2. 打开dubbo-admin实现监控【可以不用做】</strong></p>
 <p><strong>3. 开启服务者</strong></p>
 <p><strong>4. 消费者消费测试，结果：</strong></p>
-<p><img src="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/5.png" srcset="/img/loading.gif"></p>
+<p><img src="/2021/02/05/%E5%88%86%E7%B1%BB-%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/5.png" srcset="/img/loading.gif"></p>
 
             </div>
             <hr>
