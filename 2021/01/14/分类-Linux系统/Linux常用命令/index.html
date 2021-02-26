@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Linux常用命令 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>MCContinuing's Library</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Linux常用命令">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-14 11:46" pubdate>
+        January 14, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      43
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Linux常用命令</h1>
+            
+            <div class="markdown-body">
+              <h1 id="ls（list）"><a href="#ls（list）" class="headerlink" title="ls（list）"></a>ls（list）</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">ls -a 列出目录所有文件，包含以.开始的隐藏文件<br>ls -A 列出除.及..的其它文件<br>ls -r 反序排列<br>ls -t 以文件修改时间排序<br>ls -S 以文件大小排序<br>ls -h 以易读大小显示<br>ls -l 除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来<br></code></pre></td></tr></table></figure>
+
+<h1 id="cd-changeDirectory"><a href="#cd-changeDirectory" class="headerlink" title="cd(changeDirectory)"></a>cd(changeDirectory)</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span><span class="hljs-meta"> [目录名]</span><br></code></pre></td></tr></table></figure>
+
+<p>说明：切换当前目录至 dirName</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd / #（1）进入要目录<br>cd ~ #（2）进入 &quot;home&quot; 目录<br>cd - #（3）进入上一次工作路径<br></code></pre></td></tr></table></figure>
+
+<h1 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h1><p>pwd 命令用于查看当前工作目录路径。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">pwd   #（1）查看当前路径<br>pwd -P#（2）查看软链接的实际路径<br></code></pre></td></tr></table></figure>
+
+<h1 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h1><p>mkdir 命令用于创建文件夹。</p>
+<ul>
+<li><strong>-m</strong>: 对新建目录设置存取权限，也可以用 chmod 命令设置;</li>
+<li><strong>-p</strong>: 可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后，系统将自动建立好那些尚不在的目录，即一次可以建立多个目录。</li>
+</ul>
+<h1 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h1><p>创建文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">touch  somefile.1       <br><span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># 创建一个空文件</span></span><br></code></pre></td></tr></table></figure>
+
+<h1 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h1><p>删除一个目录中的一个或多个文件或目录，如果没有使用 -r 选项，则 rm 不会删除目录。如果使用 rm 来删除文件，通常仍可以将该文件恢复原状。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">rm</span> <span class="hljs-selector-attr">[选项]</span> 文件…<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">（1）删除任何 .<span class="hljs-built_in">log</span> 文件，删除前逐一询问确认：</span><br>rm -i *.log<br><span class="hljs-meta">#</span><span class="bash">（2）删除 <span class="hljs-built_in">test</span> 子目录及子目录中所有档案删除，并且不用一一确认：</span><br>rm -rf test<br><span class="hljs-meta">#</span><span class="bash">（3）删除以 -f 开头的文件</span><br>rm -- -f*<br></code></pre></td></tr></table></figure>
+
+<h1 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h1><p>从一个目录中删除一个或多个子目录项，删除某目录时也必须具有对其父目录的写权限。</p>
+<p><strong>注意</strong>：不能删除非空目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> （1）当 parent 子目录被删除后使它也成为空目录的话，则顺便一并删除：</span><br>rmdir -p parent/child/child11<br></code></pre></td></tr></table></figure>
+
+<h1 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h1><p>移动文件或修改文件名，根据第二参数类型（如目录，则移动文件；如为文件则重命令该文件）。</p>
+<p>当第二个参数为目录时，第一个参数可以是多个以空格分隔的文件或目录，然后移动第一个参数指定的多个文件到第二个参数指定的目录中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> （1）将文件 test.log 重命名为 test1.txt</span><br>mv test.log test1.txt<br><span class="hljs-meta">#</span><span class="bash"> （2）将文件 log1.txt,log2.txt,log3.txt 移动到根的 test3 目录中</span><br>mv llog1.txt log2.txt log3.txt /test3<br><span class="hljs-meta">#</span><span class="bash"> （3）将文件 file1 改名为 file2，如果 file2 已经存在，则询问是否覆盖</span><br>mv -i log1.txt log2.txt<br><span class="hljs-meta">#</span><span class="bash"> （4）移动当前文件夹下的所有文件到上一级目录</span><br>mv * ../<br></code></pre></td></tr></table></figure>
+
+<h1 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h1><p>将源文件复制至目标文件，或将多个源文件复制至目标目录。</p>
+<p>注意：命令行复制，如果目标文件已经存在会提示是否覆盖，而在 shell 脚本中，如果不加 -i 参数，则不会提示，而是直接覆盖！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> -i 提示</span><br><span class="hljs-meta">#</span><span class="bash"> -r 复制目录及目录内所有项目</span><br><span class="hljs-meta">#</span><span class="bash"> -a 复制的文件与原文件时间一样</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> （1）复制 a.txt 到 <span class="hljs-built_in">test</span> 目录下，保持原文件时间，如果原文件存在提示是否覆盖。</span><br>cp -ai a.txt test<br><span class="hljs-meta">#</span><span class="bash"> （2）为 a.txt 建一个链接（快捷方式）</span><br>cp -s a.txt link_a.txt<br></code></pre></td></tr></table></figure>
+
+<h1 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h1><p>cat 主要有三大功能：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 1.一次显示整个文件:</span><br>cat filename<br><span class="hljs-meta">#</span><span class="bash"> 2.从键盘创建一个文件:只能创建新文件，不能编辑已有文件。</span><br>cat &gt; filename<br><span class="hljs-meta">#</span><span class="bash"> 3.将几个文件合并为一个文件:</span><br>cat file1 file2 &gt; file<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>-b 对非空输出行号</li>
+<li>-n 输出所有行号</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> （1）把 log2012.log 的文件内容加上行号后输入 log2013.log 这个文件里</span><br>cat -n log2012.log log2013.log<br><span class="hljs-meta">#</span><span class="bash"> （2）把 log2012.log 和 log2013.log 的文件内容加上行号（空白行不加）之后将内容附加到 log.log 里</span><br>cat -b log2012.log log2013.log log.log<br><span class="hljs-meta">#</span><span class="bash"> （3）使用 here doc 生成新文件</span><br>cat &gt;log.txt &lt;&lt;EOF<br><span class="hljs-meta">&gt;</span><span class="bash">Hello</span><br><span class="hljs-meta">&gt;</span><span class="bash">World</span><br><span class="hljs-meta">&gt;</span><span class="bash">PWD=$(<span class="hljs-built_in">pwd</span>)</span><br><span class="hljs-meta">&gt;</span><span class="bash">EOF</span><br>ls -l log.txt<br>cat log.txt<br>Hello<br>World<br>PWD=/opt/soft/test<br><span class="hljs-meta">#</span><span class="bash"> （4）反向列示</span><br>tac log.txt<br>PWD=/opt/soft/test<br>World<br>Hello<br></code></pre></td></tr></table></figure>
+
+<h1 id="which"><a href="#which" class="headerlink" title="which"></a>which</h1><p>在 linux 要查找某个文件，但不知道放在哪里了，可以使用下面的一些命令来搜索：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">which</span>     <span class="hljs-string">查看可执行文件的位置。</span><br><span class="hljs-attr">whereis</span> <span class="hljs-string">查看文件的位置。</span><br><span class="hljs-attr">locate</span>  <span class="hljs-string">配合数据库查看文件位置。</span><br><span class="hljs-attr">find</span>        <span class="hljs-string">实际搜寻硬盘查询文件名称。</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h1><p>文本编辑模式</p>
+<ul>
+<li>进入文本后按 i 或者 insert可进入编辑</li>
+<li>按Esc输入”:”,在底部输入<ul>
+<li>:q     退出</li>
+<li>:q！ 不保存强制退出</li>
+<li>:wq  保存后退出</li>
+</ul>
+</li>
+</ul>
+<h1 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h1><p>用于改变 linux 系统文件或目录的访问权限。用它控制文件或目录的访问权限。该命令有两种用法。一种是包含字母和操作符表达式的文字设定法；另一种是包含数字的数字设定法。</p>
+<p>每一文件或目录的访问权限都有三组，每组用三位表示，分别为文件属主的读、写和执行权限；与属主同组的用户的读、写和执行权限；系统中其他用户的读、写和执行权限。可使用 ls -l test.txt 查找。</p>
+<p>以文件 log2012.log 为例：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">-rw-r--r-- <span class="hljs-number">1</span> root root <span class="hljs-number">296</span>K <span class="hljs-number">11</span><span class="hljs-number">-13</span> <span class="hljs-number">06</span>:<span class="hljs-number">03</span> log2012.log<br></code></pre></td></tr></table></figure>
+
+<p>第一列共有 10 个位置，第一个字符指定了文件类型。在通常意义上，一个目录也是一个文件。如果第一个字符是横线，表示是一个非目录的文件。如果是 d，表示是一个目录。从第二个字符开始到第十个 9 个字符，3 个字符一组，分别表示了 3 组用户对文件或者目录的权限。权限字符用横线代表空许可，r 代表只读，w 代表写，x 代表可执行。</p>
+<p>常用参数：</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-c 当发生改变时，报告处理信息</span><br><span class="hljs-deletion">-R 处理指定目录以及其子目录下所有文件</span><br></code></pre></td></tr></table></figure>
+
+<p>权限范围：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">u</span> <span class="hljs-string">：目录或者文件的当前的用户</span><br><span class="hljs-attr">g</span> <span class="hljs-string">：目录或者文件的当前的群组</span><br><span class="hljs-attr">o</span> <span class="hljs-string">：除了目录或者文件的当前用户或群组之外的用户或者群组</span><br><span class="hljs-attr">a</span> <span class="hljs-string">：所有的用户及群组</span><br></code></pre></td></tr></table></figure>
+
+<p>权限代号：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">r ：读权限，用数字<span class="hljs-number">4</span>表示<br>w ：写权限，用数字<span class="hljs-number">2</span>表示<br>x ：执行权限，用数字<span class="hljs-number">1</span>表示<br>- ：删除权限，用数字<span class="hljs-number">0</span>表示<br>s ：特殊权限<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> （1）增加文件 t.log 所有用户可执行权限</span><br>chmod a+x t.log<br><span class="hljs-meta">#</span><span class="bash"> （2）撤销原来所有的权限，然后使拥有者具有可读权限,并输出处理信息</span><br>chmod u=r t.log -c<br><span class="hljs-meta">#</span><span class="bash"> （3）给 file 的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限</span><br>chmod 751 t.log -c（或者：chmod u=rwx,g=rx,o=x t.log -c)<br><span class="hljs-meta">#</span><span class="bash"> （4）将 <span class="hljs-built_in">test</span> 目录及其子目录所有文件添加可读权限</span><br>chmod u+r,g+r,o+r -R text/ -c<br></code></pre></td></tr></table></figure>
+
+<h1 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h1><p>用来压缩和解压文件。tar 本身不具有压缩功能，只具有打包功能，有关压缩及解压是调用其它的功能来完成。</p>
+<p>弄清两个概念：打包和压缩。打包是指将一大堆文件或目录变成一个总的文件；压缩则是将一个大的文件通过一些压缩算法变成一个小文件</p>
+<p><strong>常用参数：</strong></p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-c 建立新的压缩文件</span><br><span class="hljs-deletion">-f 指定压缩文件</span><br><span class="hljs-deletion">-r 添加文件到已经压缩文件包中</span><br><span class="hljs-deletion">-u 添加改了和现有的文件到压缩包中</span><br><span class="hljs-deletion">-x 从压缩包中抽取文件</span><br><span class="hljs-deletion">-t 显示压缩文件中的内容</span><br><span class="hljs-deletion">-z 支持gzip压缩</span><br><span class="hljs-deletion">-j 支持bzip2压缩</span><br><span class="hljs-deletion">-Z 支持compress解压文件</span><br><span class="hljs-deletion">-v 显示操作过程</span><br></code></pre></td></tr></table></figure>
+
+<p>有关 gzip 及 bzip2 压缩:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">gzip 实例：压缩 gzip fileName .tar.gz 和.tgz  解压：gunzip filename.gz 或 gzip -d filename.gz<br>          对应：tar zcvf filename.tar.gz     tar zxvf filename.tar.gz<br><br>bz2实例：压缩 bzip2 -z filename .tar.bz2 解压：bunzip filename.bz2或bzip -d filename.bz2<br>       对应：tar jcvf filename.tar.gz         解压：tar jxvf filename.tar.bz2<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> （1）将文件全部打包成 tar 包</span><br>tar -cvf log.tar 1.log,2.log 或tar -cvf log.*<br><span class="hljs-meta">#</span><span class="bash"> （2）将 /etc 下的所有文件及目录打包到指定目录，并使用 gz 压缩</span><br>tar -zcvf /tmp/etc.tar.gz /etc<br><span class="hljs-meta">#</span><span class="bash"> （3）查看刚打包的文件内容（一定加z，因为是使用 gzip 压缩的）</span><br>tar -ztvf /tmp/etc.tar.gz<br><span class="hljs-meta">#</span><span class="bash"> （4）要压缩打包 /home, /etc ，但不要 /home/dmtsai</span><br>tar --exclude /home/dmtsai -zcvf myfile.tar.gz /home/* /etc<br><span class="hljs-meta">#</span><span class="bash"> （5）上传flume到/tools目录下，解压安装</span><br>tar -zvxf /tools/apache-flume-1.9.0-bin.tar.gz -C /training/<br></code></pre></td></tr></table></figure>
+
+<h1 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h1><p>强大的文本搜索命令，grep(Global Regular Expression Print) 全局正则表达式搜索。</p>
+<p>grep 的工作方式是这样的，它在一个或多个文件中搜索字符串模板。如果模板包括空格，则必须被引用，模板后的所有字符串被看作文件名。搜索的结果被送到标准输出，不影响原文件内容。</p>
+<p>命令格式：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">grep [<span class="hljs-keyword">option</span>] pattern <span class="hljs-keyword">file</span>|dir<br></code></pre></td></tr></table></figure>
+
+<p>常用参数：</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-A n --after-context显示匹配字符后n行</span><br><span class="hljs-deletion">-B n --before-context显示匹配字符前n行</span><br><span class="hljs-deletion">-C n --context 显示匹配字符前后n行</span><br><span class="hljs-deletion">-c --count 计算符合样式的列数</span><br><span class="hljs-deletion">-i 忽略大小写</span><br><span class="hljs-deletion">-l 只列出文件内容符合指定的样式的文件名称</span><br><span class="hljs-deletion">-f 从文件中读取关键词</span><br><span class="hljs-deletion">-n 显示匹配内容的所在文件中行数</span><br><span class="hljs-deletion">-R 递归查找文件夹</span><br></code></pre></td></tr></table></figure>
+
+<p>grep 的规则表达式:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">^  #锚定行的开始 如：&#x27;^grep&#x27;匹配所有以grep开头的行。 <br><span class="hljs-meta">$</span><span class="bash">  <span class="hljs-comment">#锚定行的结束 如：&#x27;grep$&#x27;匹配所有以grep结尾的行。 </span></span><br>.  #匹配一个非换行符的字符 如：&#x27;gr.p&#x27;匹配gr后接一个任意字符，然后是p。  <br>*  #匹配零个或多个先前字符 如：&#x27;*grep&#x27;匹配所有一个或多个空格后紧跟grep的行。<br>.*   #一起用代表任意字符。  <br>[]   #匹配一个指定范围内的字符，如&#x27;[Gg]rep&#x27;匹配Grep和grep。 <br>[^]  #匹配一个不在指定范围内的字符，如：&#x27;[^A-FH-Z]rep&#x27;匹配不包含A-R和T-Z的一个字母开头，紧跟rep的行。  <br>\(..\)  #标记匹配字符，如&#x27;\(love\)&#x27;，love被标记为1。   <br>\&lt;      #锚定单词的开始，如:&#x27;\&lt;grep&#x27;匹配包含以grep开头的单词的行。<br>\&gt;      #锚定单词的结束，如&#x27;grep\&gt;&#x27;匹配包含以grep结尾的单词的行。<br>x\&#123;m\&#125;  #重复字符x，m次，如：&#x27;0\&#123;5\&#125;&#x27;匹配包含5个o的行。 <br>x\&#123;m,\&#125;  #重复字符x,至少m次，如：&#x27;o\&#123;5,\&#125;&#x27;匹配至少有5个o的行。  <br>x\&#123;m,n\&#125;  #重复字符x，至少m次，不多于n次，如：&#x27;o\&#123;5,10\&#125;&#x27;匹配5--10个o的行。  <br>\w    #匹配文字和数字字符，也就是[A-Za-z0-9]，如：&#x27;G\w*p&#x27;匹配以G后跟零个或多个文字或数字字符，然后是p。  <br>\W    #\w的反置形式，匹配一个或多个非单词字符，如点号句号等。  <br>\b    #单词锁定符，如: &#x27;\bgrep\b&#x27;只匹配grep。<br></code></pre></td></tr></table></figure>
+
+<h1 id="ps-process-status"><a href="#ps-process-status" class="headerlink" title="ps (process status)"></a>ps (process status)</h1><p>ps(process status)，用来查看当前运行的进程状态，一次性查看，如果需要动态连续结果使用 top</p>
+<p>linux上进程有5种状态:</p>
+<ul>
+<li>\1. 运行(正在运行或在运行队列中等待)</li>
+<li>\2. 中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号)</li>
+<li>\3. 不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生)</li>
+<li>\4. 僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放)</li>
+<li>\5. 停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行)</li>
+</ul>
+<p>ps 工具标识进程的5种状态码:</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">D</span> <span class="hljs-string">不可中断 uninterruptible sleep (usually IO)</span><br><span class="hljs-attr">R</span> <span class="hljs-string">运行 runnable (on run queue)</span><br><span class="hljs-attr">S</span> <span class="hljs-string">中断 sleeping</span><br><span class="hljs-attr">T</span> <span class="hljs-string">停止 traced or stopped</span><br><span class="hljs-attr">Z</span> <span class="hljs-string">僵死 a defunct (”zombie”) process</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>命令参数：</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">-A</span> <span class="hljs-string">显示所有进程</span><br><span class="hljs-attr">a</span> <span class="hljs-string">显示所有进程</span><br><span class="hljs-meta">-a</span> <span class="hljs-string">显示同一终端下所有进程</span><br><span class="hljs-attr">c</span> <span class="hljs-string">显示进程真实名称</span><br><span class="hljs-attr">e</span> <span class="hljs-string">显示环境变量</span><br><span class="hljs-attr">f</span> <span class="hljs-string">显示进程间的关系</span><br><span class="hljs-attr">r</span> <span class="hljs-string">显示当前终端运行的进程</span><br><span class="hljs-meta">-aux</span> <span class="hljs-string">显示所有包含其它使用的进程</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> （1）显示当前所有进程环境变量及进程间关系</span><br>ps -ef<br><span class="hljs-meta">#</span><span class="bash"> （2）显示当前所有进程</span><br>ps -A<br><span class="hljs-meta">#</span><span class="bash"> （3）与grep联用查找某进程</span><br>ps -aux | grep apache<br></code></pre></td></tr></table></figure>
+
+<h1 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h1><p>发送指定的信号到相应进程。不指定型号将发送SIGTERM（15）终止指定进程。如果任无法终止该程序可用”-KILL” 参数，其发送的信号为SIGKILL(9) ，将强制结束进程，使用ps命令或者jobs 命令可以查看进程号。root用户将影响用户的进程，非root用户只能影响自己的进程。</p>
+<p><strong>常用参数：</strong></p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-l  信号，若果不加信号的编号参数，则使用“-l”参数会列出全部的信号名称</span><br><span class="hljs-deletion">-a  当处理当前进程时，不限制命令名和进程号的对应关系</span><br><span class="hljs-deletion">-p  指定kill 命令只打印相关进程的进程号，而不发送任何信号</span><br><span class="hljs-deletion">-s  指定发送信号</span><br><span class="hljs-deletion">-u  指定用户</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">（1）先使用ps查找进程pro1，然后用<span class="hljs-built_in">kill</span>杀掉</span><br>kill -9 $(ps -ef | grep pro1)<br></code></pre></td></tr></table></figure>
+
+<h1 id="free"><a href="#free" class="headerlink" title="free"></a>free</h1><p>显示系统内存使用情况，包括物理内存、交互区内存(swap)和内核缓冲区内存。</p>
+<p><strong>命令参数：</strong></p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-b 以Byte显示内存使用情况</span><br><span class="hljs-deletion">-k 以kb为单位显示内存使用情况</span><br><span class="hljs-deletion">-m 以mb为单位显示内存使用情况</span><br><span class="hljs-deletion">-g 以gb为单位显示内存使用情况</span><br><span class="hljs-deletion">-s&lt;间隔秒数&gt; 持续显示内存</span><br><span class="hljs-deletion">-t 显示内存使用总合</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> （1）显示内存使用情况</span><br>free<br>free -k<br>free -m<br><span class="hljs-meta">#</span><span class="bash"> （2）以总和的形式显示内存的使用信息</span><br>free -t<br><span class="hljs-meta">#</span><span class="bash"> （3）周期性查询内存使用情况</span><br>free -s 10<br></code></pre></td></tr></table></figure>
+
+<h1 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看防火墙状态： </span><br>systemctl status firewalld<br><br><span class="hljs-meta">#</span><span class="bash"> 执行关闭命令： </span><br>systemctl stop firewalld<br><br><span class="hljs-meta">#</span><span class="bash"> 执行开机禁用防火墙自启命令：</span><br>systemctl disable firewalld<br></code></pre></td></tr></table></figure>
+
+<h1 id="主机"><a href="#主机" class="headerlink" title="主机"></a>主机</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 进行主机名的修改：</span><br>vi /etc/hosts或vi /etc/hostname<br><br><span class="hljs-meta">#</span><span class="bash"> 查看主机ip地址</span><br>ifconfig<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux%E7%B3%BB%E7%BB%9F/">Linux系统</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/18/%E5%88%86%E7%B1%BB-Java%E5%BC%80%E5%8F%91/yaml%E5%9F%BA%E7%A1%80/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">yaml基础</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/14/%E5%88%86%E7%B1%BB-Linux%E7%B3%BB%E7%BB%9F/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">
+                        <span class="hidden-mobile">VM虚拟机操作记录：开机卡死、设置静态ip</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://mccontinuing.github.io/" target="_blank" rel="nofollow noopener"><span>Mccontinuing</span></a> <i class="iconfont icon-love"></i> <a href="http://http://qufang.xyz/" target="_blank" rel="nofollow noopener"><span>SGLMYD</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
