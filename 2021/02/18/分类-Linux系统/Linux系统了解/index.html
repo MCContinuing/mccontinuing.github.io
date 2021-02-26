@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>VM虚拟机操作记录：开机卡死、设置静态ip - Hexo</title>
+  <title>Linux系统了解 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="VM虚拟机操作记录：开机卡死、设置静态ip">
+            <span class="h2" id="subtitle" title="Linux系统了解">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-14 11:19" pubdate>
-        January 14, 2021 am
+      <time datetime="2021-02-18 10:20" pubdate>
+        February 18, 2021 am
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      580 字
+      1.3k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      14
        分钟
     </span>
   
@@ -224,36 +224,60 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">VM虚拟机操作记录：开机卡死、设置静态ip</h1>
+            <h1 style="display: none">Linux系统了解</h1>
             
             <div class="markdown-body">
-              <h1 id="【遇到问题-开机卡死】"><a href="#【遇到问题-开机卡死】" class="headerlink" title="【遇到问题-开机卡死】"></a>【遇到问题-开机卡死】</h1><p>由于非正常情况退出造成的，找到虚拟机所在目录，删除.lck文件夹删掉</p>
-<p><img src="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/image-20210114112953853.png" srcset="/img/loading.gif" alt="image-20210114112953853"></p>
-<h1 id="【遇到问题-虚拟机ip地址总是改变】"><a href="#【遇到问题-虚拟机ip地址总是改变】" class="headerlink" title="【遇到问题-虚拟机ip地址总是改变】"></a>【遇到问题-虚拟机ip地址总是改变】</h1><p>采用方式为NAT模式+固定IP的模式。</p>
-<p><em>配置环境说明：主机为Win10家庭版，虚拟机为VMware Workstation 12 Pro中文版，虚拟机中的Linux系统为CentOS 7 64位.</em></p>
-<h2 id="一、查看VM虚拟机ip地址范围"><a href="#一、查看VM虚拟机ip地址范围" class="headerlink" title="一、查看VM虚拟机ip地址范围"></a>一、查看VM虚拟机ip地址范围</h2><p>在菜单栏选择编辑→ 虚拟网络编辑器，打开虚拟网络编辑器对话框，选择Net网络连接方式，随意设置子网IP，点击NAT设置页面，查看子网掩码和网关，后面修改静态IP会用到。</p>
-<p><img src="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/20180224100549832" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/20180224102024516" srcset="/img/loading.gif" alt="img"></p>
-<p>注：上面的“使用本地DHCP服务……”这一项是没有钩选的</p>
-<p><img src="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/20180224101031639" srcset="/img/loading.gif" alt="img"></p>
-<h2 id="二、检查物理主机-设置网卡"><a href="#二、检查物理主机-设置网卡" class="headerlink" title="二、检查物理主机 设置网卡"></a>二、检查物理主机 设置网卡</h2><p>打开网络和共享中心→ 更改适配器设置→，在VMware Network Adapter VMnet8上单击右键，选择属性按钮打开属性对话框。 </p>
-<p><img src="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/20180224101231991" srcset="/img/loading.gif" alt="img"></p>
-<p>修改IP地址注意填写和第一步设置的一样</p>
-<p><img src="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/20180224101523781" srcset="/img/loading.gif" alt="img"></p>
-<h2 id="三、进入虚拟机，设置固定IP地址。"><a href="#三、进入虚拟机，设置固定IP地址。" class="headerlink" title="三、进入虚拟机，设置固定IP地址。"></a>三、进入虚拟机，设置固定IP地址。</h2><p>输入如下命令：vi /etc/sysconfig/network-scripts/ifcfg-eth33</p>
-<p><img src="/2021/01/14/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/20180224111420149.png" srcset="/img/loading.gif"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">将IPV6…..协议都注释；在前面加<span class="hljs-comment">#注释即可</span></span><br>BOOTPROTO=static        #开机协议，有dhcp及static；<br>ONBOOT=yes              #设置为开机启动；<br>DNS1=114.114.114.114    #这个是国内的DNS地址，是固定的；<br>IPADDR=192.168.73.100      #你想要设置的固定IP，<br>NETMASK=255.255.255.0   #子网掩码，不需要修改；<br>GATEWAY=192.168.73.1     #网关，这里是你在“2.配置虚拟机的NAT模式具体地址参数”中的（2）选择VMnet8--取消勾选使用本地DHCP--设置子网IP--网关IP设置。<br></code></pre></td></tr></table></figure>
+              <h1 id="开机登录"><a href="#开机登录" class="headerlink" title="开机登录"></a>开机登录</h1><p>开机会启动许多程序。它们在Windows叫做”服务”（service），在Linux就叫做”守护进程”（daemon）。</p>
+<p>开机成功后，它会显示一个文本登录界面，这个界面就是我们经常看到的登录界面，在这个登录界面中会提示用户输入用户名，而用户输入的用户将作为参数传给login程序来验证用户的身份，密码是不显示的，输完回车即可！</p>
+<p>一般来说，用户的登录方式有三种：</p>
+<ul>
+<li>命令行登录</li>
+<li>ssh登录</li>
+<li>图形界面登录</li>
+</ul>
+<p>最高权限账户为 root，可以操作一切！</p>
+<h1 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h1><p>在linux领域内大多用在服务器上，很少遇到关机的操作。毕竟服务器上跑一个服务是永无止境的，除非特殊情况下，不得已才会关机。</p>
+<p>关机指令为：shutdown ；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs shell">sync # 将数据由内存同步到硬盘中。<br><br>shutdown # 关机指令，你可以man shutdown 来看一下帮助文档。例如你可以运行如下命令关机：<br><br>shutdown –h 10 # 这个命令告诉大家，计算机将在10分钟后关机<br><br>shutdown –h now # 立马关机<br><br>shutdown –h 20:25 # 系统会在今天20:25关机<br><br>shutdown –h +10 # 十分钟后关机<br><br>shutdown –r now # 系统立马重启<br><br>shutdown –r +10 # 系统十分钟后重启<br><br>reboot # 就是重启，等同于 shutdown –r now<br><br>halt # 关闭系统，等同于shutdown –h now 和 poweroff<br></code></pre></td></tr></table></figure>
 
-<p>（2）重启网络服务</p>
-<p>service network restart</p>
-<h2 id="四、检验配置是否成功"><a href="#四、检验配置是否成功" class="headerlink" title="四、检验配置是否成功"></a>四、检验配置是否成功</h2><p>(1) 查看修改后的固定IP为192.168.2.2，配置正确；</p>
-<p>ifconfig（不支持ifconfig命令，则使用ip addr）</p>
-<p>(2) 测试虚拟机中的CentOS 7系统是否能连外网，有数据返回，说明可以连接外网；</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">ping</span> <span class="hljs-selector-tag">www</span><span class="hljs-selector-class">.baidu</span><span class="hljs-selector-class">.com</span><br></code></pre></td></tr></table></figure>
+<p>最后总结一下，不管是重启系统还是关闭系统，首先要运行 <strong>sync</strong> 命令，把内存中的数据写到磁盘中。</p>
+<h1 id="系统目录结构"><a href="#系统目录结构" class="headerlink" title="系统目录结构"></a>系统目录结构</h1><p>登录系统后，在当前命令窗口下输入命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ls /<br></code></pre></td></tr></table></figure>
 
-<p>(3) 测试本机是否能ping通虚拟机的固定IP，有数据返回，说明可以使用终端工具正常连接；</p>
-<p>鼠标放到开始菜单右键，选择命令提示符（管理员），打开命令操作界面：</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">ping <span class="hljs-number">192.168</span><span class="hljs-number">.73</span><span class="hljs-number">.100</span><br></code></pre></td></tr></table></figure>
+<p>你会看到如下图所示：</p>
+<p><img src="/2021/02/18/%E5%88%86%E7%B1%BB-Linux%E7%B3%BB%E7%BB%9F/Linux%E7%B3%BB%E7%BB%9F%E4%BA%86%E8%A7%A3/image-20210218102534449.png" srcset="/img/loading.gif" alt="image-20210218102534449"></p>
+<p>（Linux的一切资源都挂载在这个 / 根节点下）</p>
+<p><strong>对这些目录的解释：</strong></p>
+<ul>
+<li><strong>/bin</strong>：bin是Binary的缩写, 这个目录存放着最经常使用的命令。</li>
+<li><strong>/boot：</strong> 这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。</li>
+<li><strong>/dev ：</strong> dev是Device(设备)的缩写, 存放的是Linux的外部设备，在Linux中访问设备的方式和访问文件的方式是相同的。</li>
+<li><strong>/etc：</strong> 这个目录用来存放所有的系统管理所需要的配置文件和子目录。</li>
+<li><strong>/home</strong>：用户的主目录，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</li>
+<li><strong>/lib</strong>：这个目录里存放着系统最基本的动态连接共享库，其作用类似于Windows里的DLL文件。</li>
+<li><strong>/lost+found</strong>：这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。(有些系统没有这个目录)</li>
+<li><strong>/media</strong>：linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。</li>
+<li><strong>/mnt</strong>：系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在/mnt/上，然后进入该目录就可以查看光驱里的内容了。</li>
+<li><strong>/opt</strong>：<strong>这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</strong></li>
+<li><strong>/proc</strong>：这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。</li>
+<li><strong>/root</strong>：<strong>该目录为系统管理员，也称作超级权限者的用户主目录。</strong></li>
+<li><strong>/sbin</strong>：s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。</li>
+<li><strong>/srv</strong>：该目录存放一些服务启动之后需要提取的数据。</li>
+<li><strong>/sys</strong>：这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。</li>
+<li><strong>/tmp</strong>：<strong>这个目录是用来存放一些临时文件的。</strong></li>
+<li><strong>/usr：这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</strong></li>
+<li><strong>/usr/bin：</strong> 系统用户使用的应用程序。</li>
+<li><strong>/usr/sbin：</strong> 超级用户使用的比较高级的管理程序和系统守护程序。</li>
+<li><strong>/usr/src：</strong> 内核源代码默认的放置目录。</li>
+<li><strong>/var</strong>：<strong>这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</strong></li>
+<li><strong>/run</strong>：是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。</li>
+</ul>
+<h1 id="路径解释"><a href="#路径解释" class="headerlink" title="路径解释"></a>路径解释</h1><p>Linux的目录结构为树状结构，最顶级的目录为根目录 /。</p>
+<p>其他目录通过挂载可以将它们添加到树中，通过解除挂载可以移除它们。</p>
+<p>我们需要先知道什么是绝对路径与相对路径。</p>
+<h2 id="绝对路径："><a href="#绝对路径：" class="headerlink" title="绝对路径："></a><strong>绝对路径：</strong></h2><p>路径的写法，由根目录 / 写起，例如：/usr/share/doc 这个目录。</p>
+<h2 id="相对路径："><a href="#相对路径：" class="headerlink" title="相对路径："></a><strong>相对路径：</strong></h2><p>路径的写法，不是由 / 写起，例如由 /usr/share/doc 要到 /usr/share/man 底下时，可以写成：cd ../man 这就是相对路径的写法啦！</p>
+
             </div>
             <hr>
             <div>
@@ -272,8 +296,6 @@
                     
                       <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a>
-                    
                   </div>
                 
               </div>
@@ -285,9 +307,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+                      <a href="/2021/02/18/%E5%88%86%E7%B1%BB-Linux%E7%B3%BB%E7%BB%9F/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Linux常用命令</span>
+                        <span class="hidden-mobile">Linux基本命令总结</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -295,8 +317,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/13/TempNoteBook/">
-                        <span class="hidden-mobile">TempNoteBook</span>
+                      <a href="/2021/02/05/Dubbo-Zookeeper%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/">
+                        <span class="hidden-mobile">Dubbo+Zookeeper安装测试</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
