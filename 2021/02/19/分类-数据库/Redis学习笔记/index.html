@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      16.7k 字
+      17k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      225
+      229
        分钟
     </span>
   
@@ -259,16 +259,15 @@
 <h3 id="关闭Redis服务-shutdown"><a href="#关闭Redis服务-shutdown" class="headerlink" title="关闭Redis服务 shutdown"></a>关闭Redis服务 <code>shutdown</code></h3><p><img src="/2021/02/19/%E5%88%86%E7%B1%BB-%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210219230827108-1613785778506.png" srcset="/img/loading.gif" alt="image-20210219230827108"></p>
 <h1 id="Redis基础"><a href="#Redis基础" class="headerlink" title="Redis基础"></a>Redis基础</h1><p>redis默认有16个数据库</p>
 <p>默认使用的是第0个</p>
-<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><ul>
-<li><p>选择数据库 <code>select</code></p>
-</li>
-<li><p>查看数据库大小 <code>DBSIZE</code></p>
-</li>
-<li><p>查看数据库所有的key<code>key *</code></p>
-</li>
-<li><p>清除当前数据库 <code>flushdb</code></p>
-</li>
-<li><p>清除全部数据库的内容 <code>FLUSHALL</code></p>
+<h2 id="基本命令及密码设置"><a href="#基本命令及密码设置" class="headerlink" title="基本命令及密码设置"></a>基本命令及密码设置</h2><ul>
+<li>选择数据库 <code>select</code></li>
+<li>查看数据库大小 <code>DBSIZE</code></li>
+<li>查看数据库所有的key<code>key *</code></li>
+<li>清除当前数据库 <code>flushdb</code></li>
+<li>清除全部数据库的内容 <code>FLUSHALL</code></li>
+<li>设置密码：<code>config set requirepass 123456</code><ul>
+<li>设置密码后每次使用需要输入auth 123456</li>
+</ul>
 </li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@localhost bin]# redis-server myconfig/redis.conf<br>[root@localhost bin]# redis-cli -p 6379<br>127.0.0.1:6379&gt; select 3 # 选择数据库<br>OK<br>127.0.0.1:6379[3]&gt; DBSIZE # 查看数据库大小<br>(integer) 0<br>127.0.0.1:6379[3]&gt; set name mochen<br>OK<br>127.0.0.1:6379[3]&gt; DBSIZE<br>(integer) 1<br>127.0.0.1:6379[3]&gt; get name<br>&quot;mochen&quot;<br>127.0.0.1:6379[3]&gt; flushdb   #清楚当前数据库<br>OK<br>127.0.0.1:6379[3]&gt; keys *<br>(empty list or set)<br></code></pre></td></tr></table></figure>
@@ -544,11 +543,22 @@
 <p>jedis : 采用的直连，多个线程操作的话，是不安全的，如果想要避免不安全的，使用 jedis pool 连接池！ 更像 BIO 模式</p>
 <p>lettuce : 采用netty，实例可以再多个线程中进行共享，不存在线程不安全的情况！可以减少线程数据了，更像 NIO 模式</p>
 <p>新建spring项目，将需要的都勾选上（web springredis等等）</p>
-<p>源码分析：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br><span class="hljs-meta">@ConditionalOnMissingBean(name = &quot;redisTemplate&quot;)</span> <span class="hljs-comment">// 我们可以自己定义一个redisTemplate来替换这个默认的！</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> RedisTemplate&lt;Object, Object&gt; <span class="hljs-title">redisTemplate</span><span class="hljs-params">(RedisConnectionFactory</span></span><br><span class="hljs-function"><span class="hljs-params">                                                       redisConnectionFactory)</span></span><br><span class="hljs-function">    <span class="hljs-keyword">throws</span> UnknownHostException </span>&#123;<br>    <span class="hljs-comment">// 默认的 RedisTemplate 没有过多的设置，redis 对象都是需要序列化！</span><br>    <span class="hljs-comment">// 两个泛型都是 Object, Object 的类型，我们后使用需要强制转换 &lt;String, Object&gt;</span><br>    RedisTemplate&lt;Object, Object&gt; template = <span class="hljs-keyword">new</span> RedisTemplate&lt;&gt;();<br>    template.setConnectionFactory(redisConnectionFactory);<br>    <span class="hljs-keyword">return</span> template;<br>&#125;<br><span class="hljs-meta">@Bean</span><br><span class="hljs-meta">@ConditionalOnMissingBean</span> <span class="hljs-comment">// 由于 String 是redis中最常使用的类型，所以说单独提出来了一个bean！</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> StringRedisTemplate <span class="hljs-title">stringRedisTemplate</span><span class="hljs-params">(RedisConnectionFactory</span></span><br><span class="hljs-function"><span class="hljs-params">                                                   redisConnectionFactory)</span></span><br><span class="hljs-function">    <span class="hljs-keyword">throws</span> UnknownHostException </span>&#123;<br>    StringRedisTemplate template = <span class="hljs-keyword">new</span> StringRedisTemplate();<br>    template.setConnectionFactory(redisConnectionFactory);<br>    <span class="hljs-keyword">return</span> template;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="源码分析："><a href="#源码分析：" class="headerlink" title="源码分析："></a>源码分析：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br><span class="hljs-meta">@ConditionalOnMissingBean(name = &quot;redisTemplate&quot;)</span> <span class="hljs-comment">// 我们可以自己定义一个redisTemplate来替换这个默认的！</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> RedisTemplate&lt;Object, Object&gt; <span class="hljs-title">redisTemplate</span><span class="hljs-params">(RedisConnectionFactory</span></span><br><span class="hljs-function"><span class="hljs-params">                                                       redisConnectionFactory)</span></span><br><span class="hljs-function">    <span class="hljs-keyword">throws</span> UnknownHostException </span>&#123;<br>    <span class="hljs-comment">// 默认的 RedisTemplate 没有过多的设置，redis 对象都是需要序列化！</span><br>    <span class="hljs-comment">// 两个泛型都是 Object, Object 的类型，我们后使用需要强制转换 &lt;String, Object&gt;</span><br>    RedisTemplate&lt;Object, Object&gt; template = <span class="hljs-keyword">new</span> RedisTemplate&lt;&gt;();<br>    template.setConnectionFactory(redisConnectionFactory);<br>    <span class="hljs-keyword">return</span> template;<br>&#125;<br><span class="hljs-meta">@Bean</span><br><span class="hljs-meta">@ConditionalOnMissingBean</span> <span class="hljs-comment">// 由于 String 是redis中最常使用的类型，所以说单独提出来了一个bean！</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> StringRedisTemplate <span class="hljs-title">stringRedisTemplate</span><span class="hljs-params">(RedisConnectionFactory</span></span><br><span class="hljs-function"><span class="hljs-params">                                                   redisConnectionFactory)</span></span><br><span class="hljs-function">    <span class="hljs-keyword">throws</span> UnknownHostException </span>&#123;<br>    StringRedisTemplate template = <span class="hljs-keyword">new</span> StringRedisTemplate();<br>    template.setConnectionFactory(redisConnectionFactory);<br>    <span class="hljs-keyword">return</span> template;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>整合测试</p>
-<p>1、导入依赖</p>
+<h2 id="配置介绍"><a href="#配置介绍" class="headerlink" title="配置介绍"></a>配置介绍</h2><p><strong>redis服务器配置</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-comment"># redis服务器配置</span><br><span class="hljs-comment"># 服务器地址</span><br><span class="hljs-meta">spring.redis.host</span>=<span class="hljs-string">121.4.60.79</span><br><span class="hljs-comment"># 服务器端口</span><br><span class="hljs-meta">spring.redis.port</span>=<span class="hljs-string">6379</span><br><span class="hljs-comment"># 超时</span><br><span class="hljs-meta">spring.redis.timeout</span>=<span class="hljs-string">3</span><br><span class="hljs-comment"># 数据库索引</span><br> <span class="hljs-meta">spring.redis.database</span>=<span class="hljs-string">0</span><br><span class="hljs-comment"># 密码</span><br><span class="hljs-meta">spring.redis.password</span>=<span class="hljs-string">123456</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Redis客户端Lettuce配置</strong></p>
+<p>Spring Boot从2.X版本开始引入新的客户端——<strong>Lettuce</strong>。较之前的Jedis相比而言，Lettuce是一个基于Netty的线程安全的Redis客户端。故，我们这里推荐使用Lettuce，并在application.properties配置文件中对Lettuce客户端进行配置</p>
+<ul>
+<li>配置文件中的Redis客户端配置可以不写，则Spring Boot(2.X及以上版本)会默认使用Lettuce客户端</li>
+<li>当我们在配置文件显式地配置Redis客户端时，需要添加commons-pool2连接池依赖</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-comment"># 连接池最大连接数（使用负值表示没有限制） 默认 8</span><br><span class="hljs-meta">spring.redis.lettuce.pool.max-active</span>=<span class="hljs-string">10</span><br><span class="hljs-comment"># 连接池中的最大空闲连接 默认 8</span><br><span class="hljs-meta">spring.redis.lettuce.pool.max-idle</span>=<span class="hljs-string">10</span><br><span class="hljs-comment"># 连接池中的最小空闲连接 默认 0</span><br><span class="hljs-meta">spring.redis.lettuce.pool.min-idle</span>=<span class="hljs-string">0</span><br><span class="hljs-comment"># 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1</span><br><span class="hljs-meta">spring.redis.lettuce.pool.max-wait</span>=<span class="hljs-string">3</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="整合测试"><a href="#整合测试" class="headerlink" title="整合测试"></a>整合测试</h2><p>1、导入依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 操作redis --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>2、配置连接</p>
@@ -794,6 +804,8 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+                    
+                      <a class="hover-with-bg" href="/tags/redis/">redis</a>
                     
                   </div>
                 

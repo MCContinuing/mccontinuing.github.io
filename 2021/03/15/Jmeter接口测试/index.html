@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Jmeter接口测试 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":40,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>MCContinuing's Library</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Jmeter接口测试">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-15 19:38" pubdate>
+        March 15, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Jmeter接口测试</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Jmeter简介"><a href="#Jmeter简介" class="headerlink" title="Jmeter简介"></a>Jmeter简介</h1><blockquote>
+<p>The <strong>Apache JMeter™</strong> application is open source software, a 100% pure Java application designed to load test functional behavior and measure performance. It was originally designed for testing Web Applications but has since expanded to other test functions.</p>
+</blockquote>
+<p>官网：<a target="_blank" rel="noopener" href="http://jmeter.apache.org/">http://jmeter.apache.org</a></p>
+<p>下载地址：<a target="_blank" rel="noopener" href="http://jmeter.apache.org/download_jmeter.cgi">http://jmeter.apache.org/download_jmeter.cgi</a> </p>
+<p>用户手册：<a target="_blank" rel="noopener" href="https://jmeter.apache.org/usermanual/get-started.html">https://jmeter.apache.org/usermanual/get-started.html</a></p>
+<h1 id="Jmeter安装测试"><a href="#Jmeter安装测试" class="headerlink" title="Jmeter安装测试"></a>Jmeter安装测试</h1><h2 id="下载解压"><a href="#下载解压" class="headerlink" title="下载解压"></a>下载解压</h2><p>打开官网下载地址，下载最新版本（此处下载二进制tgz版本）</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315194913965.png" srcset="/img/loading.gif" alt="image-20210315194913965"></p>
+<p>解压</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315195428545.png" srcset="/img/loading.gif" alt="image-20210315195428545"></p>
+<p>启动：bin目录下的 jmeter.bat</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315195816438.png" srcset="/img/loading.gif" alt="image-20210315195816438"></p>
+<p>可以看见打开了一个cmd窗口，及一个图形界面应用程序</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315200610805.png" srcset="/img/loading.gif" alt="image-20210315200610805"></p>
+<h2 id="测试1：简单无参数接口"><a href="#测试1：简单无参数接口" class="headerlink" title="测试1：简单无参数接口"></a>测试1：简单无参数接口</h2><p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315200543170.png" srcset="/img/loading.gif" alt="image-20210315200543170"></p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315201012486.png" srcset="/img/loading.gif" alt="image-20210315201012486"></p>
+<p>Ramp-up period：表示上面的进程数需要在多少秒内启动起来（0：一起启动，n：n秒内先后启动，）</p>
+<p>Loop Count：循环次数，上面的线程在访问接口时一共循环多少次</p>
+<h3 id="添加配置元件：http请求默认值"><a href="#添加配置元件：http请求默认值" class="headerlink" title="添加配置元件：http请求默认值"></a>添加配置元件：http请求默认值</h3><ul>
+<li>设置默认值的好处是之后的http请求不需要重复设置了</li>
+</ul>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315202020328.png" srcset="/img/loading.gif" alt="image-20210315202020328"></p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315202201068.png" srcset="/img/loading.gif" alt="image-20210315202201068"></p>
+<h3 id="添加Sample：Http请求"><a href="#添加Sample：Http请求" class="headerlink" title="添加Sample：Http请求"></a>添加Sample：Http请求</h3><p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315201521653.png" srcset="/img/loading.gif" alt="image-20210315201521653"></p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315202742045.png" srcset="/img/loading.gif" alt="image-20210315202742045"></p>
+<h3 id="添加监听器：聚合报告，用来查看测试结果（一个大致结果）"><a href="#添加监听器：聚合报告，用来查看测试结果（一个大致结果）" class="headerlink" title="添加监听器：聚合报告，用来查看测试结果（一个大致结果）"></a>添加监听器：聚合报告，用来查看测试结果（一个大致结果）</h3><p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315202953651.png" srcset="/img/loading.gif"></p>
+<p>如果想要详细结果，需要再添加别的监听器：图形结果，结果树，表格等等</p>
+<p>此处添加一个图形结果、和将结果存在表格</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315203231721.png" srcset="/img/loading.gif" alt="image-20210315203231721"></p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315204701841.png" srcset="/img/loading.gif" alt="image-20210315204701841"></p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315203940046.png" srcset="/img/loading.gif" alt="image-20210315203940046"></p>
+<p>选择文件夹保存测试结果（为了方便，暂时保存在桌面）</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315204037445.png" srcset="/img/loading.gif" alt="image-20210315204037445"></p>
+<h3 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h3><p>到监听器中查看结果：</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315204359096.png" srcset="/img/loading.gif" alt="image-20210315204359096"></p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315204853189.png" srcset="/img/loading.gif" alt="image-20210315204853189"></p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315204633851.png" srcset="/img/loading.gif" alt="image-20210315204633851"></p>
+<p>清除数据</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315204526301.png" srcset="/img/loading.gif" alt="image-20210315204526301"></p>
+<h2 id="测试2：模拟多个用户访问有参接口"><a href="#测试2：模拟多个用户访问有参接口" class="headerlink" title="测试2：模拟多个用户访问有参接口"></a>测试2：模拟多个用户访问有参接口</h2><h3 id="添加Http请求"><a href="#添加Http请求" class="headerlink" title="添加Http请求"></a>添加Http请求</h3><p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210316211645402.png" srcset="/img/loading.gif" alt="image-20210316211645402"></p>
+<p>此时已经可以启动，但是只能当做单个用户访问。真实场景中肯定不是一个用户访问多次，而是多个用户访问同一个接口。下面的操作可以模拟多个用户访问。</p>
+<h3 id="添加控制元件-CSV-Date-Set-Config"><a href="#添加控制元件-CSV-Date-Set-Config" class="headerlink" title="添加控制元件:CSV Date Set Config"></a>添加控制元件:CSV Date Set Config</h3><p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210316211907184.png" srcset="/img/loading.gif" alt="image-20210316211907184"></p>
+<p>在电脑中新建一个文件，如config.txt</p>
+<p>在txt文件中输入模拟用户登陆信息</p>
+<p>格式如下：</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210316212252122.png" srcset="/img/loading.gif" alt="image-20210316212252122"></p>
+<p>我们按照此格式写入对应信息</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210316213116595.png" srcset="/img/loading.gif" alt="image-20210316213116595"></p>
+<p>将文件导入，并设置相关信息如下</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210316212834952.png" srcset="/img/loading.gif" alt="image-20210316212834952"></p>
+<h3 id="修改Http-request的token信息-改成引用的"><a href="#修改Http-request的token信息-改成引用的" class="headerlink" title="修改Http request的token信息,改成引用的"></a>修改Http request的token信息,改成引用的</h3><p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210316213315992.png" srcset="/img/loading.gif" alt="image-20210316213315992"></p>
+<h3 id="启动查看结果"><a href="#启动查看结果" class="headerlink" title="启动查看结果"></a>启动查看结果</h3><p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210316213452790.png" srcset="/img/loading.gif" alt="image-20210316213452790"></p>
+<h1 id="Jmeter在Linuxd的命令行使用"><a href="#Jmeter在Linuxd的命令行使用" class="headerlink" title="Jmeter在Linuxd的命令行使用"></a>Jmeter在Linuxd的命令行使用</h1><p><strong>使用过程：</strong></p>
+<ol>
+<li>在windows上录好jms文件，传到linux中</li>
+<li>命令行<code>sh jmeter.sh -n -t XXX.jmx -l result.jtl</code><ul>
+<li>-n 表示不使用图形界面</li>
+<li>-t 表示脚本</li>
+<li>-l 表示输出结果</li>
+</ul>
+</li>
+<li>把result.jtl导入Jmeter</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 提前将apache-jmeter-5.4.1解压</span><br><span class="hljs-meta">#</span><span class="bash"> 将jms文件放到apache-jmeter-5.4.1同级目录中</span><br>./apache-jmeter-5.4.1/bin/jmeter.sh -n -t goods_list.jmx  -l result.jtl<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210317224740172.png" srcset="/img/loading.gif" alt="image-20210317224740172"></p>
+<p>可以下载result.jtl结果</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sz result.jtl<br></code></pre></td></tr></table></figure>
+
+<p>查看结果：</p>
+<p>打开Jmeter，找到之前创建的聚合报告，点击浏览选择result.jtl即可查看</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210318143958813.png" srcset="/img/loading.gif" alt="image-20210318143958813"></p>
+<p>如果需要再次测量，需要将Linux中的result.jtl结果文件删除</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">rm -rf result.jtl<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="设置Jmeter语言为中文环境"><a href="#设置Jmeter语言为中文环境" class="headerlink" title="设置Jmeter语言为中文环境"></a>设置Jmeter语言为中文环境</h1><h2 id="临时设置"><a href="#临时设置" class="headerlink" title="临时设置"></a>临时设置</h2><p>Jmeter菜单栏选择OptionsàChoose LanguageàChinese (Simplified)</p>
+<p>这种方法，重启软件后又变为英文环境了。</p>
+<h2 id="永久设置"><a href="#永久设置" class="headerlink" title="永久设置"></a>永久设置</h2><p>进入bin目录，找到“jmeter.properties”，在文件的第37行后添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了。</p>
+<p><img src="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20210315215137385.png" srcset="/img/loading.gif" alt="image-20210315215137385"></p>
+<h1 id="Jmeter主要元件"><a href="#Jmeter主要元件" class="headerlink" title="Jmeter主要元件"></a>Jmeter主要元件</h1><ul>
+<li><p>测试计划：是使用 JMeter 进行测试的起点，它是其它 JMeter测试元件的容器</p>
+</li>
+<li><p>线程组：代表一定数量的用户，它可以用来模拟用户并发发送请求。实际的请求内容在Sampler中定义，它被线程组包含。</p>
+</li>
+<li><p>配置元件：维护Sampler需要的配置信息，并根据实际的需要修改请求的内容。</p>
+</li>
+<li><p>前置处理器：负责在请求之前工作，常用来修改请求的设置</p>
+</li>
+<li><p>定时器：负责定义请求之间的延迟间隔。</p>
+</li>
+<li><p>取样器(Sampler)：是性能测试中向服务器发送请求，记录响应信息、响应时间的最小单元，如：HTTP Request Sampler、FTP Request Sample、TCP Request Sample、JDBC Request Sampler等，每一种不同类型的sampler 可以根据设置的参数向服务器发出不同类型的请求。</p>
+</li>
+<li><p>后置处理器：负责在请求之后工作，常用获取返回的值。</p>
+</li>
+<li><p>断言：用来判断请求响应的结果是否如用户所期望的。</p>
+</li>
+<li><p>监听器：负责收集测试结果，同时确定结果显示的方式。</p>
+</li>
+<li><p>逻辑控制器：可以自定义JMeter发送请求的行为逻辑，它与Sampler结合使用可以模拟复杂的请求序列。</p>
+</li>
+</ul>
+<h2 id="元件的作用域和执行顺序"><a href="#元件的作用域和执行顺序" class="headerlink" title="元件的作用域和执行顺序"></a>元件的作用域和执行顺序</h2><h3 id="元件作用域"><a href="#元件作用域" class="headerlink" title="元件作用域"></a>元件作用域</h3><ul>
+<li><p>配置元件：影响其作用范围内的所有元件。</p>
+</li>
+<li><p>前置处理器：在其作用范围内的每一个sampler元件之前执行。</p>
+</li>
+<li><p>定时器：在其作用范围内的每一个sampler有效</p>
+</li>
+<li><p>后置处理器：在其作用范围内的每一个sampler元件之后执行。</p>
+</li>
+<li><p>断言：在其作用范围内的对每一个sampler元件执行后的结果进行校验。</p>
+</li>
+<li><p>监听器：在其作用范围内对每一个sampler元件的信息收集并呈现。</p>
+</li>
+</ul>
+<p>总结：从各个元件的层次结构判断每个元件的作用域。</p>
+<h3 id="元件执行顺序："><a href="#元件执行顺序：" class="headerlink" title="元件执行顺序："></a>元件执行顺序：</h3><p>配置元件-&gt;前置处理器-&gt;定时器-&gt;取样器-&gt;后置处理程序-&gt;断言-&gt;监听器</p>
+<p>注意事项：</p>
+<ul>
+<li>前置处理器、后置处理器和断言等组件只能对取样器起作用，因此，如果在它们的作用域内没有任何取样器，则不会被执行。</li>
+<li>如果在同一作用域内有多个同一类型的元件，则这些元件按照它们在测试计划中的上下顺序依次执行。</li>
+</ul>
+<p>参考连接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/pengjiangchun/article/details/105707405?utm_source=app&amp;app_version=4.5.4">https://blog.csdn.net/pengjiangchun/article/details/105707405?utm_source=app&amp;app_version=4.5.4</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/15/%E4%BD%BF%E7%94%A8thymeleaf%E5%89%8D%E5%90%8E%E7%AB%AF%E6%9C%AA%E6%8A%A5%E9%94%99%EF%BC%8C%E4%BD%86%E5%89%8D%E7%AB%AF%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%A0%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用thymeleaf前后端未报错，但前端无法显示数据库传来的数据</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/11/SpringBoot%E4%B8%ADJedis%E3%80%81JedisPool%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                        <span class="hidden-mobile">SpringBoot中Jedis、JedisPool的使用</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://mccontinuing.github.io/" target="_blank" rel="nofollow noopener"><span>Mccontinuing</span></a> <i class="iconfont icon-love"></i> <a href="http://http://qufang.xyz/" target="_blank" rel="nofollow noopener"><span>SGLMYD</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

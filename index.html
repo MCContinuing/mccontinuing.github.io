@@ -181,6 +181,332 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/03/17/SpringBoot%E6%89%93war%E5%8C%85/">SpringBoot打war包、jar包</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/17/SpringBoot%E6%89%93war%E5%8C%85/">
+          
+          
+            
+          
+          SpringBoot打war包1、添加spring-boot-starter-tomcat的provided依赖
+12345&lt;dependency&gt;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;            &lt;artifactId&gt;spring-boot-starter-tom
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-17 15:04" pubdate>
+              2021-03-17
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/16/Redis%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/">Redis压力测试</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/16/Redis%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/">
+          
+          
+            
+          
+          Redis官方自带了一款压测工具redis-benchmark
+redis-benchmark压力测试工具命令参数
+测试演示测试1：100个并发测试，100000个请求12# 测试：100个并发连接 100000请求redis-benchmark -h localhost -p 6379 -c 100 -n 100000
+
+
+测试分析：
+
+测试2：存取大小为100字节的数据包12# 测试：以100
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-16 21:47" pubdate>
+              2021-03-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Redis/">Redis</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/16/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%8F%8A%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96%EF%BC%88%E4%BA%8C%EF%BC%89/">秒杀系统压力测试及项目优化（二）</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/16/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%8F%8A%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96%EF%BC%88%E4%BA%8C%EF%BC%89/">
+          
+          
+            
+          
+          压力测试一：只使用mysql的压力测试测试商品列表接口结果：一秒只支持147.7线程
+
+
+测试秒杀接口时，QPS与之前差不多，但是出现了超卖现象。说明单用户的判断逻辑在多用户场景下不适用，测试模拟了5000个用户同时秒杀一个10库存的商品，最终超卖了13个，这在更大规模用户秒杀商品时几乎是致命错误。
+优化项目优化一：页面缓存+URL缓存+对象缓存页面缓存
+取缓存
+如果缓存不存在，手动渲染模板
+结果
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-16 15:49" pubdate>
+              2021-03-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/15/%E4%BD%BF%E7%94%A8thymeleaf%E5%89%8D%E5%90%8E%E7%AB%AF%E6%9C%AA%E6%8A%A5%E9%94%99%EF%BC%8C%E4%BD%86%E5%89%8D%E7%AB%AF%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%A0%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE/">使用thymeleaf前后端未报错，但前端无法显示数据库传来的数据</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/15/%E4%BD%BF%E7%94%A8thymeleaf%E5%89%8D%E5%90%8E%E7%AB%AF%E6%9C%AA%E6%8A%A5%E9%94%99%EF%BC%8C%E4%BD%86%E5%89%8D%E7%AB%AF%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%A0%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE/">
+          
+          
+            
+          
+          由于粗心犯错，导致两天都在错路上找bug，写下来当教训
+后端代码
+
+前端代码
+
+前端页面无法显示数据，控制台如下图
+
+尝试找各种错：thymeleaf是不是不支持列表循环了、数据库名称和实体类名称是否对应、后端请求代码是否错了、sql语言是否出错，，，找到无错可找，，，并且前端后端都不报错，正常运行，都快怀疑是不是idea里面的的玄幻bug，最后，终于知道错哪了。忘在配置里开启驼峰了😭
+添加配置
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-15 21:31" pubdate>
+              2021-03-15
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">Jmeter接口测试</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/15/Jmeter%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">
+          
+          
+            
+          
+          Jmeter简介
+The Apache JMeter™ application is open source software, a 100% pure Java application designed to load test functional behavior and measure performance. It was originally designed for testing 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-15 19:38" pubdate>
+              2021-03-15
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/11/SpringBoot%E4%B8%ADJedis%E3%80%81JedisPool%E7%9A%84%E4%BD%BF%E7%94%A8/">SpringBoot中Jedis、JedisPool的使用</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/11/SpringBoot%E4%B8%ADJedis%E3%80%81JedisPool%E7%9A%84%E4%BD%BF%E7%94%A8/">
+          
+          
+            
+          
+          jedis 连接redis：  使用jedis如何操作redis，但是其实方法是跟redis的操作大部分是相对应的。
+ 所有的redis命令都对应jedis的一个方法 
+  1、在macen工程中引入jedis的jar包   
+1234&lt;dependency&gt;   &lt;groupId&gt;redis.clients&lt;/groupId&gt;   &lt;artifactId
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-11 20:16" pubdate>
+              2021-03-11
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/09/JSR303%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/">JSR303参数校验</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/09/JSR303%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/">
+          
+          
+            
+          
+          Spring Validator和Hibernate Validator是两套Validator，可以混着用，这里我们用Hibernate Validator。
+Hibernate Validatorhttps://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/#preface
+Spring Valida
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-09 16:58" pubdate>
+              2021-03-09
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/08/%E8%8B%B1%E8%AF%AD%E8%8B%B1%E6%A0%87%E8%AE%B0%E5%BD%95/">英语英标记录</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/08/%E8%8B%B1%E8%AF%AD%E8%8B%B1%E6%A0%87%E8%AE%B0%E5%BD%95/">
+          
+          
+            
+          
+          笔记参考视频来自up主英语兔：https://b23.tv/umX44N?share_medium=android&amp;share_source=qq&amp;bbid=1BE05DDD-5C38-4655-9B2A-7A985FF1F46244882infoc&amp;ts=1615207087470
+音标体系音标体系有很多种：DJ音标、KK音标、韦氏音标、AHD音标等等
+
+DJ音标
+来自丹
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-08 20:35" pubdate>
+              2021-03-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/03/04/SpringBoot%E6%95%B4%E5%90%88Druid%E6%95%B0%E6%8D%AE%E6%BA%90/">SpringBoot整合Druid数据源</a>
       </h1>
 
@@ -279,455 +605,11 @@ S
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/02/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E5%8F%8A%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%EF%BC%88%E4%B8%80%EF%BC%89/">秒杀系统项目介绍及搭建环境（一）</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/02/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E5%8F%8A%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%EF%BC%88%E4%B8%80%EF%BC%89/">
-          
-          
-            
-          
-          项目使用方案：
-前端：
-后端：SpringBoot、Mybatis
-中间件：RabbitMQ、Redis、Druid
-环境：Linux CentOS
-工具：IDEA开发、Navicate数据库管理
-远程连接工具：MobaXterm
-数据库：MySql
-远程登录工具MobaXterm可直接利用工具编写命令，传输文件
-打开软件，在Remote host输入IP地址
-
-1、在服务器上部署Redis
-参考
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-02 18:41" pubdate>
-              2021-03-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">项目实战</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F/">秒杀系统</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">RabbitMQ安装及集群搭建</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/25/RabbitMQ%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
-          
-          
-            
-          
-          安装及配置RabbitMQ下载地址：https://www.rabbitmq.com/#getstarted
-点击Download+Installation
-1、此处下载centos版本
-
-在此页面需要下载两个：服务和依赖包
-
-下载rabbit-serve 点击Download点击要下载的版本（此机使用Centos7，所以下载第二个）
-
-下载包依赖，及erlang注意Erlang的版本需要和Rab
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-25 15:46" pubdate>
-              2021-02-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%9C%AA%E5%BD%92%E6%A1%A3/">未归档</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/22/MQ%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E4%BB%8B%E7%BB%8D/">MQ消息队列中间件的介绍</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/22/MQ%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E4%BB%8B%E7%BB%8D/">
-          
-          
-            
-          
-          MQ概述MQ全称为Message Queue，消息队列是应用程序和应用程序之间的通信方法。
-
-为什么使用MQ
-在项目中，可将一些无需即时返回且耗时的操作提取出来，进行异步处理，而这种异步处理的方式大大的节省了服务器的请求响应时间，从而提高了系统的吞吐量。
-
-
-优点
-应用解耦：提高系统容错性和可维护性
-
-异步提速：提升用户体验和系统吞吐量
-
-削峰填谷：提高系统稳定性
-开发中消息队列通常有如下应用场景
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-22 19:57" pubdate>
-              2021-02-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%9C%AA%E5%BD%92%E6%A1%A3/">未归档</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/22/RabbitMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">RabbitMQ学习笔记</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/22/RabbitMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-          
-          
-            
-          
-          RabbitMQ简介RabbitMQ是由erlang语言开发，基于AMQP（Advanced Message Queue 高级消息队列协议）协议实现的消息队列，它是一种应用程序之间的通信方法，消息队列在分布式系统开发中应用非常广泛。
-RabbitMQ官方地址：http://www.rabbitmq.com/
-RabbitMQ提供了6种模式：
-
-简单模式
-work模式
-Publish/Subscri
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-22 19:33" pubdate>
-              2021-02-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%9C%AA%E5%BD%92%E6%A1%A3/">未归档</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/20/%E5%88%86%E7%B1%BB-%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/">Redis安装步骤（Windows、Linux）</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/20/%E5%88%86%E7%B1%BB-%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%EF%BC%88Windows%E3%80%81Linux%EF%BC%89/">
-          
-          
-            
-          
-          Windows安装1、下载安装包：https://github.com/dmajkic/redis/releases
-2、下载完毕得到压缩包：
-3、解压到自己电脑上的环境目录下的就可以的！Redis 十分的小，只有5M
-
-4、开启Redis，双击运行服务即可！
-5、使用redis客户单来来连接redis
-
-Window下使用简单，但是Redis 推荐我们使用Linux去开发使用！
-Linux安装1
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-20 09:46" pubdate>
-              2021-02-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/19/%E5%88%86%E7%B1%BB-%E6%95%B0%E6%8D%AE%E5%BA%93/NoSql%E4%BB%8B%E7%BB%8D/">NoSql介绍</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/19/%E5%88%86%E7%B1%BB-%E6%95%B0%E6%8D%AE%E5%BA%93/NoSql%E4%BB%8B%E7%BB%8D/">
-          
-          
-            
-          
-          用户的个人信息，社交网络，地理位置。用户自己产生的数据，用户日志等等爆发式增长。这时候我们就需要使用NoSQL数据库的，Nosql 可以很好的处理以上的情况！
-
-NoSQL = Not Only SQL （非关系型数据库）
-
-关系型数据库：表格 ，行 ，列
-泛指非关系型数据库的，随着web2.0互联网的诞生！传统的关系型数据库很难对付web2.0时代！尤其是超大规模的高并发的社区！ 暴露出来很多难
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-19 10:54" pubdate>
-              2021-02-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/19/%E5%88%86%E7%B1%BB-%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Redis学习笔记</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/19/%E5%88%86%E7%B1%BB-%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-          
-          
-            
-          
-          Redis概述Redis（==R==emote ==Di==ctionary ==S==erver )，即远程字典服务 !
-
-是一个开源的使用ANSI，C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API
-
-redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave（主从）同步。
-
-是当下最
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-19 10:50" pubdate>
-              2021-02-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/18/%E5%88%86%E7%B1%BB-Linux%E7%B3%BB%E7%BB%9F/Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/">Linux账号与磁盘管理</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/18/%E5%88%86%E7%B1%BB-Linux%E7%B3%BB%E7%BB%9F/Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/">
-          
-          
-            
-          
-          账号管理Linux系统是一个多用户多任务的分时操作系统，任何一个要使用系统资源的用户，都必须首先向系统管理员申请一个账号，然后以这个账号的身份进入系统。
-用户的账号一方面可以帮助系统管理员对使用系统的用户进行跟踪，并控制他们对系统资源的访问；另一方面也可以帮助用户组织文件，并为用户提供安全性保护。
-每个用户账号都拥有一个唯一的用户名和各自的口令。
-用户在登录时键入正确的用户名和口令后，就能够进入系
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 15:40" pubdate>
-              2021-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/">Linux系统</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux/">Linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
