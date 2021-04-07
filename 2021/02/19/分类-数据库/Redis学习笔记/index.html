@@ -248,7 +248,7 @@
 <p>2、持久化</p>
 <p>3、集群</p>
 <p>4、事务</p>
-<h1 id="Redis服务使用"><a href="#Redis服务使用" class="headerlink" title="Redis服务使用"></a>Redis服务使用</h1><h3 id="启动Redis服务"><a href="#启动Redis服务" class="headerlink" title="启动Redis服务"></a>启动Redis服务</h3><p>通过指定配置文件启动</p>
+<h1 id="Redis服务使用"><a href="#Redis服务使用" class="headerlink" title="Redis服务使用"></a>Redis服务使用</h1><h3 id="启动Redis服务"><a href="#启动Redis服务" class="headerlink" title="启动Redis服务"></a>启动Redis服务</h3><p>通过指定配置文件启动/user/local/bin/</p>
 <p><img src="/2021/02/19/%E5%88%86%E7%B1%BB-%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210219230530598-1613785778498.png" srcset="/img/loading.gif" alt="image-20210219230530598"></p>
 <h3 id="使用redis-cli-进行连接测试！"><a href="#使用redis-cli-进行连接测试！" class="headerlink" title="使用redis-cli 进行连接测试！"></a>使用redis-cli 进行连接测试！</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">redis-cli -p 6379<br></code></pre></td></tr></table></figure>
 
@@ -260,14 +260,23 @@
 <h1 id="Redis基础"><a href="#Redis基础" class="headerlink" title="Redis基础"></a>Redis基础</h1><p>redis默认有16个数据库</p>
 <p>默认使用的是第0个</p>
 <h2 id="基本命令及密码设置"><a href="#基本命令及密码设置" class="headerlink" title="基本命令及密码设置"></a>基本命令及密码设置</h2><ul>
-<li>选择数据库 <code>select</code></li>
-<li>查看数据库大小 <code>DBSIZE</code></li>
-<li>查看数据库所有的key<code>key *</code></li>
-<li>清除当前数据库 <code>flushdb</code></li>
-<li>清除全部数据库的内容 <code>FLUSHALL</code></li>
-<li>设置密码：<code>config set requirepass 123456</code><ul>
+<li><p>选择数据库 <code>select</code></p>
+</li>
+<li><p>查看数据库大小 <code>DBSIZE</code></p>
+</li>
+<li><p>查看数据库所有的key<code>key *</code></p>
+</li>
+<li><p>清除当前数据库 <code>flushdb</code></p>
+</li>
+<li><p>清除全部数据库的内容 <code>FLUSHALL</code></p>
+</li>
+<li><p>设置密码：<code>config set requirepass 123456</code></p>
+<ul>
 <li>设置密码后每次使用需要输入auth 123456</li>
 </ul>
+</li>
+<li><p>RDB</p>
+<p><code>config set stop-writes-on-bgsave-error no</code></p>
 </li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@localhost bin]# redis-server myconfig/redis.conf<br>[root@localhost bin]# redis-cli -p 6379<br>127.0.0.1:6379&gt; select 3 # 选择数据库<br>OK<br>127.0.0.1:6379[3]&gt; DBSIZE # 查看数据库大小<br>(integer) 0<br>127.0.0.1:6379[3]&gt; set name mochen<br>OK<br>127.0.0.1:6379[3]&gt; DBSIZE<br>(integer) 1<br>127.0.0.1:6379[3]&gt; get name<br>&quot;mochen&quot;<br>127.0.0.1:6379[3]&gt; flushdb   #清楚当前数据库<br>OK<br>127.0.0.1:6379[3]&gt; keys *<br>(empty list or set)<br></code></pre></td></tr></table></figure>
